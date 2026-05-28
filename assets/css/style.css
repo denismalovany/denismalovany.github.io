@@ -26,6 +26,7 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
   
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -36,6 +37,7 @@
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 }
 
 /* Base Styles */
@@ -303,42 +305,188 @@ hr.divider {
   gap: 1.5rem;
 }
 
-/* Project Cards - Premium Feel */
+/* Enhanced Project Cards - Premium Feel */
 .group {
+  position: relative;
   transition: all var(--transition-normal);
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--color-gray-100);
   background: var(--color-white);
+  /* Add subtle inner shadow for depth */
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.02);
 }
 
 .group:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-xl);
   border-color: var(--color-gray-200);
 }
 
+/* Enhanced image styling */
 .group img {
-  transition: transform var(--transition-slow) ease;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all var(--transition-slow) ease;
+  /* Add subtle image enhancement */
+  backface-visibility: hidden;
 }
 
 .group:hover img {
-  transform: scale(1.02);
+  transform: scale(1.05);
+  /* Add subtle blur effect on hover for depth */
+  filter: brightness(1.02) contrast(1.01);
+}
+
+/* Image overlay for enhanced visual appeal */
+.group::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.group:hover::before {
+  opacity: 0.5;
+}
+
+/* Enhanced content area */
+.group-content {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .group h3 {
   font-family: var(--font-serif);
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  letter-spacing: -0.015em;
   color: var(--color-black);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+  /* Add subtle text enhancement */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .group p {
   font-family: var(--font-sans);
   font-weight: 400;
+  color: var(--color-gray-700);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+/* Enhanced caption styling */
+.group .caption {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-gray-500);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-gray-100);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.group .caption::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+
+/* Enhanced hover effects for text elements */
+.group:hover h3 {
+  color: var(--color-black);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.group:hover p {
+  color: var(--color-gray-800);
+}
+
+.group:hover .caption {
   color: var(--color-gray-600);
-  line-height: 1.6;
+}
+
+/* Add subtle animation delay for staggered effect */
+.group:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.group:nth-child(2) {
+  transition-delay: 50ms;
+}
+
+.group:nth-child(3) {
+  transition-delay: 100ms;
+}
+
+.group:nth-child(4) {
+  transition-delay: 150ms;
+}
+
+.group:nth-child(5) {
+  transition-delay: 200ms;
+}
+
+.group:nth-child(6) {
+  transition-delay: 250ms;
+}
+
+/* Responsive enhancements */
+@media (min-width: 640px) {
+  .group-content {
+    padding: 2rem;
+  }
+  
+  .group h3 {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .group {
+    border-radius: var(--radius-xl);
+  }
+  
+  .group-content {
+    padding: 2.25rem;
+  }
+  
+  .group h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .group p {
+    font-size: 1.125rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.group:focus-within {
+  outline: 2px solid var(--color-black);
+  outline-offset: 2px;
 }
 
 /* Buttons - Premium Feel */
