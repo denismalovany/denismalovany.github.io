@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Project One",
+    "description": "A mobile app for task management.",
+    "image": "https://via.placeholder.com/800x600?placeholder=Project+One+Render",
+    "caption": "Exploring intuitive interaction patterns for daily productivity."
+  },
+  {
+    "id": 2,
+    "title": "Project Two",
+    "description": "An e-commerce platform redesign.",
+    "image": "https://via.placeholder.com/800x600?placeholder=Project+Two+Render",
+    "caption": "Refining the checkout flow for increased conversion."
+  },
+  {
+    "id": 3,
+    "title": "Project Three",
+    "description": "A dashboard for analytics.",
+    "image": "https://via.placeholder.com/800x600?placeholder=Project+Three+Render",
+    "caption": "Visualizing complex data with clarity and precision."
+  }
+]
