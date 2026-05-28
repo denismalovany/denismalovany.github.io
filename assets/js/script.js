@@ -84,6 +84,10 @@ function setActiveNavLink() {
       link.classList.add('active');
     } else if (href === 'index.html' && path.endsWith('index.html') && hash === '') {
       link.classList.add('active');
+    } else if (href === 'about.html' && path.endsWith('about.html')) {
+      link.classList.add('active');
+    } else if (href === 'contact.html' && path.endsWith('contact.html')) {
+      link.classList.add('active');
     } else if (href === '../index.html#about' && (path.includes('projects/') && hash === '')) {
       link.classList.add('active');
     } else if (href === '../projects.html' && path.includes('projects/')) {
