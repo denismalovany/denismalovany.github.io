@@ -166,20 +166,50 @@ header .text-sm.font-sans.uppercase.tracking-wider.text-gray-500 {
   }
 }
 
-/* Hero Section - Premium Typography */
+/* Hero Section - Premium Typography with Geometric Pattern */
 .pt-20.pb-16.text-center.px-6 {
   position: relative;
   overflow: hidden;
+  /* Increased padding to make section bigger */
+  padding-top: 10rem !important;
+  padding-bottom: 10rem !important;
 }
 
+/* Geometric pattern background */
 .pt-20.pb-16.text-center.px-6::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gray-100), transparent);
+  bottom: 0;
+  background-image: 
+    linear-gradient(var(--color-gray-100) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-gray-100) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pt-20.pb-16.text-center.px-6::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, var(--color-gray-50) 0%, transparent 70%);
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pt-20.pb-16.text-center.px-6 h1,
+.pt-20.pb-16.text-center.px-6 p,
+.pt-20.pb-16.text-center.px-6 .mt-8 {
+  position: relative;
+  z-index: 1;
 }
 
 .text-4xl.md:text-5xl.lg:text-6xl.font-serif.font-bold.mb-4 {
