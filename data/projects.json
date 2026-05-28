@@ -19,5 +19,26 @@
     "description": "A dashboard for analytics.",
     "image": "https://via.placeholder.com/800x600?placeholder=Project+Three+Render",
     "caption": "Visualizing complex data with clarity and precision."
+  },
+  {
+    "id": 4,
+    "title": "Smart Home Controller",
+    "description": "IoT interface for managing connected devices.",
+    "image": "https://via.placeholder.com/800x600?placeholder=Smart+Home+Controller",
+    "caption": "Designing seamless control for lighting, climate, and security."
+  },
+  {
+    "id": 5,
+    "title": "Research Dashboard",
+    "description": "Data visualization tool for scientific studies.",
+    "image": "https://via.placeholder.com/800x600?placeholder=Research+Dashboard",
+    "caption": "Transforming complex datasets into actionable insights."
+  },
+  {
+    "id": 6,
+    "title": "Military Interface",
+    "description": "Tactical display system for field operations.",
+    "image": "https://via.placeholder.com/800x600?placeholder=Military+Interface",
+    "caption": "Prioritizing clarity and rapid decision-making under pressure."
   }
 ]
