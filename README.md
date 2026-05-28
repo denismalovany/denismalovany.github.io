@@ -20,4 +20,4 @@ A clean, modern portfolio website for product designers hosted on GitHub Pages.
 4. Your site will be published at `https://your-username.github.io/your-repo-name`
 
 ## License
-MIT
+MITLast updated: 2026-05-28 13:19:12 UTC
