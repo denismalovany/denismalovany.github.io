@@ -15,16 +15,16 @@ function loadProjects(limit) {
 
     projectsGrid.innerHTML = projectsToShow.map(project => `
       <a href="projects/project-${project.id}.html" class="block">
-      <div class="group">
-        <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded-md group-hover:opacity-90 transition-opacity">
-        <div class="mt-4">
-          <h3 class="text-xl font-serif mb-2">${project.title}</h3>
-          <p class="text-gray-600 mb-2">${project.description}</p>
-          <hr class="divider">
-          <p class="caption">${project.caption}</p>
+        <div class="group">
+          <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded-md group-hover:opacity-90 transition-opacity">
+          <div class="mt-4">
+            <h3 class="text-xl font-serif mb-2">${project.title}</h3>
+            <p class="text-gray-600 mb-2">${project.description}</p>
+            <hr class="divider">
+            <p class="caption">${project.caption}</p>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
     `).join('');
     console.log('Projects grid updated with', projectsToShow.length, 'projects');
   } catch (error) {
@@ -61,21 +61,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-
 // Set active navigation link based on current page
 function setActiveNavLink() {
   const path = window.location.pathname;
   const hash = window.location.hash;
-  
+
   // Select all nav links
   const navLinks = document.querySelectorAll('.nav-link');
-  
+
   navLinks.forEach(link => {
     link.classList.remove('active');
-    
+
     // Get the href attribute
     const href = link.getAttribute('href');
-    
+
     // Check for exact matches or section links
     if (href === '#about' && (hash === '#about' || (path.endsWith('index.html') && hash === ''))) {
       link.classList.add('active');
@@ -95,10 +94,9 @@ function setActiveNavLink() {
   });
 }
 
-// Call the function on page load
-document.addEventListener('DOMContentLoaded", setActiveNavLink);
-// Load projects on page load
-document.addEventListener('DOMContentLoaded', () => {
+// Set active navigation link and load projects on page load
+document.addEventListener('DOMContentLoaded', function() {
+  setActiveNavLink();
   // Check if we are on the projects page (all projects) or home page (limited)
   const isProjectsPage = window.location.pathname.endsWith('projects.html') || window.location.pathname === '/projects.html';
   if (isProjectsPage) {

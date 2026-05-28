@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Designer Portfolio</title>
+    <title>About - Alex Morgan</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Projects Data -->
-    <script src="data/projects.js"></script>
 </head>
 <body class="antialiased">
     <!-- Header -->
@@ -21,9 +19,9 @@
             <span class="text-sm font-sans uppercase tracking-wider text-gray-500">Portfolio</span>
         </div>
         <nav class="hidden md:flex space-x-4">
-            <a href="about.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">About</a>
+            <a href="index.html#about" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">About</a>
             <a href="projects.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">All Projects</a>
-            <a href="#contact" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Contact</a>
+            <a href="index.html#contact" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Contact</a>
         </nav>
         <!-- Mobile menu button -->
         <button id="mobile-menu-btn" class="md:hidden flex items-center px-2 py-1 rounded hover:bg-gray-50">
@@ -33,35 +31,33 @@
         </button>
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden mt-2 px-4 space-y-2">
-            <a href="about.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">About</a>
+            <a href="index.html#about" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">About</a>
             <a href="projects.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">All Projects</a>
-            <a href="#contact" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">Contact</a>
+            <a href="index.html#contact" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">Contact</a>
         </div>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section class="pt-20 pb-16 text-center px-6">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4">Alex Morgan</h1>
         <p class="text-lg text-gray-600 max-w-xl mx-auto">Product Designer</p>
     </section>
 
-    <!-- Projects Section (Featured) -->
-    <section id="projects" class="section py-20 px-6">
+    <!-- About Section -->
+    <section id="about" class="section py-20 px-6">
         <div class="container mx-auto max-w-3xl">
-            <h2 class="text-3xl font-serif mb-8">Featured Projects</h2>
-            <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto">
-                A curated selection of recent work showcasing my approach to product design.
+            <h2 class="text-3xl font-serif mb-6">About Me</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                I am a passionate product designer with experience in creating user-centered digital experiences. I specialize in interaction design, visual design, and prototyping.
             </p>
-            <div id="projects-grid" class="grid gap-8 md:grid-cols-2">
-                <!-- Projects will be injected here by JavaScript (limited to 3) -->
-            </div>
-            <a href="projects.html" class="mt-8 inline-block text-sm font-medium text-gray-600 hover:opacity-70 transition-opacity">
-                View All Projects →
-            </a>
+            <hr class="divider">
+            <p class="text-gray-600">
+                My approach combines rigorous research with thoughtful aesthetics to craft solutions that are both functional and delightful.
+            </p>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Footer/Contact Section -->
     <section id="contact" class="section py-20 px-6 text-center">
         <div class="container mx-auto max-w-3xl">
             <h2 class="text-3xl font-serif mb-6">Contact</h2>
