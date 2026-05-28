@@ -166,7 +166,7 @@ header .text-sm.font-sans.uppercase.tracking-wider.text-gray-500 {
   }
 }
 
-/* Hero Section - Premium Typography with Geometric Pattern */
+/* Hero Section - Premium Typography with Lake Map Contour Lines Pattern */
 .pt-20.pb-16.text-center.px-6 {
   position: relative;
   overflow: hidden;
@@ -175,7 +175,7 @@ header .text-sm.font-sans.uppercase.tracking-wider.text-gray-500 {
   padding-bottom: 10rem !important;
 }
 
-/* Geometric pattern background - MORE VISIBLE */
+/* Lake map contour lines pattern - MORE VISIBLE */
 .pt-20.pb-16.text-center.px-6::before {
   content: '';
   position: absolute;
@@ -183,15 +183,31 @@ header .text-sm.font-sans.uppercase.tracking-wider.text-gray-500 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    linear-gradient(var(--color-gray-100) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-gray-100) 1px, transparent 1px);
-  background-size: 24px 24px; /* Made grid slightly smaller for denser pattern */
-  opacity: 0.35; /* Increased from 0.25 */
+  /* Multiple layers of contour-like rings */
+  background-image:
+    /* Layer 1: Base rings */
+    repeating-radial-gradient(
+      circle at center,
+      var(--color-gray-200) 0px,
+      var(--color-gray-200) 1px,
+      transparent 1px,
+      transparent 24px
+    ),
+    /* Layer 2: Slightly offset for organic feel */
+    repeating-radial-gradient(
+      ellipse at center,
+      var(--color-gray-200) 0px,
+      var(--color-gray-200) 1px,
+      transparent 1px,
+      transparent 30px
+    );
+  background-size: 200% 200%; /* Allow for variation */
+  opacity: 0.28; /* Increased visibility */
   pointer-events: none;
   z-index: 0;
 }
 
+/* Add subtle depth variation */
 .pt-20.pb-16.text-center.px-6::after {
   content: '';
   position: absolute;
@@ -199,12 +215,25 @@ header .text-sm.font-sans.uppercase.tracking-wider.text-gray-500 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, var(--color-gray-100) 0%, transparent 70%);
-  opacity: 0.15; /* Increased from 0.1 */
+  /* Soft organic blob */
+  background:
+    radial-gradient(
+      ellipse at 30% 30%,
+      var(--color-gray-100) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 70% 70%,
+      var(--color-gray-100) 0%,
+      transparent 40%
+    );
+  background-size: 200% 200%;
+  opacity: 0.12;
   pointer-events: none;
   z-index: 0;
 }
 
+/* Ensure content appears above pattern */
 .pt-20.pb-16.text-center.px-6 h1,
 .pt-20.pb-16.text-center.px-6 p,
 .pt-20.pb-16.text-center.px-6 .mt-8 {
