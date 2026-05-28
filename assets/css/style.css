@@ -37,3 +37,11 @@ hr.divider {
 .nav-link:hover {
   opacity: 0.7;
 }
+
+/* Active nav link */
+.nav-link.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 2px;
+}

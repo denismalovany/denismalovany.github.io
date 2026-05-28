@@ -61,6 +61,42 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+
+// Set active navigation link based on current page
+function setActiveNavLink() {
+  const path = window.location.pathname;
+  const hash = window.location.hash;
+  
+  // Select all nav links
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    
+    // Get the href attribute
+    const href = link.getAttribute('href');
+    
+    // Check for exact matches or section links
+    if (href === '#about' && (hash === '#about' || (path.endsWith('index.html') && hash === ''))) {
+      link.classList.add('active');
+    } else if (href === '#contact' && hash === '#contact') {
+      link.classList.add('active');
+    } else if (href === 'projects.html' && path.endsWith('projects.html')) {
+      link.classList.add('active');
+    } else if (href === 'index.html' && path.endsWith('index.html') && hash === '') {
+      link.classList.add('active');
+    } else if (href === '../index.html#about' && (path.includes('projects/') && hash === '')) {
+      link.classList.add('active');
+    } else if (href === '../projects.html' && path.includes('projects/')) {
+      link.classList.add('active');
+    } else if (href === '../index.html#contact' && path.includes('projects/') && hash === '') {
+      link.classList.add('active');
+    }
+  });
+}
+
+// Call the function on page load
+document.addEventListener('DOMContentLoaded", setActiveNavLink);
 // Load projects on page load
 document.addEventListener('DOMContentLoaded', () => {
   // Check if we are on the projects page (all projects) or home page (limited)

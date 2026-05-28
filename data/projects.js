@@ -25,21 +25,21 @@ window.projectsData = [
     "id": 4,
     "title": "Smart Home Controller",
     "description": "IoT interface for managing connected devices.",
-    "image": "https://images.unsplash.com/photo-1558002058-1205c46806cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDN8fFNtYXJ0JTIwaG9tZSUyMGNvbnRyb2xsZXJ8ZW58MHx8fHwxNjY2NDk2NDIy&ixlib=rb-1.2.1&q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fFNtYXJ0JTIwaG9tZSUyMEF1dG9tYXRpb258ZW58MHx8fHwxNjY2NDk2NDQ0&ixlib=rb-1.2.1&q=80&w=800",
     "caption": "Designing seamless control for lighting, climate, and security."
   },
   {
     "id": 5,
     "title": "Research Dashboard",
     "description": "Data visualization tool for scientific studies.",
-    "image": "https://images.unsplash.com/photo-1559757175-04c9ebb01a2e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDR8fFJlc2VhcmNoJTIwZGFzaGJvYXJ8ZW58MHx8fHwxNjY2NDk2NDQz&ixlib=rb-1.2.1&q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1550751826-455c91c109aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fERhc2hib2FyZCUyMGFuYWx5sGljc3xlbnwwfHx8fDE2NjY0OTY0MDE&ixlib=rb-1.2.1&q=80&w=800",
     "caption": "Transforming complex datasets into actionable insights."
   },
   {
     "id": 6,
     "title": "Military Interface",
     "description": "Tactical display system for field operations.",
-    "image": "https://images.unsplash.com/photo-1581091852437-7a8b4661cc1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDR8fE1pbGl0YXJ5JTIwSW50ZXJmYWNlfGVufDB8fHx8MTY2NjQ5NjQ2NA&ixlib=rb-1.2.1&q=80&w=800",
+    "image": "https://images.unsplash.com/photo-1579577484348-1ac6a8541d0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fE1pbGl0YXJ5JTIwVGVzdGluZ3x8ZW58MHx8fHwxNjY2NDk2NDUy&ixlib=rb-1.2.1&q=80&w=800",
     "caption": "Prioritizing clarity and rapid decision-making under pressure."
   }
 ];
