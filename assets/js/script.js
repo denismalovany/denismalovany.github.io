@@ -1,16 +1,10 @@
 // Fetch projects data and populate the grid
-async function loadProjects() {
+function loadProjects() {
   try {
-    console.log('Fetching projects...');
-    const response = await fetch('data/projects.json');
-    console.log('Response status:', response.status);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const projects = await response.json(); // Expecting an array directly
+    // Use the global projectsData variable
+    const projects = window.projectsData || [];
     console.log('Projects data:', projects);
     const projectsGrid = document.getElementById('projects-grid');
-    console.log('Projects grid element:', projectsGrid);
 
     if (!projectsGrid) {
       console.error('Projects grid element not found!');
@@ -64,14 +58,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Load projects on page load
-console.log('Setting up DOMContentLoaded listener');
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded fired');
-  // Test: change the hero title to see if script runs
-  const heroTitle = document.querySelector('h1');
-  if (heroTitle) {
-    heroTitle.textContent = 'Script Loaded';
-    console.log('Hero title changed');
-  }
-  loadProjects();
-});
+document.addEventListener('DOMContentLoaded', loadProjects);

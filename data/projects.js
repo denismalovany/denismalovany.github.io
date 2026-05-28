@@ -1,4 +1,5 @@
-[
+// Project data for the portfolio
+window.projectsData = [
   {
     "id": 1,
     "title": "Project One",
@@ -41,4 +42,4 @@
     "image": "https://via.placeholder.com/800x600?placeholder=Military+Interface",
     "caption": "Prioritizing clarity and rapid decision-making under pressure."
   }
-]
+];
