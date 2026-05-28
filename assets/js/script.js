@@ -98,9 +98,70 @@ function setActiveNavLink() {
   });
 }
 
+// Handle contact form submission
+function handleContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const captcha = document.getElementById('captcha').value.trim();
+    
+    // Validate CAPTCHA (2 + 3 = 5)
+    if (captcha !== '5') {
+      alert('Please answer the CAPTCHA correctly (2 + 3 = 5)');
+      return;
+    }
+    
+    // Basic validation
+    if (!name || !email || !message) {
+      alert('Please fill in all required fields');
+      return;
+    }
+    
+    // Simple email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+    
+    // Prepare email data
+    const emailSubject = subject || 'New Contact Form Submission';
+    const emailBody = `
+Name: ${name}
+Email: ${email}
+Subject: ${emailSubject}
+Message: ${message}
+    
+---
+This message was sent from your portfolio website contact form.
+    `.trim();
+    
+    // Create mailto link
+    const mailtoLink = `mailto:alex@example.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    alert('Thank you for your message! I will get back to you soon.');
+    
+    // Reset form
+    form.reset();
+  });
+}
+
 // Set active navigation link and load projects on page load
 document.addEventListener('DOMContentLoaded', function() {
   setActiveNavLink();
+  handleContactForm();
   // Check if we are on the projects page (all projects) or home page (limited)
   const isProjectsPage = window.location.pathname.endsWith('projects.html') || window.location.pathname === '/projects.html';
   if (isProjectsPage) {
