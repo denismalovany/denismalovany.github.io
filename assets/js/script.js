@@ -14,6 +14,7 @@ function loadProjects(limit) {
     }
 
     projectsGrid.innerHTML = projectsToShow.map(project => `
+      <a href="projects/project-${project.id}.html" class="block">
       <div class="group">
         <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded-md group-hover:opacity-90 transition-opacity">
         <div class="mt-4">
@@ -23,6 +24,7 @@ function loadProjects(limit) {
           <p class="caption">${project.caption}</p>
         </div>
       </div>
+    </a>
     `).join('');
     console.log('Projects grid updated with', projectsToShow.length, 'projects');
   } catch (error) {

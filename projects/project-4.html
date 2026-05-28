@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Controller - Alex Morgan Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="antialiased">
+    <!-- Header -->
+    <header class="flex items-center justify-between py-6 px-6">
+        <div class="flex items-center space-x-2">
+            <span class="text-2xl font-serif font-bold tracking-tight">DM</span>
+            <span class="text-sm font-sans uppercase tracking-wider text-gray-500">Portfolio</span>
+        </div>
+        <nav class="hidden md:flex space-x-4">
+            <a href="../index.html#about" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">About</a>
+            <a href="../projects.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">All Projects</a>
+            <a href="../index.html#contact" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Contact</a>
+        </nav>
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden flex items-center px-2 py-1 rounded hover:bg-gray-50">
+            <svg class="h-5 w-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden mt-2 px-4 space-y-2">
+            <a href="../index.html#about" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">About</a>
+            <a href="../projects.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">All Projects</a>
+            <a href="../index.html#contact" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">Contact</a>
+        </div>
+    </header>
+
+    <!-- Project Detail -->
+    <section class="section py-20 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <div class="mb-8">
+                <a href="../projects.html" class="text-sm font-medium text-gray-600 hover:opacity-70 transition-opacity">&larr; Back to All Projects</a>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6">Smart Home Controller</h1>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fFNtYXJ0JTIwaG9tZSUyMEF1dG9tYXRpb258ZW58MHx8fHwxNjY2NDk2NDQ0&ixlib=rb-1.2.1&q=80&w=800" alt="Smart Home Controller" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                </div>
+                <div class="space-y-6">
+                    <p class="text-gray-700 leading-relaxed">IoT interface for managing connected devices.</p>
+                    <p class="text-gray-600 font-medium">Designing seamless control for lighting, climate, and security.</p>
+                    <!-- Additional details can go here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
