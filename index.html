@@ -4,57 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Designer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom font overrides */
+      :root {
+        --font-serif: 'Playfair Display', serif;
+        --font-sans: 'Inter', sans-serif;
+      }
+      body {
+        font-family: var(--font-sans);
+        background-color: #ffffff;
+        color: #111111;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-serif);
+        font-weight: 700;
+        color: #000000;
+      }
+      /* Thin divider */
+      hr.divider {
+        border: 0;
+        border-top: 1px solid #e0e0e0;
+        margin: 2.5rem 0;
+      }
+      /* Caption styling */
+      .caption {
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #555555;
+        margin-top: 0.5rem;
+      }
+      /* Nav link hover */
+      .nav-link:hover {
+        opacity: 0.7;
+      }
+    </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Alex Morgan</h1>
-            <p>Product Designer</p>
+<body class="antialiased">
+    <!-- Header -->
+    <header class="flex items-center justify-between py-6 px-6">
+        <div class="flex items-center space-x-2">
+            <span class="text-2xl font-serif font-bold tracking-tight">DM</span>
+            <span class="text-sm font-sans uppercase tracking-wider text-gray-500">Portfolio</span>
+        </div>
+        <nav class="hidden md:flex space-x-4">
+            <a href="#about" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">About</a>
+            <a href="#projects" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Projects</a>
+            <a href="#contact" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Contact</a>
+        </nav>
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden flex items-center px-2 py-1 rounded hover:bg-gray-50">
+            <svg class="h-5 w-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden mt-2 px-4 space-y-2">
+            <a href="#about" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">About</a>
+            <a href="#projects" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">Projects</a>
+            <a href="#contact" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-1">Contact</a>
         </div>
     </header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I am a passionate product designer with experience in creating user-centered digital experiences. I specialize in interaction design, visual design, and prototyping.</p>
+    <!-- Hero -->
+    <section class="pt-20 pb-16 text-center px-6">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4">Alex Morgan</h1>
+        <p class="text-lg text-gray-600 max-w-xl mx-auto">Product Designer</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section py-20 px-6">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl font-serif mb-6">About Me</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">
+                I am a passionate product designer with experience in creating user-centered digital experiences. I specialize in interaction design, visual design, and prototyping.
+            </p>
+            <hr class="divider">
+            <p class="text-gray-600">
+                My approach combines rigorous research with thoughtful aesthetics to craft solutions that are both functional and delightful.
+            </p>
         </div>
     </section>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>A mobile app for task management.</p>
+    <!-- Projects Section -->
+    <section id="projects" class="section py-20 px-6">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl font-serif mb-8">Featured Projects</h2>
+            <div class="grid gap-8 md:grid-cols-2">
+                <!-- Project Card 1 -->
+                <div class="group">
+                    <img src="https://via.placeholder.com/800x600?placeholder=Project+One+Render" alt="Project One" class="w-full h-48 object-cover rounded-md group-hover:opacity-90 transition-opacity">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-serif mb-2">Project One</h3>
+                        <p class="text-gray-600 mb-2">A mobile app for task management.</p>
+                        <hr class="divider">
+                        <p class="caption">Exploring intuitive interaction patterns for daily productivity.</p>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>An e-commerce platform redesign.</p>
+                <!-- Project Card 2 -->
+                <div class="group">
+                    <img src="https://via.placeholder.com/800x600?placeholder=Project+Two+Render" alt="Project Two" class="w-full h-48 object-cover rounded-md group-hover:opacity-90 transition-opacity">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-serif mb-2">Project Two</h3>
+                        <p class="text-gray-600 mb-2">An e-commerce platform redesign.</p>
+                        <hr class="divider">
+                        <p class="caption">Refining the checkout flow for increased conversion.</p>
+                    </div>
                 </div>
-                <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>A dashboard for analytics.</p>
+                <!-- Project Card 3 -->
+                <div class="group">
+                    <img src="https://via.placeholder.com/800x600?placeholder=Project+Three+Render" alt="Project Three" class="w-full h-48 object-cover rounded-md group-hover:opacity-90 transition-opacity">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-serif mb-2">Project Three</h3>
+                        <p class="text-gray-600 mb-2">A dashboard for analytics.</p>
+                        <hr class="divider">
+                        <p class="caption">Visualizing complex data with clarity and precision.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:alex@example.com">alex@example.com</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/alexmorgan">linkedin.com/in/alexmorgan</a></p>
+    <!-- Contact Section -->
+    <section id="contact" class="section py-20 px-6 text-center">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl font-serif mb-6">Contact</h2>
+            <p class="text-gray-600 mb-4">
+                Email: <a href="mailto:alex@example.com" class="nav-link hover:opacity-70">alex@example.com</a>
+            </p>
+            <p class="text-gray-600 mb-4">
+                LinkedIn: <a href="https://linkedin.com/in/alexmorgan" class="nav-link hover:opacity-70" target="_blank" rel="noopener">linkedin.com/in/alexmorgan</a>
+            </p>
+            <hr class="divider">
+            <p class="text-sm text-gray-500">© 2026 Alex Morgan. All rights reserved.</p>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Alex Morgan. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <script>
+      // Mobile menu toggle
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+          // Hide mobile menu after click
+          if (menu) menu.classList.add('hidden');
+        });
+      });
+    </script>
 </body>
 </html>
