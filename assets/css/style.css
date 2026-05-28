@@ -4,10 +4,23 @@
   --font-sans: 'Inter', sans-serif;
 }
 
+/* Fixed header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 1000;
+}
+
+
 body {
   font-family: var(--font-sans);
   background-color: #ffffff;
   color: #111111;
+  padding-top: 4rem;
+}
 }
 
 h1, h2, h3, h4, h5, h6 {
