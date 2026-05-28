@@ -175,7 +175,7 @@ header .text-sm.font-sans.uppercase.tracking-wider.text-gray-500 {
   padding-bottom: 10rem !important;
 }
 
-/* Geometric pattern background */
+/* Geometric pattern background - MORE VISIBLE */
 .pt-20.pb-16.text-center.px-6::before {
   content: '';
   position: absolute;
@@ -186,8 +186,8 @@ header .text-sm.font-sans.uppercase.tracking-wider.text-gray-500 {
   background-image: 
     linear-gradient(var(--color-gray-100) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-gray-100) 1px, transparent 1px);
-  background-size: 30px 30px;
-  opacity: 0.15;
+  background-size: 24px 24px; /* Made grid slightly smaller for denser pattern */
+  opacity: 0.35; /* Increased from 0.25 */
   pointer-events: none;
   z-index: 0;
 }
@@ -199,8 +199,8 @@ header .text-sm.font-sans.uppercase.tracking-wider.text-gray-500 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, var(--color-gray-50) 0%, transparent 70%);
-  opacity: 0.05;
+  background: radial-gradient(circle at center, var(--color-gray-100) 0%, transparent 70%);
+  opacity: 0.15; /* Increased from 0.1 */
   pointer-events: none;
   z-index: 0;
 }
