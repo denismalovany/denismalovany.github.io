@@ -1,9 +1,11 @@
 // Fetch projects data and populate the grid
-function loadProjects() {
+function loadProjects(limit) {
   try {
     // Use the global projectsData variable
     const projects = window.projectsData || [];
+    const projectsToShow = limit ? projects.slice(0, limit) : projects;
     console.log('Projects data:', projects);
+    console.log('Projects to show:', projectsToShow);
     const projectsGrid = document.getElementById('projects-grid');
 
     if (!projectsGrid) {
@@ -11,7 +13,7 @@ function loadProjects() {
       return;
     }
 
-    projectsGrid.innerHTML = projects.map(project => `
+    projectsGrid.innerHTML = projectsToShow.map(project => `
       <div class="group">
         <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover rounded-md group-hover:opacity-90 transition-opacity">
         <div class="mt-4">
@@ -22,7 +24,7 @@ function loadProjects() {
         </div>
       </div>
     `).join('');
-    console.log('Projects grid updated with', projects.length, 'projects');
+    console.log('Projects grid updated with', projectsToShow.length, 'projects');
   } catch (error) {
     console.error('Error loading projects:', error);
     const projectsGrid = document.getElementById('projects-grid');
@@ -58,4 +60,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Load projects on page load
-document.addEventListener('DOMContentLoaded', loadProjects);
+document.addEventListener('DOMContentLoaded', () => {
+  // Check if we are on the projects page (all projects) or home page (limited)
+  const isProjectsPage = window.location.pathname.endsWith('projects.html') || window.location.pathname === '/projects.html';
+  if (isProjectsPage) {
+    loadProjects(); // Show all projects
+  } else {
+    loadProjects(3); // Show only 3 projects on home page
+  }
+});
