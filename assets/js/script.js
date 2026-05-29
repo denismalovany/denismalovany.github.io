@@ -133,6 +133,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // Timeline expand/collapse functionality
+  const expandBtn = document.getElementById('expand-timeline');
+  const collapseBtn = document.getElementById('collapse-timeline');
+  const collapsedTimeline = document.getElementById('collapsed-timeline');
+  if (expandBtn && collapsedTimeline) {
+    expandBtn.addEventListener('click', () => {
+      collapsedTimeline.classList.add('expanded');
+      expandBtn.classList.add('hidden');
+      collapseBtn.classList.remove('hidden');
+    });
+    collapseBtn.addEventListener('click', () => {
+      collapsedTimeline.classList.remove('expanded');
+      collapseBtn.classList.add('hidden');
+      expandBtn.classList.remove('hidden');
+    });
+  }
+
   // Check if we are on the projects page (all projects) or home page (limited)
   const isProjectsPage = window.location.pathname.endsWith('projects.html') || window.location.pathname === '/projects.html';
   if (isProjectsPage) {

@@ -175,6 +175,25 @@ header .text-2xl.font-serif.font-bold.tracking-tight {
   color: var(--color-gray-400);
 }
 
+/* Timeline Collapsed State */
+.timeline-collapsed {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 500ms ease-out, opacity 500ms ease-out;
+}
+
+.timeline-collapsed.expanded {
+  max-height: 2000px;
+  opacity: 1;
+  overflow: visible;
+}
+
+/* Timeline Expand Button */
+#expand-timeline {
+  transition: all var(--transition-normal);
+}
+
 /* Buttons - Premium Feel */
 .btn-primary {
   font-family: var(--font-sans);
