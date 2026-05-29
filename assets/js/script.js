@@ -37,31 +37,6 @@ function loadProjects(limit) {
   }
 }
 
-// Mobile menu toggle
-const btn = document.getElementById('mobile-menu-btn');
-const menu = document.getElementById('mobile-menu');
-if (btn && menu) {
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
-}
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-    // Hide mobile menu after click
-    if (menu) menu.classList.add('hidden');
-  });
-});
-
 // Set active navigation link based on current page
 function setActiveNavLink() {
   const path = window.location.pathname;
@@ -102,6 +77,62 @@ function setActiveNavLink() {
 // Set active navigation link and load projects on page load
 document.addEventListener('DOMContentLoaded', function() {
   setActiveNavLink();
+  
+  // Mobile menu toggle - moved inside DOMContentLoaded
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.setAttribute('aria-expanded', 'false');
+    
+    btn.addEventListener('click', () => {
+      const isOpen = btn.classList.contains('menu-open');
+      if (isOpen) {
+        btn.classList.remove('menu-open');
+        menu.classList.remove('menu-open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        btn.classList.add('menu-open');
+        menu.classList.add('menu-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  }
+  
+  // Close mobile menu when clicking nav links
+  document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (menu) {
+        menu.classList.remove('menu-open');
+      }
+      if (btn) {
+        btn.classList.remove('menu-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+      // Hide mobile menu after click
+      if (menu) {
+        menu.classList.remove('menu-open');
+      }
+      if (btn) {
+        btn.classList.remove('menu-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  
   // Check if we are on the projects page (all projects) or home page (limited)
   const isProjectsPage = window.location.pathname.endsWith('projects.html') || window.location.pathname === '/projects.html';
   if (isProjectsPage) {

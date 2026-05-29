@@ -57,6 +57,7 @@ body {
   color: var(--color-gray-900);
   line-height: 1.7;
   font-weight: 400;
+  padding-top: 4rem;
 }
 
 /* Header - Enhanced Premium Look */
@@ -73,8 +74,16 @@ header {
   box-shadow: var(--shadow-sm);
 }
 
-header .flex.items-center.space-x-2 {
-  height: 100%;
+@media (min-width: 640px) {
+  header {
+    height: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    height: 4rem;
+  }
 }
 
 /* Logo Enhancement */
@@ -127,54 +136,56 @@ header .text-sm.font-sans.uppercase.tracking-wider.text-gray-500 {
   background: var(--color-black);
 }
 
-/* Mobile Menu Button Enhancement */
+/* Mobile Menu Button */
 #mobile-menu-btn {
-  transition: all var(--transition-normal);
+  transition: background-color 150ms ease;
 }
 
 #mobile-menu-btn:hover {
   background-color: var(--color-gray-50);
-  transform: scale(1.05);
 }
 
-#mobile-menu-btn svg {
-  stroke: var(--color-gray-600);
-  transition: stroke var(--transition-normal);
+#mobile-menu-btn.menu-open #menu-icon {
+  display: none;
 }
 
-#mobile-menu-btn:hover svg {
-  stroke: var(--color-black);
+#mobile-menu-btn.menu-open #close-icon {
+  display: block;
 }
 
-/* Mobile Menu Links */
-#mobile-menu .nav-link {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--color-gray-100);
+/* Mobile Menu Animation */
+#mobile-menu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease-out, opacity 300ms ease-out;
+  z-index: 999;
 }
 
-#mobile-menu .nav-link:last-child {
-  border-bottom: none;
-}
-
-/* Sections - Premium Spacing */
-.section {
-  padding-top: calc(4rem + 3rem);
-  padding-bottom: 10rem;
-}
-
-@media (min-width: 1024px) {
-  .section {
-    padding-bottom: 12rem;
-  }
+#mobile-menu.menu-open {
+  max-height: 500px;
+  opacity: 1;
+  display: table;
 }
 
 /* Hero Section - Premium Typography with Square Grid Pattern */
 .pt-20.pb-16.text-center.px-6 {
   position: relative;
   overflow: hidden;
-  /* Increased padding to make section bigger */
-  padding-top: 10rem !important;
-  padding-bottom: 10rem !important;
+}
+
+@media (min-width: 640px) {
+  .pt-20.pb-16.text-center.px-6 {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pt-20.pb-16.text-center.px-6 {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+  }
 }
 
 /* Square Grid Pattern */
@@ -277,17 +288,17 @@ hr.divider {
   margin: 3rem 0;
 }
 
-/* Body Text Enhancement */
+/* Body Text Enhancement - use proper gray-700 for body text */
 .text-gray-700.leading-relaxed {
   font-family: var(--font-sans);
   font-weight: 400;
-  color: var(--color-gray-800);
+  color: var(--color-gray-700);
   line-height: 1.8;
 }
 
-/* Text Gray 600 Enhancement */
+/* Text Gray 600 - Use original gray-600 for proper contrast */
 .text-gray-600 {
-  color: var(--color-gray-500);
+  color: var(--color-gray-600);
 }
 
 /* Caption Enhancement */
@@ -326,10 +337,10 @@ hr.divider {
 /* Enhanced image styling */
 .group img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
   display: block;
   transition: all var(--transition-slow) ease;
-  /* Add subtle image enhancement */
   backface-visibility: hidden;
 }
 
@@ -541,24 +552,6 @@ hr.divider {
 
 /* Responsive Enhancements */
 @media (min-width: 640px) {
-  body {
-    padding-top: 4.5rem;
-  }
-  
-  header {
-    height: 4.5rem;
-  }
-  
-  .section {
-    padding-top: calc(4.5rem + 4rem);
-  }
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding-top: calc(4.5rem + 5rem);
-  }
-  
   .pt-20.pb-16.text-center.px-6 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
@@ -570,18 +563,6 @@ hr.divider {
 }
 
 @media (min-width: 1024px) {
-  body {
-    padding-top: 5rem;
-  }
-  
-  header {
-    height: 5rem;
-  }
-  
-  .section {
-    padding-top: calc(5rem + 6rem);
-  }
-  
   .pt-20.pb-16.text-center.px-6 {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -589,6 +570,26 @@ hr.divider {
   
   .container {
     max-width: 80rem;
+  }
+}
+
+/* Section Spacing - with fixed header compensation */
+.section {
+  padding-top: calc(4rem + 4rem);
+  padding-bottom: 10rem;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding-top: calc(4rem + 4rem);
+    padding-bottom: 10rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: calc(4rem + 5rem);
+    padding-bottom: 12rem;
   }
 }
 
