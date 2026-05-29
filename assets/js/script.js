@@ -14,14 +14,14 @@ function loadProjects(limit) {
     }
 
     projectsGrid.innerHTML = projectsToShow.map(project => `
-      <a href="projects/project-${project.id}.html" class="block">
-        <div class="group">
+      <a href="projects/project-${project.id}.html" class="block h-full">
+        <div class="group flex flex-col h-full">
           <img src="${project.image}" alt="${project.title}" class="w-full">
-          <div class="group-content">
+          <div class="group-content flex flex-col flex-grow">
             <h3 class="text-xl font-serif mb-2">${project.title}</h3>
-            <p class="text-gray-600 mb-2">${project.description}</p>
+            <p class="text-gray-600 mb-2 leading-relaxed">${project.description}</p>
             <hr class="divider">
-            <p class="caption">${project.caption}</p>
+            <p class="caption mt-auto">${project.caption}</p>
           </div>
         </div>
       </a>
@@ -138,6 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (isProjectsPage) {
     loadProjects(); // Show all projects
   } else {
-    loadProjects(3); // Show only 3 projects on home page
+    loadProjects(2); // Show only 2 projects on home page
   }
 });
