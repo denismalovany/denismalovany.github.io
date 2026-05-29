@@ -486,3 +486,39 @@ a, button {
   background: var(--color-black);
   color: var(--color-white);
 }
+
+/* Skills Section */
+#skills .grid > div {
+  margin-bottom: 0;
+}
+
+#skills h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-black);
+margin-bottom: 0.75rem;
+}
+
+#skills ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#skills ul li {
+  color: var(--color-gray-600);
+  line-height: 1.4;
+  padding: 0;
+}
+
+#skills ul li::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: var(--color-black);
+  border-radius: 50%;
+  margin-right: 0.625rem;
+  vertical-align: middle;
+}
