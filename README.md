@@ -1,23 +1,45 @@
-# Product Designer Portfolio
+# Denys Malovanyi — Product Designer Portfolio
 
-A clean, modern portfolio website for product designers hosted on GitHub Pages.
+A personal portfolio website for Denys Malovanyi, UX/UI and product designer with 9+ years of experience spanning frontend development, product design, and mechanical engineering.
 
-## Features
-- Responsive design
-- Smooth scrolling
-- CSS animations
-- Easy to customize
+## About the Site
+
+Built with plain HTML, CSS, and JavaScript — no frameworks, no build step. Styled with Tailwind CSS via CDN and custom CSS for the timeline and navigation.
+
+## Pages
+
+- **Home** — Hero, about preview with skills tags, professional timeline, featured projects, contact
+- **About** — Full bio, skills & expertise grid, complete career timeline
+- **Projects** — Individual project case studies
+- **Contact** — Email and LinkedIn
+
+## Structure
+
+```
+DMpage/
+├── index.html          # Homepage
+├── about.html          # About page
+├── projects.html       # Projects listing
+├── contact.html        # Contact page
+├── assets/
+│   ├── css/style.css   # Custom styles
+│   └── js/script.js    # Navigation & timeline interactivity
+├── data/
+│   └── projects.js     # Project data
+└── projects/           # Individual project pages
+```
 
 ## Customization
-1. Edit `index.html` to add your personal information, projects, and contact details
-2. Modify `style.css` to change colors, fonts, and layout
-3. Update `script.js` for additional interactivity
+
+- Edit HTML files directly to update content
+- Modify `assets/css/style.css` for styling changes
+- Update `data/projects.js` to add or edit projects
+- Project detail pages live in `projects/`
 
 ## Deployment
-1. Push this repository to GitHub
-2. Go to Settings > Pages
-3. Select the `main` branch and `/root` folder
-4. Your site will be published at `https://your-username.github.io/your-repo-name`
+
+Hosted on GitHub Pages. Push to the `main` branch to deploy.
 
 ## License
-MITLast updated: 2026-05-28 13:19:12 UTC
+
+MIT
