@@ -201,6 +201,39 @@ header .text-2xl.font-serif.font-bold.tracking-tight {
   transition: all var(--transition-normal);
 }
 
+/* Button Hover Effects — mirrors card (.group) hover pattern */
+/* Base transition for all interactive buttons (exclude mobile menu toggle) */
+button:not(#mobile-menu-btn),
+a.rounded-lg[class*="px-6"],
+a.rounded-lg[class*="px-8"] {
+  transition: all var(--transition-normal);
+}
+
+/* Primary (dark bg) buttons: lift + scale + shadow */
+button:not(#mobile-menu-btn):hover,
+a.rounded-lg[class*="bg-black"]:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-xl);
+}
+
+button:not(#mobile-menu-btn):active,
+a.rounded-lg[class*="bg-black"]:active {
+  transform: translateY(-1px) scale(1.005);
+  box-shadow: var(--shadow-md);
+}
+
+/* Outline/secondary buttons: lift + border-darken */
+a.rounded-lg[class*="border-gray-300"]:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-gray-400);
+}
+
+a.rounded-lg[class*="border-gray-300"]:active {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
 /* Mobile Menu */
 #mobile-menu {
   max-height: 0;
