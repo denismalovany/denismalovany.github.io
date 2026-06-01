@@ -81,14 +81,39 @@ function renderHeader(root) {
 
 function renderProjectCard(project, root) {
     root = root || '';
+
+    var tagsHtml = '';
+    if (project.tags && project.tags.length) {
+        tagsHtml = '                                <div class="group-tags">\n' +
+            project.tags.map(function(t) {
+                return '                                    <span class="group-tag">' + esc(t) + '</span>';
+            }).join('\n') + '\n' +
+            '                                </div>\n';
+    }
+
+    var impactHtml = '';
+    if (project.impact) {
+        impactHtml = '                                <p class="group-impact">\u2192 ' + esc(project.impact) + '</p>\n';
+    }
+
+    var roleHtml = '';
+    if (project.role) {
+        roleHtml = '                                <div class="group-role-wrap">\n' +
+            '                                    <p class="group-role">' + esc(project.role) + '</p>\n' +
+            '                                </div>\n';
+    }
+
+    var summary = project.summary || project.description;
+
     return '                    <a href="' + esc(root + 'projects/project-' + project.id + '.html') + '" class="block h-full">\n' +
         '                        <div class="group flex flex-col h-full">\n' +
         '                            <img src="' + esc(project.image) + '" alt="' + esc(project.title) + '" class="w-full" loading="lazy">\n' +
         '                            <div class="group-content flex flex-col flex-grow">\n' +
+        tagsHtml +
         '                                <h3 class="text-xl font-serif mb-2">' + esc(project.title) + '</h3>\n' +
-        '                                <p class="text-gray-600 mb-2 leading-relaxed">' + esc(project.description) + '</p>\n' +
-        '                                <hr class="divider">\n' +
-        '                                <p class="caption mt-auto">' + esc(project.caption) + '</p>\n' +
+        '                                <p class="group-summary text-gray-600 mb-3 leading-relaxed">' + esc(summary) + '</p>\n' +
+        impactHtml +
+        roleHtml +
         '                            </div>\n' +
         '                        </div>\n' +
         '                    </a>';
