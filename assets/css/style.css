@@ -47,10 +47,6 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: var(--font-sans);
   background-color: var(--color-white);
@@ -74,8 +70,10 @@ header {
   box-shadow: var(--shadow-sm);
 }
 
+
+
 /* Logo Enhancement */
-header .text-2xl.font-serif.font-bold.tracking-tight {
+.site-logo {
   font-weight: 700;
   letter-spacing: -0.025em;
   color: var(--color-black);
@@ -112,8 +110,8 @@ header .text-2xl.font-serif.font-bold.tracking-tight {
   background: var(--color-black);
 }
 
-/* Hero Section Typography */
-.text-4xl.md:text-5xl.lg:text-6xl.font-serif.font-bold.mb-4 {
+/* Hero Title */
+.hero-title {
   letter-spacing: -0.03em;
   line-height: 1.1;
   color: var(--color-black);
@@ -121,7 +119,7 @@ header .text-2xl.font-serif.font-bold.tracking-tight {
   display: inline-block;
 }
 
-.text-4xl.md:text-5xl.lg:text-6xl.font-serif.font-bold.mb-4::after {
+.hero-title::after {
   content: '';
   position: absolute;
   bottom: -8px;
@@ -139,7 +137,9 @@ header .text-2xl.font-serif.font-bold.tracking-tight {
 }
 
 /* Section Headings */
-.text-3xl.font-serif {
+.section-title,
+.section-title-mb-6,
+.section-title-mb-8 {
   font-weight: 800;
   letter-spacing: -0.025em;
   color: var(--color-black);
@@ -147,15 +147,9 @@ header .text-2xl.font-serif.font-bold.tracking-tight {
   display: inline-block;
 }
 
-.text-3xl.font-serif.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-.text-3xl.font-serif.mb-8 {
-  margin-bottom: 2rem;
-}
-
-.text-3xl.font-serif::after {
+.section-title::after,
+.section-title-mb-6::after,
+.section-title-mb-8::after {
   content: '';
   position: absolute;
   bottom: -6px;
@@ -164,6 +158,14 @@ header .text-2xl.font-serif.font-bold.tracking-tight {
   height: 2px;
   background: var(--color-black);
   border-radius: 1px;
+}
+
+.section-title-mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.section-title-mb-8 {
+  margin-bottom: 2rem;
 }
 
 /* Caption */
@@ -175,18 +177,17 @@ header .text-2xl.font-serif.font-bold.tracking-tight {
   color: var(--color-gray-400);
 }
 
-/* Timeline Collapsed State */
+/* Timeline Collapsed State — visible by default, JS collapses on load */
 .timeline-collapsed {
-  max-height: 0;
-  opacity: 0;
+  max-height: 2000px;
+  opacity: 1;
   overflow: hidden;
   transition: max-height 500ms ease-out, opacity 500ms ease-out;
 }
 
-.timeline-collapsed.expanded {
-  max-height: 2000px;
-  opacity: 1;
-  overflow: visible;
+.timeline-collapsed.collapsed {
+  max-height: 0;
+  opacity: 0;
 }
 
 /* Timeline Expand Button */
@@ -195,41 +196,30 @@ header .text-2xl.font-serif.font-bold.tracking-tight {
 }
 
 /* Buttons - Premium Feel */
-.btn-primary {
+.btn-primary,
+.btn-outline {
   font-family: var(--font-sans);
   font-weight: 500;
   transition: all var(--transition-normal);
 }
 
-/* Button Hover Effects — mirrors card (.group) hover pattern */
-/* Base transition for all interactive buttons (exclude mobile menu toggle) */
-button:not(#mobile-menu-btn),
-a.rounded-lg[class*="px-6"],
-a.rounded-lg[class*="px-8"] {
-  transition: all var(--transition-normal);
-}
-
-/* Primary (dark bg) buttons: lift + scale + shadow */
-button:not(#mobile-menu-btn):hover,
-a.rounded-lg[class*="bg-black"]:hover {
+.btn-primary:hover {
   transform: translateY(-4px) scale(1.01);
   box-shadow: var(--shadow-xl);
 }
 
-button:not(#mobile-menu-btn):active,
-a.rounded-lg[class*="bg-black"]:active {
+.btn-primary:active {
   transform: translateY(-1px) scale(1.005);
   box-shadow: var(--shadow-md);
 }
 
-/* Outline/secondary buttons: lift + border-darken */
-a.rounded-lg[class*="border-gray-300"]:hover {
+.btn-outline:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-gray-400);
 }
 
-a.rounded-lg[class*="border-gray-300"]:active {
+.btn-outline:active {
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
 }
@@ -246,31 +236,30 @@ a.rounded-lg[class*="border-gray-300"]:active {
 #mobile-menu.menu-open {
   max-height: 500px;
   opacity: 1;
-  display: block;
 }
 
 /* Hero Section - Premium Typography with Square Grid Pattern */
-.pt-20.pb-16.text-center.px-6 {
+.hero-section {
   position: relative;
   overflow: hidden;
 }
 
 @media (min-width: 640px) {
-  .pt-20.pb-16.text-center.px-6 {
+  .hero-section {
     padding-top: 6rem;
     padding-bottom: 4rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .pt-20.pb-16.text-center.px-6 {
+  .hero-section {
     padding-top: 8rem;
     padding-bottom: 5rem;
   }
 }
 
 /* Square Grid Pattern */
-.pt-20.pb-16.text-center.px-6::before {
+.hero-section::before {
   content: '';
   position: absolute;
   top: 0;
@@ -287,7 +276,7 @@ a.rounded-lg[class*="border-gray-300"]:active {
 }
 
 /* Add subtle depth */
-.pt-20.pb-16.text-center.px-6::after {
+.hero-section::after {
   content: '';
   position: absolute;
   top: 0;
@@ -301,9 +290,9 @@ a.rounded-lg[class*="border-gray-300"]:active {
 }
 
 /* Ensure content appears above pattern */
-.pt-20.pb-16.text-center.px-6 h1,
-.pt-20.pb-16.text-center.px-6 p,
-.pt-20.pb-16.text-center.px-6 .mt-8 {
+.hero-section h1,
+.hero-section p,
+.hero-section .mt-8 {
   position: relative;
   z-index: 1;
 }
@@ -341,7 +330,6 @@ hr.divider {
   object-fit: cover;
   display: block;
   transition: all var(--transition-slow) ease;
-  backface-visibility: hidden;
 }
 
 .group:hover img {
@@ -466,7 +454,7 @@ hr.divider {
 
 /* Responsive Enhancements */
 @media (min-width: 640px) {
-  .pt-20.pb-16.text-center.px-6 {
+  .hero-section {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
@@ -474,7 +462,7 @@ hr.divider {
 }
 
 @media (min-width: 1024px) {
-  .pt-20.pb-16.text-center.px-6 {
+  .hero-section {
     padding-left: 3rem;
     padding-right: 3rem;
   }
@@ -502,12 +490,6 @@ hr.divider {
 
 .fade-in-up { animation: fadeInUp var(--transition-slow) forwards; }
 
-/* Interactive Elements */
-a, button {
-  cursor: pointer;
-  touch-action: manipulation;
-}
-
 /* Focus Styles for Accessibility */
 :focus-visible {
   outline: 2px solid var(--color-black);
@@ -530,7 +512,7 @@ a, button {
   font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--color-black);
-margin-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 #skills ul {
@@ -554,4 +536,84 @@ margin-bottom: 0.75rem;
   border-radius: 50%;
   margin-right: 0.625rem;
   vertical-align: middle;
+}
+
+/* Print Styles — clean PDF resume export */
+@media print {
+  header {
+    position: static;
+  }
+
+  body {
+    padding-top: 0;
+    font-size: 11pt;
+    color: #000;
+  }
+
+  .hero-section::before,
+  .hero-section::after {
+    display: none;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    box-shadow: none;
+    transform: none;
+    background: none;
+    border: 1px solid #000;
+    color: #000;
+  }
+
+  .btn-primary:hover,
+  .btn-outline:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .group:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .group:hover img {
+    transform: none;
+    filter: none;
+  }
+
+  #mobile-menu,
+  #mobile-menu-toggle {
+    display: none;
+  }
+
+  .nav-link.active::after,
+  .hero-title::after,
+  .section-title::after,
+  .section-title-mb-6::after,
+  .section-title-mb-8::after {
+    display: none;
+  }
+
+  .section,
+  .hero-section {
+    padding: 1rem 0;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .timeline-collapsed.collapsed {
+    max-height: none;
+    opacity: 1;
+  }
+
+  #expand-timeline,
+  #collapse-timeline {
+    display: none;
+  }
 }

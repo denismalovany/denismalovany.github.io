@@ -1,0 +1,12 @@
+{
+  "name": "dm-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Denys Malovanyi — Product Designer Portfolio",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "watch": "node scripts/watch.js",
+    "serve": "npx serve .",
+    "dev": "npm run build && npx concurrently --names watch,serve --prefix-colors cyan,green \"npm run watch\" \"npm run serve\""
+  }
+}

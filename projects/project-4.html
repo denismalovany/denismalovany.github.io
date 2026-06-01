@@ -4,53 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus Smart Home Controller - Denys Malovanyi Portfolio</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS via CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/script.js" defer></script>
+    <meta name="description" content="Complete portfolio of product design projects by Denys Malovanyi, showcasing interaction design, visual design, and prototyping work.">
+    <meta property="og:title" content="All Projects - Denys Malovanyi Portfolio">
+    <meta property="og:description" content="Complete portfolio of product design projects by Denys Malovanyi, showcasing interaction design, visual design, and prototyping work.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://malovanyi.com">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Denys Malovanyi",
+    "email": "denismalovany@gmail.com",
+    "url": "https://malovanyi.com",
+    "sameAs": [
+        "https://linkedin.com/in/malovany"
+    ],
+    "jobTitle": "Product Designer & Mechanical Engineer",
+    "description": "UX/UI & Product Designer · AI-Augmented Workflows · 9+ Years of Experience",
+    "knowsAbout": [
+        "UI/UX Design",
+        "Interaction Design",
+        "Visual Design",
+        "Wireframing & Prototyping",
+        "Design Systems",
+        "Responsive Design",
+        "AI Agent Workflows",
+        "Local LLM Deployment",
+        "Prompt Engineering",
+        "AI-Assisted Prototyping",
+        "Autonomous Coding Agents",
+        "Multi-Agent Systems",
+        "HTML5 / CSS3",
+        "JavaScript",
+        "Responsive UI Development",
+        "Front-end Optimisation",
+        "Cross-platform Development",
+        "Requirements Gathering",
+        "Client Communication",
+        "Stakeholder Interviews",
+        "Design Review",
+        "Technical Documentation",
+        "Estimation & Planning",
+        "Mechanical Engineering",
+        "Crisis Management",
+        "Logistics & Operations",
+        "Team Collaboration",
+        "Adaptability Under Pressure"
+    ],
+    "alumniOf": [
+        {
+            "@type": "OrganizationRole",
+            "roleName": "Full-time · Mechanical Engineer, Product Designer",
+            "startDate": "Feb 2024 – Present",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "VOL Volunteer Optical Laboratory"
+            }
+        },
+        {
+            "@type": "OrganizationRole",
+            "roleName": "Full-time Volunteer",
+            "startDate": "May 2022 – Dec 2023",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Career Break — Volunteer Work"
+            }
+        },
+        {
+            "@type": "OrganizationRole",
+            "roleName": "Full-time · UI Designer, UX Designer",
+            "startDate": "Jun 2021 – May 2022",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "HebronSoft"
+            }
+        },
+        {
+            "@type": "OrganizationRole",
+            "roleName": "Full-time · UX Designer, UI Developer",
+            "startDate": "Feb 2019 – Mar 2020",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Cygnati Group"
+            }
+        },
+        {
+            "@type": "OrganizationRole",
+            "roleName": "Full-time · HTML5 Developer",
+            "startDate": "Mar 2017 – Jan 2019",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Codemotion Ninjas"
+            }
+        },
+        {
+            "@type": "OrganizationRole",
+            "roleName": "",
+            "startDate": "Apr 2015 – Feb 2017",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Early Career"
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body class="antialiased">
-    <!-- Header -->
-    <header class="flex flex-col">
+<header id="site-header" class="flex flex-col">
         <div class="flex items-center justify-between py-4 px-6">
             <div class="flex items-center space-x-2">
                 <a href="../index.html" class="flex items-center space-x-2">
-                    <span class="text-2xl font-serif font-bold tracking-tight">DM</span>
+                    <span class="text-2xl font-serif font-bold tracking-tight site-logo">DM</span>
                     <span class="text-sm font-sans uppercase tracking-wider text-gray-500">Portfolio</span>
                 </a>
             </div>
             <nav class="hidden md:flex space-x-4">
-                <a href="../index.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Home</a>
-                <a href="../about.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">About</a>
-                <a href="../projects.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">All Projects</a>
-                <a href="../contact.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Contact</a>
+                <a href="../index.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Home</a><a href="../about.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">About</a><a href="../projects.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">All Projects</a><a href="../contact.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Contact</a>
             </nav>
-            <!-- Mobile menu button -->
-            <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded hover:bg-gray-50 relative" aria-label="Toggle navigation menu" aria-expanded="false">
-                <svg id="menu-icon" class="h-5 w-5 text-gray-600 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button id="mobile-menu-toggle" class="md:hidden flex items-center justify-center w-10 h-10 rounded hover:bg-gray-50 relative" aria-label="Toggle navigation menu" aria-expanded="false">
+                <svg id="mobile-menu-icon" class="h-5 w-5 text-gray-600 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
-                <svg id="close-icon" class="h-5 w-5 text-gray-600 absolute transition-transform hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg id="mobile-close-icon" class="h-5 w-5 text-gray-600 absolute transition-transform hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
-        <!-- Mobile menu -->
         <div id="mobile-menu" class="w-full bg-white border-t border-gray-100">
             <div class="px-4 py-3 space-y-2">
-                <a href="../index.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-2">Home</a>
-                <a href="../about.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-2">About</a>
-                <a href="../projects.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-2">All Projects</a>
-                <a href="../contact.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-2">Contact</a>
+                <a href="../index.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity block py-2 ">Home</a><a href="../about.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity block py-2 ">About</a><a href="../projects.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity block py-2 ">All Projects</a><a href="../contact.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity block py-2 ">Contact</a>
             </div>
         </div>
-</header>
- 
+    </header>
+
     <!-- Hero -->
-    <section class="pt-20 pb-16 text-center px-6">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4">Nexus Smart Home Controller</h1>
+    <section class="pt-20 pb-16 text-center px-6 hero-section">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 hero-title">Nexus Smart Home Controller</h1>
         <p class="text-lg text-gray-600 max-w-xl mx-auto hero-subtitle">Project Case Study</p>
     </section>
 
@@ -63,17 +158,14 @@
             <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6">Nexus Smart Home Controller</h1>
             <div class="grid md:grid-cols-2 gap-8 items-start">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fFNtYXJ0JTIwaG9tZSUyMEF1dG9tYXRpb258ZW58MHx8fHwxNjY2NDk2NDQ0&ixlib=rb-1.2.1&q=80&w=800" alt="Nexus Smart Home Controller" class="rounded-lg shadow-lg w-full h-auto object-cover">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fFNtYXJ0JTIwaG9tZSUyMEF1dG9tYXRpb258ZW58MHx8fHwxNjY2NDk2NDQ0&ixlib=rb-1.2.1&q=80&w=800" alt="Nexus Smart Home Controller" class="rounded-lg shadow-lg w-full h-auto object-cover" loading="lazy">
                 </div>
                 <div class="space-y-6">
                     <p class="text-gray-700 leading-relaxed">I designed an IoT interface for managing connected home devices that prioritizes simplicity and consistency, allowing users to control lighting, climate, and security systems through familiar patterns that reduce the learning curve for smart home technology.</p>
                     <p class="text-gray-600 font-medium">The design focuses on creating mental models that transfer across different device types, so users can confidently control new devices without relearning entire interaction patterns for each product in their ecosystem.</p>
-                    <!-- Additional details can go here -->
                 </div>
             </div>
         </div>
     </section>
-
-    <script src="../assets/js/script.js"></script>
 </body>
 </html>

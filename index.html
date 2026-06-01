@@ -4,67 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Denys Malovanyi - Product Designer Portfolio</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Projects Data -->
-    <script src="data/projects.js"></script>
+    <script src="assets/js/script.js" defer></script>
+    <meta name="description" content="Denys Malovanyi — UX/UI and Product Designer with 9+ years of experience in interaction design, visual design, prototyping, and AI-augmented workflows.">
+    <meta property="og:title" content="Denys Malovanyi - Product Designer Portfolio">
+    <meta property="og:description" content="Denys Malovanyi — UX/UI and Product Designer with 9+ years of experience in interaction design, visual design, prototyping, and AI-augmented workflows.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://malovanyi.com">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Denys Malovanyi",
+    "email": "denismalovany@gmail.com",
+    "url": "https://malovanyi.com",
+    "sameAs": [
+        "https://linkedin.com/in/malovany"
+    ],
+    "jobTitle": "Product Designer & Mechanical Engineer",
+    "description": "UX/UI & Product Designer · AI-Augmented Workflows · 9+ Years of Experience",
+    "knowsAbout": [
+        "UI/UX Design",
+        "Interaction Design",
+        "Visual Design",
+        "Wireframing & Prototyping",
+        "Design Systems",
+        "Responsive Design",
+        "AI Agent Workflows",
+        "Local LLM Deployment",
+        "Prompt Engineering",
+        "AI-Assisted Prototyping",
+        "Autonomous Coding Agents",
+        "Multi-Agent Systems",
+        "HTML5 / CSS3",
+        "JavaScript",
+        "Responsive UI Development",
+        "Front-end Optimisation",
+        "Cross-platform Development",
+        "Requirements Gathering",
+        "Client Communication",
+        "Stakeholder Interviews",
+        "Design Review",
+        "Technical Documentation",
+        "Estimation & Planning",
+        "Mechanical Engineering",
+        "Crisis Management",
+        "Logistics & Operations",
+        "Team Collaboration",
+        "Adaptability Under Pressure"
+    ],
+    "alumniOf": [
+        {
+            "@type": "OrganizationRole",
+            "roleName": "Full-time · Mechanical Engineer, Product Designer",
+            "startDate": "Feb 2024 – Present",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "VOL Volunteer Optical Laboratory"
+            }
+        },
+        {
+            "@type": "OrganizationRole",
+            "roleName": "Full-time Volunteer",
+            "startDate": "May 2022 – Dec 2023",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Career Break — Volunteer Work"
+            }
+        },
+        {
+            "@type": "OrganizationRole",
+            "roleName": "Full-time · UI Designer, UX Designer",
+            "startDate": "Jun 2021 – May 2022",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "HebronSoft"
+            }
+        },
+        {
+            "@type": "OrganizationRole",
+            "roleName": "Full-time · UX Designer, UI Developer",
+            "startDate": "Feb 2019 – Mar 2020",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Cygnati Group"
+            }
+        },
+        {
+            "@type": "OrganizationRole",
+            "roleName": "Full-time · HTML5 Developer",
+            "startDate": "Mar 2017 – Jan 2019",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Codemotion Ninjas"
+            }
+        },
+        {
+            "@type": "OrganizationRole",
+            "roleName": "",
+            "startDate": "Apr 2015 – Feb 2017",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "Early Career"
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body class="antialiased">
-    <!-- Header -->
-    <header class="flex flex-col">
+<header id="site-header" class="flex flex-col">
         <div class="flex items-center justify-between py-4 px-6">
             <div class="flex items-center space-x-2">
                 <a href="index.html" class="flex items-center space-x-2">
-                    <span class="text-2xl font-serif font-bold tracking-tight">DM</span>
+                    <span class="text-2xl font-serif font-bold tracking-tight site-logo">DM</span>
                     <span class="text-sm font-sans uppercase tracking-wider text-gray-500">Portfolio</span>
                 </a>
             </div>
             <nav class="hidden md:flex space-x-4">
-                <a href="index.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Home</a>
-                <a href="about.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">About</a>
-                <a href="projects.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">All Projects</a>
-                <a href="contact.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Contact</a>
+                <a href="index.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Home</a><a href="about.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">About</a><a href="projects.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">All Projects</a><a href="contact.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity">Contact</a>
             </nav>
-            <!-- Mobile menu button -->
-            <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded hover:bg-gray-50 relative" aria-label="Toggle navigation menu" aria-expanded="false">
-                <svg id="menu-icon" class="h-5 w-5 text-gray-600 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button id="mobile-menu-toggle" class="md:hidden flex items-center justify-center w-10 h-10 rounded hover:bg-gray-50 relative" aria-label="Toggle navigation menu" aria-expanded="false">
+                <svg id="mobile-menu-icon" class="h-5 w-5 text-gray-600 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
-                <svg id="close-icon" class="h-5 w-5 text-gray-600 absolute transition-transform hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg id="mobile-close-icon" class="h-5 w-5 text-gray-600 absolute transition-transform hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
-        <!-- Mobile menu -->
         <div id="mobile-menu" class="w-full bg-white border-t border-gray-100">
             <div class="px-4 py-3 space-y-2">
-                <a href="index.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-2">Home</a>
-                <a href="about.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-2">About</a>
-                <a href="projects.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-2">All Projects</a>
-                <a href="contact.html" class="nav-link block text-sm font-medium hover:opacity-70 transition-opacity py-2">Contact</a>
+                <a href="index.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity block py-2 ">Home</a><a href="about.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity block py-2 ">About</a><a href="projects.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity block py-2 ">All Projects</a><a href="contact.html" class="nav-link text-sm font-medium hover:opacity-70 transition-opacity block py-2 ">Contact</a>
             </div>
         </div>
     </header>
 
     <!-- Hero -->
-    <section class="pt-20 pb-16 text-center px-6">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4">Denys Malovanyi</h1>
+    <section class="pt-20 pb-16 text-center px-6 hero-section">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 hero-title">Denys Malovanyi</h1>
         <p class="text-lg text-gray-600 max-w-xl mx-auto hero-subtitle">UX/UI & Product Designer · AI-Augmented Workflows · 9+ Years of Experience</p>
-        <!-- Primary and Secondary Buttons -->
         <div class="mt-8 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center">
-            <a href="projects.html" class="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-900 transition-colors sm:w-auto w-full sm:w-1/2 text-center">Explore My Work</a>
-            <a href="contact.html" class="mt-4 sm:mt-0 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors sm:w-auto w-full sm:w-1/2 text-center">Get in Touch</a>
+            <a href="projects.html" class="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-900 transition-colors sm:w-auto w-full sm:w-1/2 text-center btn-primary">Explore My Work</a>
+            <a href="contact.html" class="mt-4 sm:mt-0 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors sm:w-auto w-full sm:w-1/2 text-center btn-outline">Get in Touch</a>
         </div>
-</section>
+    </section>
 
     <!-- About Section (Short Version) -->
     <section id="about-preview" class="section py-16 px-6 bg-gray-50">
         <div class="container mx-auto max-w-3xl">
-            <h2 class="text-3xl font-serif mb-6">About Me</h2>
+            <h2 class="text-3xl font-serif section-title-mb-6">About Me</h2>
             <p class="text-gray-700 leading-relaxed mb-6 max-w-2xl mx-auto">
                 I'm Denys Malovanyi, a UX/UI and product designer currently working as an engineer at Miltec. I specialize in creating user-centered digital experiences through interaction design, visual design, and prototyping.
             </p>
@@ -78,16 +170,33 @@
             <!-- Skills Tags -->
             <div class="flex flex-wrap justify-center gap-3 mt-8">
                 <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">UI/UX Design</span>
-                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Prototyping</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Interaction Design</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Visual Design</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Wireframing &amp; Prototyping</span>
                 <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Design Systems</span>
-                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">HTML/CSS/JS</span>
                 <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Responsive Design</span>
                 <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">AI Agent Workflows</span>
                 <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Local LLM Deployment</span>
                 <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Prompt Engineering</span>
                 <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">AI-Assisted Prototyping</span>
-                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Product Design</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Autonomous Coding Agents</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Multi-Agent Systems</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">HTML5 / CSS3</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">JavaScript</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Responsive UI Development</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Front-end Optimisation</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Cross-platform Development</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Requirements Gathering</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Client Communication</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Stakeholder Interviews</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Design Review</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Technical Documentation</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Estimation &amp; Planning</span>
                 <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Mechanical Engineering</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Crisis Management</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Logistics &amp; Operations</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Team Collaboration</span>
+                <span class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full">Adaptability Under Pressure</span>
             </div>
 
             <a href="about.html" class="mt-8 inline-block text-sm font-medium text-gray-600 hover:opacity-70 transition-opacity">
@@ -99,14 +208,12 @@
     <!-- Work Timeline Section -->
     <section id="timeline" class="section py-20 px-6">
         <div class="container mx-auto max-w-3xl">
-            <h2 class="text-3xl font-serif mb-8 text-center">Professional Timeline</h2>
+            <h2 class="text-3xl font-serif section-title-mb-8 text-center">Professional Timeline</h2>
             <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
                 A chronological overview of my career progression from frontend development to product design and mechanical engineering.
             </p>
 
             <div id="timeline-container" class="space-y-0">
-
-                <!-- VOL (Current) -->
                 <div class="relative pl-8 pb-12 border-l-2 border-gray-200">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-black"></div>
                     <p class="caption mb-1">Feb 2024 – Present</p>
@@ -114,13 +221,11 @@
                     <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Full-time · Mechanical Engineer, Product Designer</p>
                     <div class="space-y-3">
                         <div>
-                            <p class="text-gray-700 font-medium mb-1">Mechanical Engineer & Product Designer</p>
+                            <p class="text-gray-700 font-medium mb-1">Mechanical Engineer &amp; Product Designer</p>
                             <p class="text-gray-600 leading-relaxed">Voluntary work designing and engineering optical laboratory equipment and products for the Armed Forces of Ukraine.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Career Break -->
                 <div class="relative pl-8 pb-12 border-l-2 border-gray-200">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-400"></div>
                     <p class="caption mb-1">May 2022 – Dec 2023</p>
@@ -133,94 +238,102 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Collapsed Items (Initially Hidden) -->
-                <div id="collapsed-timeline" class="timeline-collapsed">
-
-                    <!-- HebronSoft -->
-                    <div class="relative pl-8 pb-12 border-l-2 border-gray-200">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-black"></div>
-                        <p class="caption mb-1">Jun 2021 – May 2022</p>
-                        <h3 class="text-xl font-serif font-bold mb-1">HebronSoft</h3>
-                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Full-time · UI Designer, UX Designer</p>
-                        <div class="space-y-3">
-                            <div>
-                                <p class="text-gray-700 font-medium mb-1">UI Designer / Developer</p>
-                                <p class="text-gray-600 leading-relaxed">Designed and developed user interfaces across the full design-to-development pipeline.</p>
-                            </div>
-                            <div>
-                                <p class="caption mb-0">Dec 2020 – May 2021 · Part-time</p>
-                                <p class="text-gray-700 font-medium mb-1">FeliTalk</p>
-                                <p class="text-gray-600 leading-relaxed">UI design and development for a communication platform.</p>
-                            </div>
+                <div id="collapsed-timeline" class="timeline-collapsed collapsed">
+                <div class="relative pl-8 pb-12 border-l-2 border-gray-200">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-black"></div>
+                    <p class="caption mb-1">Jun 2021 – May 2022</p>
+                    <h3 class="text-xl font-serif font-bold mb-1">HebronSoft</h3>
+                    <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Full-time · UI Designer, UX Designer</p>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="text-gray-700 font-medium mb-1">UI Designer / Developer</p>
+                            <p class="text-gray-600 leading-relaxed">Designed and developed user interfaces across the full design-to-development pipeline.</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-700 font-medium mb-1">FeliTalk</p>
+                            <p class="caption mb-0">Dec 2020 – May 2021 · Part-time</p>
+                            <p class="text-gray-600 leading-relaxed">UI design and development for a communication platform.</p>
                         </div>
                     </div>
-
-                    <!-- Cygnati Group -->
-                    <div class="relative pl-8 pb-12 border-l-2 border-gray-200">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-black"></div>
-                        <p class="caption mb-1">Feb 2019 – Mar 2020</p>
-                        <h3 class="text-xl font-serif font-bold mb-1">Cygnati Group</h3>
-                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Full-time · UX Designer, UI Developer</p>
-                        <p class="text-gray-600 leading-relaxed">Worked on medical cannabis portal, restaurant employee scoring system, and landing pages.</p>
-                    </div>
-
-                    <!-- Codemotion Ninjas -->
-                    <div class="relative pl-8 pb-12 border-l-2 border-gray-200">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-black"></div>
-                        <p class="caption mb-1">Mar 2017 – Jan 2019</p>
-                        <h3 class="text-xl font-serif font-bold mb-1">Codemotion Ninjas</h3>
-                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Full-time · HTML5 Developer</p>
-                        <p class="text-gray-600 leading-relaxed">UI development for Mercteil, Linkry Events, Vtax, and payment gateway solutions.</p>
-                    </div>
-
-                    <!-- Early Career -->
-                    <div class="relative pl-8 border-l-2 border-gray-200">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-black"></div>
-                        <p class="caption mb-1">Apr 2015 – Feb 2017</p>
-                        <h3 class="text-xl font-serif font-bold mb-1">Early Career</h3>
-                        <div class="space-y-2">
-                            <div>
-                                <p class="text-gray-700 font-medium mb-1">Saleslion Suomi Oy · Oct 2016 – Feb 2017</p>
-                                <p class="text-gray-600 leading-relaxed">Frontend development for business e-commerce portal.</p>
-                            </div>
-                            <div>
-                                <p class="text-gray-700 font-medium mb-1">InvestGo24 · Oct 2015 – Apr 2016</p>
-                                <p class="text-gray-600 leading-relaxed">Landing page and crowdfunding portal design.</p>
-                            </div>
-                            <div>
-                                <p class="text-gray-700 font-medium mb-1">BITECC GmbH · Apr 2015 – Oct 2015</p>
-                                <p class="text-gray-600 leading-relaxed">Frontend development and refactoring for social network.</p>
-                            </div>
+                </div>
+                <div class="relative pl-8 pb-12 border-l-2 border-gray-200">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-black"></div>
+                    <p class="caption mb-1">Feb 2019 – Mar 2020</p>
+                    <h3 class="text-xl font-serif font-bold mb-1">Cygnati Group</h3>
+                    <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Full-time · UX Designer, UI Developer</p>
+                            <p class="text-gray-600 leading-relaxed">Worked on medical cannabis portal, restaurant employee scoring system, and landing pages.</p>
+                </div>
+                <div class="relative pl-8 pb-12 border-l-2 border-gray-200">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-black"></div>
+                    <p class="caption mb-1">Mar 2017 – Jan 2019</p>
+                    <h3 class="text-xl font-serif font-bold mb-1">Codemotion Ninjas</h3>
+                    <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Full-time · HTML5 Developer</p>
+                            <p class="text-gray-600 leading-relaxed">UI development for Mercteil, Linkry Events, Vtax, and payment gateway solutions.</p>
+                </div>
+                <div class="relative pl-8 border-l-2 border-gray-200">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-black"></div>
+                    <p class="caption mb-1">Apr 2015 – Feb 2017</p>
+                    <h3 class="text-xl font-serif font-bold mb-1">Early Career</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="text-gray-700 font-medium mb-1">Saleslion Suomi Oy · Oct 2016 – Feb 2017</p>
+                            <p class="text-gray-600 leading-relaxed">Frontend development for business e-commerce portal.</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-700 font-medium mb-1">InvestGo24 · Oct 2015 – Apr 2016</p>
+                            <p class="text-gray-600 leading-relaxed">Landing page and crowdfunding portal design.</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-700 font-medium mb-1">BITECC GmbH · Apr 2015 – Oct 2015</p>
+                            <p class="text-gray-600 leading-relaxed">Frontend development and refactoring for social network.</p>
                         </div>
                     </div>
-
+                </div>
                 </div>
             </div>
-
-            <!-- Expand Button -->
-            <button id="expand-timeline" class="mt-6 inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-900 transition-colors">
+            <button id="expand-timeline" class="mt-6 inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-900 transition-colors btn-primary">
                 <span>Expand Timeline &darr;</span>
             </button>
-            <!-- Collapse Button -->
-            <button id="collapse-timeline" class="mt-6 hidden inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-900 transition-colors">
+            <button id="collapse-timeline" class="mt-6 hidden inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-900 transition-colors btn-primary">
                 <span>Collapse Timeline &uarr;</span>
             </button>
+
         </div>
     </section>
 
     <!-- Projects Section (Featured) -->
     <section id="projects" class="section py-20 px-6 bg-gray-50">
         <div class="container mx-auto max-w-3xl">
-            <h2 class="text-3xl font-serif mb-8">Featured Projects</h2>
+            <h2 class="text-3xl font-serif section-title-mb-8">Featured Projects</h2>
             <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
                 A selection of recent work demonstrating my product design approach and problem-solving skills.
             </p>
             <div id="projects-grid" class="grid gap-8 md:grid-cols-2">
-                <!-- Projects will be injected here by JavaScript (limited to 2) -->
+                    <a href="projects/project-1.html" class="block h-full">
+                        <div class="group flex flex-col h-full">
+                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fG1vYmlsZSUyMGFwcCUyMHRhc2tzfGVufDB8fHx8MTY2NjQ5NjM2MA&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=800" alt="TaskFlow Mobile App" class="w-full" loading="lazy">
+                            <div class="group-content flex flex-col flex-grow">
+                                <h3 class="text-xl font-serif mb-2">TaskFlow Mobile App</h3>
+                                <p class="text-gray-600 mb-2 leading-relaxed">I designed a mobile task management application that helps users organize their daily responsibilities through intuitive interactions and visual clarity, reducing cognitive load in busy workflows.</p>
+                                <hr class="divider">
+                                <p class="caption mt-auto">This project explores how thoughtful interaction design can transform routine task management into a seamless, satisfying experience that adapts to users' natural workflows.</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="projects/project-2.html" class="block h-full">
+                        <div class="group flex flex-col h-full">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwyNjY2OHwwfDF8c2VhcmNofDJ8fGUtQ29tbWVyY2UlMjBzZWxsfGVufDB8fHx8MTY2NjQ5NjM4MA&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=800" alt="NovaCheckout Redesign" class="w-full" loading="lazy">
+                            <div class="group-content flex flex-col flex-grow">
+                                <h3 class="text-xl font-serif mb-2">NovaCheckout Redesign</h3>
+                                <p class="text-gray-600 mb-2 leading-relaxed">I led the redesign of an e-commerce checkout flow focused on reducing friction and building trust through clear progress indicators, transparent pricing, and streamlined form interactions that respect users' time and intention to purchase.</p>
+                                <hr class="divider">
+                                <p class="caption mt-auto">By simplifying complex form fields and providing real-time validation, this redesign aims to increase conversion rates while maintaining the security and reliability users expect from online transactions.</p>
+                            </div>
+                        </div>
+                    </a>
             </div>
             <div class="mt-10 text-center">
-                <a href="projects.html" class="inline-block px-8 py-4 bg-black text-white rounded-lg font-medium hover:bg-gray-900 transition-colors">
+                <a href="projects.html" class="inline-block px-8 py-4 bg-black text-white rounded-lg font-medium hover:bg-gray-900 transition-colors btn-primary">
                     See All Projects →
                 </a>
             </div>
@@ -230,7 +343,7 @@
     <!-- Contact Section (Short Version) -->
     <section id="contact-preview" class="section py-16 px-6">
         <div class="container mx-auto max-w-3xl">
-            <h2 class="text-3xl font-serif mb-6">Get in Touch</h2>
+            <h2 class="text-3xl font-serif section-title-mb-6">Get in Touch</h2>
             <p class="text-gray-700 leading-relaxed mb-6 max-w-2xl mx-auto">
                 I'm always open to discussing new projects, creative collaborations, or design conversations.
                 Feel free to reach out via email or LinkedIn.
@@ -239,13 +352,13 @@
                 <div>
                     <h3 class="text-2xl font-serif mb-4">Email</h3>
                     <p class="text-gray-600 mb-4">
-                        <a href="mailto:denys@example.com" class="nav-link hover:opacity-70">denys@example.com</a>
+                        <a href="mailto:denismalovany@gmail.com" class="nav-link hover:opacity-70">denismalovany@gmail.com</a>
                     </p>
                 </div>
                 <div>
                     <h3 class="text-2xl font-serif mb-4">LinkedIn</h3>
                     <p class="text-gray-600 mb-4">
-                        <a href="https://linkedin.com/in/malovany" class="nav-link hover:opacity-70" target="_blank" rel="noopener">linkedin.com/in/malovany</a>
+                        <a href="https://linkedin.com/in/malovany" class="nav-link hover:opacity-70" target="_blank" rel="noopener noreferrer">linkedin.com/in/malovany</a>
                     </p>
                 </div>
             </div>
@@ -254,7 +367,5 @@
             </a>
         </div>
     </section>
-
-    <script src="assets/js/script.js"></script>
 </body>
 </html>
