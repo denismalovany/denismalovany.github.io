@@ -3,6 +3,9 @@ window.siteData = {
   email: "denismalovany@gmail.com",
   linkedin: "https://linkedin.com/in/malovany",
   linkedinHandle: "linkedin.com/in/malovany",
+  behance: "https://www.behance.net/malovany",
+  dribbble: "https://dribbble.com/malovany",
+  resumePdf: "",
   tagline: "UX/UI & Product Designer · AI-Augmented Workflows · 9+ Years of Experience",
   aboutTagline: "Designer/Engineer/AI Enthusiast",
   currentRole: "Mechanical Engineer & Product Designer at VOL Volunteer Optical Laboratory",
@@ -19,7 +22,7 @@ window.siteData = {
     },
     contact: {
       title: "Denys Malovanyi - Contact",
-      description: "Get in touch with Denys Malovanyi — product designer and engineer. Email or LinkedIn."
+      description: "Contact Denys Malovanyi — product designer and engineer. Email, LinkedIn, Behance, Dribbble. Download resume."
     },
     projects: {
       title: "All Projects - Denys Malovanyi Portfolio",

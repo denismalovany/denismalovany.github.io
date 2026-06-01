@@ -51,6 +51,9 @@ function renderNavLinks(root, isMobile) {
 }
 
 function renderHeader(root) {
+    var resumeLink = siteData.resumePdf || 'javascript:window.print()';
+    var resumeLabel = siteData.resumePdf ? 'Download PDF' : 'Print / Save PDF';
+
     return '<header id="site-header" class="flex flex-col">\n' +
         '        <div class="flex items-center justify-between py-4 px-6">\n' +
         '            <div class="flex items-center space-x-2">\n' +
@@ -59,8 +62,12 @@ function renderHeader(root) {
         '                    <span class="text-sm font-sans uppercase tracking-wider text-gray-500">Portfolio</span>\n' +
         '                </a>\n' +
         '            </div>\n' +
-        '            <nav class="hidden md:flex space-x-4">\n' +
+        '            <nav class="hidden md:flex items-center space-x-4">\n' +
         '                ' + renderNavLinks(root, false) + '\n' +
+        '                <a href="' + esc(resumeLink) + '" class="header-pdf-link" aria-label="' + esc(resumeLabel) + '"' + (siteData.resumePdf ? '' : ' onclick="window.print();return false"') + '>\n' +
+        '                    <svg class="header-pdf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>\n' +
+        '                    <span>PDF</span>\n' +
+        '                </a>\n' +
         '            </nav>\n' +
         '            <button id="mobile-menu-toggle" class="md:hidden flex items-center justify-center w-10 h-10 rounded hover:bg-gray-50 relative" aria-label="Toggle navigation menu" aria-expanded="false">\n' +
         '                <svg id="mobile-menu-icon" class="h-5 w-5 text-gray-600 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\n' +
@@ -74,9 +81,43 @@ function renderHeader(root) {
         '        <div id="mobile-menu" class="w-full bg-white border-t border-gray-100">\n' +
         '            <div class="px-4 py-3 space-y-2">\n' +
         '                ' + renderNavLinks(root, true) + '\n' +
+        '                <a href="' + esc(resumeLink) + '" class="header-pdf-link header-pdf-link--mobile"' + (siteData.resumePdf ? '' : ' onclick="window.print();return false"') + '>\n' +
+        '                    <svg class="header-pdf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>\n' +
+        '                    <span>' + esc(resumeLabel) + '</span>\n' +
+        '                </a>\n' +
         '            </div>\n' +
         '        </div>\n' +
         '    </header>';
+}
+
+function renderFooter(root) {
+    root = root || '';
+
+    var socialLinks = [
+        { label: 'LinkedIn', href: siteData.linkedin, external: true },
+        { label: 'Email', href: 'mailto:' + siteData.email, external: false },
+        { label: 'Behance', href: siteData.behance, external: true },
+        { label: 'Dribbble', href: siteData.dribbble, external: true }
+    ];
+
+    var socialHtml = socialLinks.map(function(link) {
+        var attrs = 'class="footer-link"';
+        if (link.external) attrs += ' target="_blank" rel="noopener noreferrer"';
+        return '                    <a href="' + esc(link.href) + '" ' + attrs + '>' + esc(link.label) + '</a>';
+    }).join('\n');
+
+    return '<footer class="site-footer">\n' +
+        '    <div class="footer-inner">\n' +
+        '        <div class="footer-left">\n' +
+        '            <p class="footer-copy">&copy; ' + siteData.copyrightYear + ' ' + esc(siteData.name) + '</p>\n' +
+        '        </div>\n' +
+        '        <div class="footer-right">\n' +
+        '            <div class="footer-social">\n' +
+        socialHtml + '\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </div>\n' +
+        '</footer>';
 }
 
 function renderProjectCard(project, root) {
@@ -270,6 +311,10 @@ function processBuildMarkers(html, root, pageKey) {
 
     html = html.replace(/<!-- BUILD_HEADER root="([^"]*)" -->/g, function(match, r) {
         return renderHeader(r || root);
+    });
+
+    html = html.replace(/<!-- BUILD_FOOTER root="([^"]*)" -->/g, function(match, r) {
+        return renderFooter(r || root);
     });
 
     html = html.replace(/<!-- BUILD_TIMELINE collapsed=(true|false) -->/g, function(match, c) {
