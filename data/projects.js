@@ -2,10 +2,10 @@
 window.projectsData = [
   {
     "id": 1,
-    "title": "TaskFlow Mobile App",
-    "description": "I designed a mobile task management application that helps users organize their daily responsibilities through intuitive interactions and visual clarity, reducing cognitive load in busy workflows.",
-    "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fG1vYmlsZSUyMGFwcCUyMHRhc2tzfGVufDB8fHx8MTY2NjQ5NjM2MA&ixlib=rb-1.2.1&q=80&w=800",
-    "caption": "This project explores how thoughtful interaction design can transform routine task management into a seamless, satisfying experience that adapts to users' natural workflows."
+    "title": "CoffeeNanny Lviv Franchise Website",
+    "description": "CoffeeNanny helps families find trusted nannies for their children. But without a proper website, the Lviv franchise had a trust problem — serious clients needed transparency, pricing, and a professional channel before trusting their kids to a new service. Especially during wartime, many displaced families were searching for nannies on Google, not local Instagram pages — a website was the only way to reach them. I researched direct and indirect competitors to identify key differentiators, then led UX audit, client interviews, Figma design, and a Wix MVP that turned the business from near-collapse to stable growth. Today ~10% of new clients come directly through the website, with even more social leads crediting the site for their trust.",
+    "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800",
+    "caption": "Research-driven design and rapid MVP development solved a critical trust gap — turning a struggling franchise into a stable, growing business."
   },
   {
     "id": 2,
