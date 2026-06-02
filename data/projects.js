@@ -22,13 +22,13 @@ window.projectsData = [
   },
   {
     "id": 3,
-    "title": "InsightView Analytics Dashboard",
-    "role": "UX/UI Designer & Product Designer",
-    "tags": ["Data Visualization", "Dashboard Design", "Information Architecture", "User Research"],
-    "summary": "Created a data visualization tool that transforms complex datasets into clear, actionable insights through thoughtful information hierarchy and contextual help.",
-    "description": "I created a data visualization tool that transforms complex datasets into clear, actionable insights through thoughtful information hierarchy, contextual help, and customizable views that adapt to different user expertise levels.",
-    "impact": "Balances depth for expert analysts with accessibility for novice users",
-    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDJ8fGRhc2hib2FyZCUyMGFuYWx5dGljc3xlbnwwfHx8fDE2NjY0OTY0MDA&ixlib=rb-1.2.1&q=80&w=800"
+    "title": "Capacitive Stamp Loyalty System",
+    "role": "Product Designer — Physical & Digital",
+    "tags": ["Physical Product Design", "Capacitive Touch", "3D Printing & Prototyping", "Hardware-Software Integration", "Loyalty System", "Interaction Design"],
+    "summary": "Designed a novel physical loyalty stamp that uses conductive touch patterns to identify businesses — from concept and prototyping through to real-world testing with coffee shops.",
+    "description": "I led the physical and interaction design of a capacitive loyalty stamp system — a tangible alternative to NFC and QR codes. Each business gets a unique stamp with a grid of conductive touch dots that the customer's phone screen reads when pressed against it, identifying the business and awarding loyalty bonuses. I researched production methods, phone screen sizes and touch capabilities across devices, and designed the conductive dot grid patterns. First prototypes were 3D-printed with conductive filament for developer testing. The project reached live testing with connected coffee shops, proving the concept before the company shifted focus to backend development.",
+    "impact": "Validated a novel physical-to-digital interaction for loyalty programs; solved partial-pattern recognition via software fallback",
+    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
   },
   {
     "id": 4,
