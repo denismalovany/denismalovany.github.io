@@ -12,13 +12,13 @@ window.projectsData = [
   },
   {
     "id": 2,
-    "title": "NovaCheckout Redesign",
-    "role": "UX/UI Designer & Product Designer",
-    "tags": ["E-commerce", "Conversion Optimization", "Checkout UX", "Form Design"],
-    "summary": "Redesigned an e-commerce checkout flow to reduce friction through clear progress indicators, transparent pricing, and streamlined form interactions that respect users' time.",
-    "description": "I led the redesign of an e-commerce checkout flow focused on reducing friction and building trust through clear progress indicators, transparent pricing, and streamlined form interactions that respect users' time and intention to purchase.",
-    "impact": "Aimed to increase conversion rates through trust-building UX and real-time validation",
-    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDJ8fGUtQ29tbWVyY2UlMjBzZWxsfGVufDB8fHx8MTY2NjQ5NjM4MA&ixlib=rb-1.2.1&q=80&w=800"
+    "title": "Volunteer Centre County",
+    "role": "UX/UI Designer & Product Designer/Manager",
+    "tags": ["Non-Profit UX", "Stakeholder Interviews", "Competitor Analysis", "Figma", "Design System", "Sitemap & IA", "Client Workshops"],
+    "summary": "Designed a complete volunteer matching platform connecting Centre County, PA residents with local nonprofits — from stakeholder research and competitor analysis through to Figma design system and developer handoff.",
+    "description": "Volunteer Centre County is a community-driven platform that connects residents of Centre County, Pennsylvania with local nonprofits seeking volunteers and donated goods. As the UX/UI Designer and Product Designer/Manager, I led the entire design lifecycle — from stakeholder interviews and competitor analysis through to a full Figma design system and successful delivery within a fixed-price, deadline-constrained project. The client was deeply involved at every stage through iterative workshops, ensuring full alignment and a final product that exceeded expectations with zero post-delivery revision requests.",
+    "impact": "Delivered on time with minimal delays; client has planned future improvements based on the original sitemap",
+    "image": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
   },
   {
     "id": 3,
