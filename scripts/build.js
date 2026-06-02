@@ -273,6 +273,17 @@ function renderMeta(pageKey) {
     ].join('\n');
 }
 
+function renderProjectMeta(project) {
+    return [
+        '    <meta name="description" content="' + esc(project.metaDescription) + '">',
+        '    <meta property="og:title" content="' + esc(project.metaTitle) + '">',
+        '    <meta property="og:description" content="' + esc(project.metaDescription) + '">',
+        '    <meta property="og:type" content="website">',
+        '    <meta property="og:url" content="https://malovanyi.com">',
+        '    <meta name="twitter:card" content="summary">'
+    ].join('\n');
+}
+
 function renderJsonLd() {
     var worksFor = [];
     timelineData.forEach(function(entry) {
@@ -306,7 +317,7 @@ function renderJsonLd() {
     return '    <script type="application/ld+json">\n' + JSON.stringify(ld, null, 4) + '\n    </script>';
 }
 
-function processBuildMarkers(html, root, pageKey) {
+function processBuildMarkers(html, root, pageKey, projectData) {
     root = root || '';
 
     html = html.replace(/<!-- BUILD_HEADER root="([^"]*)" -->/g, function(match, r) {
@@ -340,6 +351,9 @@ function processBuildMarkers(html, root, pageKey) {
     });
 
     html = html.replace(/<!-- BUILD_META page=(\w+) -->/g, function(match, key) {
+        if (projectData && projectData.metaTitle) {
+            return renderProjectMeta(projectData) + '\n' + renderJsonLd();
+        }
         return renderMeta(key) + '\n' + renderJsonLd();
     });
 
@@ -374,13 +388,22 @@ function build() {
         var isNested = relativePath.includes('projects' + path.sep) && !relativePath.endsWith('projects.html');
         var root = isNested ? '../' : '';
 
+        var projectData = null;
+        if (isNested) {
+            var match = path.basename(relativePath).match(/project-(\d+)\.html$/);
+            if (match) {
+                var pid = parseInt(match[1], 10);
+                projectData = projectsData.find(function(p) { return p.id === pid; }) || null;
+            }
+        }
+
         var pageKey = 'index';
         if (relativePath.endsWith('about.html')) pageKey = 'about';
         else if (relativePath.endsWith('contact.html')) pageKey = 'contact';
         else if (relativePath.endsWith('projects.html')) pageKey = 'projects';
         else if (isNested) pageKey = 'projects';
 
-        html = processBuildMarkers(html, root, pageKey);
+        html = processBuildMarkers(html, root, pageKey, projectData);
 
         var outDir = path.dirname(outputPath);
         if (!fs.existsSync(outDir)) {

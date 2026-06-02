@@ -7,7 +7,9 @@ window.projectsData = [
     "tags": ["Figma", "UX Research", "Wix", "AI-Assisted Design", "MVP"],
     "summary": "Led the complete digital rebuild of a childcare franchise's online presence — from UX audit and client interviews to a rapid Wix MVP that restored client trust and acquisition.",
     "description": "CoffeeNanny helps families find trusted nannies for their children. But without a proper website, the Lviv franchise had a trust problem — serious clients needed transparency, pricing, and a professional channel before trusting their kids to a new service. Especially during wartime, many displaced families were searching for nannies on Google, not local Instagram pages — a website was the only way to reach them. I researched direct and indirect competitors to identify key differentiators, then led UX audit, client interviews, Figma design with early AI-assisted style exploration, and a Wix MVP that turned the business from near-collapse to stable growth. Today ~10% of new clients come directly through the website, with even more social leads crediting the site for their trust.",
-    "impact": "10% of new clients come directly through the website",
+    "metaTitle": "CoffeeNanny Lviv Franchise Website - Denys Malovanyi Portfolio",
+    "metaDescription": "Case study: CoffeeNanny Lviv Franchise Website by Denys Malovanyi — UX audit, client interviews, Figma design, AI-assisted workflow, Wix MVP.",
+    "impact": "Bounce rate fell 90%→55%; 20× traffic growth; site still live & franchise expanded to 9 cities",
     "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
   },
   {
@@ -17,6 +19,8 @@ window.projectsData = [
     "tags": ["Non-Profit UX", "Stakeholder Interviews", "Competitor Analysis", "Figma", "Design System", "Sitemap & IA", "Client Workshops"],
     "summary": "Designed a complete volunteer matching platform connecting Centre County, PA residents with local nonprofits — from stakeholder research and competitor analysis through to Figma design system and developer handoff.",
     "description": "Volunteer Centre County is a community-driven platform that connects residents of Centre County, Pennsylvania with local nonprofits seeking volunteers and donated goods. As the UX/UI Designer and Product Designer/Manager, I led the entire design lifecycle — from stakeholder interviews and competitor analysis through to a full Figma design system and successful delivery within a fixed-price, deadline-constrained project. The client was deeply involved at every stage through iterative workshops, ensuring full alignment and a final product that exceeded expectations with zero post-delivery revision requests.",
+    "metaTitle": "Volunteer Centre County - Denys Malovanyi Portfolio",
+    "metaDescription": "Case study: Volunteer Centre County connecting PA residents with nonprofits by Denys Malovanyi — stakeholder research, Figma design system, client workshops.",
     "impact": "Delivered on time with minimal delays; client has planned future improvements based on the original sitemap",
     "image": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
   },
@@ -27,6 +31,8 @@ window.projectsData = [
     "tags": ["Physical Product Design", "Capacitive Touch", "3D Printing & Prototyping", "Hardware-Software Integration", "Loyalty System", "Interaction Design"],
     "summary": "Designed a novel physical loyalty stamp that uses conductive touch patterns to identify businesses — from concept and prototyping through to real-world testing with coffee shops.",
     "description": "I led the physical and interaction design of a capacitive loyalty stamp system — a tangible alternative to NFC and QR codes. Each business gets a unique stamp with a grid of conductive touch dots that the customer's phone screen reads when pressed against it, identifying the business and awarding loyalty bonuses. I researched production methods, phone screen sizes and touch capabilities across devices, and designed the conductive dot grid patterns. First prototypes were 3D-printed with conductive filament for developer testing. The project reached live testing with connected coffee shops, proving the concept before the company shifted focus to backend development.",
+    "metaTitle": "Capacitive Stamp Loyalty System - Denys Malovanyi Portfolio",
+    "metaDescription": "Case study: Capacitive Stamp Loyalty System by Denys Malovanyi — physical product design, 3D printing, capacitive touch interaction.",
     "impact": "Validated a novel physical-to-digital interaction for loyalty programs; solved partial-pattern recognition via software fallback",
     "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
   },
