@@ -35,11 +35,19 @@ window.timelineData = [
       {
         role: "UI Designer / Developer",
         description: "Designed and developed user interfaces across the full design-to-development pipeline."
-      },
+      }
+    ]
+  },
+  {
+    period: "Dec 2020 – May 2021",
+    company: "FeliTalk",
+    subtitle: "Part-time · UI Designer, HTML Developer",
+    dotColor: "black",
+    collapsed: true,
+    details: [
       {
-        role: "FeliTalk",
-        period: "Dec 2020 – May 2021 · Part-time",
-        description: "UI design and development for a communication platform."
+        role: "UI Designer & HTML Developer",
+        description: "Designed and hand-coded ~90% of client-facing pages for a Japanese-market English learning platform — extending the visual language across ~20 unique templates."
       }
     ]
   },
