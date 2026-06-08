@@ -38,13 +38,15 @@ window.projectsData = [
   },
   {
     "id": 4,
-    "title": "Nexus Smart Home Controller",
-    "role": "UX/UI Designer & Product Designer",
-    "tags": ["IoT", "Smart Home", "Interaction Design", "Mobile UI"],
-    "summary": "Designed an IoT interface for managing connected home devices that prioritizes simplicity and consistent interaction patterns across device types.",
-    "description": "I designed an IoT interface for managing connected home devices that prioritizes simplicity and consistency, allowing users to control lighting, climate, and security systems through familiar patterns that reduce the learning curve for smart home technology.",
-    "impact": "Reduces learning curve for smart home technology adoption",
-    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fFNtYXJ0JTIwaG9tZSUyMEF1dG9tYXRpb258ZW58MHx8fHwxNjY2NDk2NDQ0&ixlib=rb-1.2.1&q=80&w=800"
+    "title": "Breather Coach — Respiratory Training App",
+    "role": "UX/UI Designer",
+    "tags": ["Figma", "Design System", "Healthcare UX", "FDA Compliance", "Mobile Design", "Design Audit"],
+    "summary": "Took over a troubled respiratory training app and brought order to chaos — unifying a fragmented design system inherited with significant design debt and designing the FDA clinical trial module used to validate the device's medical efficacy.",
+    "description": "The Breather Coach app is the companion to The Breather, a respiratory muscle training device by PN Medical used by 2+ million people. When I joined, the project carried significant design debt — an inconsistent, fragmented interface built on outdated tech. I audited and unified the entire design in Figma — standardizing components, consolidating scattered color palettes, and building a coherent design system from the existing chaos. In parallel, I designed the FDA-facing clinical trial module: training screens and patient questionnaires used in real studies to validate the device's efficacy for medical treatment and military pilot training.",
+    "metaTitle": "Breather Coach — Respiratory Training App - Denys Malovanyi Portfolio",
+    "metaDescription": "Case study: Breather Coach app by Denys Malovanyi — design system unification, FDA clinical trial module, healthcare UX for respiratory muscle training device.",
+    "impact": "Unified fragmented design system; FDA clinical trial module deployed in real patient studies",
+    "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
   },
   {
     "id": 5,
