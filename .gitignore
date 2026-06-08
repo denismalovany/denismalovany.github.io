@@ -2,7 +2,7 @@
 node_modules/
 
 # Build artifacts
-_site/
+# _site/
 dist/
 .eleventy/
 
