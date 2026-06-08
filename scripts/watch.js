@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const WATCH_DIRS = ['pages', 'data', 'assets'];
+const WATCH_DIRS = ['pages', 'data', 'assets', 'scripts'];
 
 function debounce(fn, ms) {
     let timer;
