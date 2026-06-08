@@ -59,15 +59,5 @@ window.projectsData = [
     "metaDescription": "Case study: FeliTalk by Denys Malovanyi — UI design, HTML/CSS, Japanese market, cross-cultural typography, developer collaboration.",
     "impact": "Delivered ~90% of client-facing platform; site live at felitalk.com serving Japanese learners",
     "image": "https://images.unsplash.com/photo-1610484826967-09c5720778c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-  },
-  {
-    "id": 6,
-    "title": "TactiField Military Interface",
-    "role": "UX/UI Designer & Product Designer",
-    "tags": ["Military UX", "Tactical UI", "High-Stakes Design", "Information Hierarchy"],
-    "summary": "Designed a tactical display system for field operations that prioritizes critical information under pressure through clear visual hierarchy and minimal cognitive load.",
-    "description": "I designed a tactical display system for field operations that prioritizes critical information under pressure, using clear visual hierarchy, consistent symbology, and minimal cognitive load to support rapid decision-making in high-stakes environments.",
-    "impact": "Enables rapid decision-making in high-stakes operational environments",
-    "image": "https://images.unsplash.com/photo-1579577484348-1ac6a8541d0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fE1pbGl0YXJ5JTIwVGVzdGluZ3x8ZW58MHx8fHwxNjY2NDk2NDUy&ixlib=rb-1.2.1&q=80&w=800"
   }
 ];
