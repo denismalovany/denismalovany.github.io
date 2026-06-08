@@ -208,10 +208,10 @@ function renderTimeline(collapsed) {
         });
         html += '                </div>\n';
         html += '            </div>\n';
-        html += '            <button id="expand-timeline" class="mt-6 inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-900 transition-colors btn-primary">\n';
+        html += '            <button id="expand-timeline" class="mt-6 inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium btn-primary">\n';
         html += '                <span>Expand Timeline &darr;</span>\n';
         html += '            </button>\n';
-        html += '            <button id="collapse-timeline" class="mt-6 hidden inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-900 transition-colors btn-primary">\n';
+        html += '            <button id="collapse-timeline" class="mt-6 hidden inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium btn-primary">\n';
         html += '                <span>Collapse Timeline &uarr;</span>\n';
         html += '            </button>\n';
     } else {

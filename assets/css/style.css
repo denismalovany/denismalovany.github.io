@@ -254,13 +254,14 @@ header {
 }
 
 .btn-outline:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-xl);
   border-color: var(--color-gray-400);
+  background: var(--color-gray-50);
 }
 
 .btn-outline:active {
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1.005);
   box-shadow: var(--shadow-sm);
 }
 
@@ -506,12 +507,12 @@ hr.divider {
 
 .contact-btn--primary:hover {
   background: var(--color-gray-900);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-xl);
 }
 
 .contact-btn--primary:active {
-  transform: translateY(0);
+  transform: translateY(-1px) scale(1.005);
   box-shadow: var(--shadow-sm);
 }
 
@@ -524,12 +525,12 @@ hr.divider {
 .contact-btn--outline:hover {
   color: var(--color-black);
   border-color: var(--color-gray-400);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-xl);
 }
 
 .contact-btn--outline:active {
-  transform: translateY(0);
+  transform: translateY(-1px) scale(1.005);
   box-shadow: var(--shadow-sm);
 }
 
@@ -651,7 +652,9 @@ hr.divider {
   }
 
   .btn-primary,
-  .btn-outline {
+  .btn-outline,
+  .contact-btn--primary,
+  .contact-btn--outline {
     box-shadow: none;
     transform: none;
     background: none;
@@ -660,7 +663,9 @@ hr.divider {
   }
 
   .btn-primary:hover,
-  .btn-outline:hover {
+  .btn-outline:hover,
+  .contact-btn--primary:hover,
+  .contact-btn--outline:hover {
     transform: none;
     box-shadow: none;
   }
