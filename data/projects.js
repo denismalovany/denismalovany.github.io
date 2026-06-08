@@ -50,13 +50,15 @@ window.projectsData = [
   },
   {
     "id": 5,
-    "title": "ResearchLens Data Visualization Tool",
-    "role": "UX/UI Designer & Product Designer",
-    "tags": ["Data Visualization", "Scientific UX", "Visual Storytelling", "Research Tools"],
-    "summary": "Developed a specialized visualization platform for scientific researchers that transforms experimental data into clear visual narratives.",
-    "description": "I developed a specialized visualization platform for scientific researchers that transforms complex experimental data into clear visual narratives, helping scientists identify patterns, validate hypotheses, and communicate findings more effectively.",
-    "impact": "Bridges the gap between complex analysis and accessible interpretation",
-    "image": "https://images.unsplash.com/photo-1550751826-455c91c109aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNjY2OHwwfDF8c2VhcmNofDF8fERhc2hib2FyZCUyMGFuYWx5sGljc3xlbnwwfHx8fDE2NjY0OTY0MDE&ixlib=rb-1.2.1&q=80&w=800"
+    "title": "FeliTalk — Online English Platform for Japanese Market",
+    "role": "UI Designer & HTML Developer",
+    "tags": ["UI Design", "HTML/CSS", "Japanese Market", "Cross-Cultural UX", "Design System", "Dev Collaboration"],
+    "summary": "Designed and hand-coded ~90% of client-facing pages for a Japanese-market English learning platform — extending a starter design system across ~20 unique templates.",
+    "description": "FeliTalk connects Japanese English learners with teachers — the majority from Ukraine — through a motivation-driven platform. I joined a project that already had wireframes and a starter design system from the previous designer. My job: design and hand-code every client-facing page, extending the visual language consistently across ~20 unique templates. I adapted every layout for Japanese typography after discovering that Latin-to-kanji text replacement broke font sizes and spacing everywhere. Delivered via standard git flow and collaborated with backend developers from a position of technical fluency — I could assess complexity claims and suggest simpler implementations.",
+    "metaTitle": "FeliTalk — Online English Platform for Japanese Market - Denys Malovanyi Portfolio",
+    "metaDescription": "Case study: FeliTalk by Denys Malovanyi — UI design, HTML/CSS, Japanese market, cross-cultural typography, developer collaboration.",
+    "impact": "Delivered ~90% of client-facing platform; site live at felitalk.com serving Japanese learners",
+    "image": "https://images.unsplash.com/photo-1610484826967-09c5720778c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
   },
   {
     "id": 6,
