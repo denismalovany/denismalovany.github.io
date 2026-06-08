@@ -59,5 +59,18 @@ window.projectsData = [
     "metaDescription": "Case study: FeliTalk by Denys Malovanyi — UI design, HTML/CSS, Japanese market, cross-cultural typography, developer collaboration.",
     "impact": "Delivered ~90% of client-facing platform; site live at felitalk.com serving Japanese learners",
     "image": "https://images.unsplash.com/photo-1610484826967-09c5720778c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+  },
+  {
+    "id": 6,
+    "title": "Safety Brochure — Instructional Design",
+    "role": "Workshop Facilitator & Instructional Designer",
+    "tags": ["Instructional Design", "Workshop Facilitation", "Field Communication", "Cross-Team Coordination"],
+    "summary": "Facilitated a cross-department workshop that surfaced the costliest recurring equipment failure — then coordinated engineers, SMM, and a graphic designer to produce an illustrated comic brochure placed in every repaired device.",
+    "description": "A volunteer workshop repairing specialized optical equipment faced a recurring problem: the most expensive and scarce component kept burning out because operators skipped the manual. I ran a workshop with engineers and department leads, mapping all recurring failures on a repair speed/cost matrix to surface the highest-impact issue. The SMM team proposed an educational response — I collected handling rules from engineers and coordinated a two-track solution: a social media video series (produced independently by SMM) and a compact z-fold brochure placed inside every repaired device. I created the instructional brief and structural wireframe, then handed off to a graphic designer who executed the final comic-style visuals — an illustrated dialogue between the device and the operator.",
+    "metaTitle": "Safety Brochure — Instructional Design - Denys Malovanyi Portfolio",
+    "metaDescription": "Case study: Safety Brochure by Denys Malovanyi — workshop facilitation, instructional design, comic-style field communication for equipment operators.",
+    "impact": "Repeat component burnouts decreased; unsolicited positive feedback from operators",
+    "image": "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
   }
+
 ];
