@@ -38,14 +38,14 @@ window.projectsData = [
   },
   {
     "id": 4,
-    "title": "Breather Coach — Respiratory Training App",
+    "title": "Breather Coach — UX Research & Product Diagnostics",
     "role": "UX/UI Designer",
-    "tags": ["Figma", "Design System", "Healthcare UX", "FDA Compliance", "Mobile Design", "Design Audit"],
-    "summary": "Took over a troubled respiratory training app and brought order to chaos — unifying a fragmented design system inherited with significant design debt and designing the FDA clinical trial module used to validate the device's medical efficacy.",
-    "description": "The Breather Coach app is the companion to The Breather, a respiratory muscle training device by PN Medical used by 2+ million people. When I joined, the project carried significant design debt — an inconsistent, fragmented interface built on outdated tech. I audited and unified the entire design in Figma — standardizing components, consolidating scattered color palettes, and building a coherent design system from the existing chaos. In parallel, I designed the FDA-facing clinical trial module: training screens and patient questionnaires used in real studies to validate the device's efficacy for medical treatment and military pilot training.",
-    "metaTitle": "Breather Coach — Respiratory Training App - Denys Malovanyi Portfolio",
-    "metaDescription": "Case study: Breather Coach app by Denys Malovanyi — design system unification, FDA clinical trial module, healthcare UX for respiratory muscle training device.",
-    "impact": "Unified fragmented design system; FDA clinical trial module deployed in real patient studies",
+    "tags": ["UX Research", "Usability Testing", "Design System", "Healthcare UX", "FDA Compliance", "Behavioral Analytics"],
+    "summary": "Systematically diagnosed why a respiratory training app was losing users — combining App Store analysis, usability testing (0% unaided completion), and behavioral analytics into an evidence-based blueprint for recovery.",
+    "description": "The Breather Coach app is the companion to The Breather, a respiratory muscle training device by PN Medical used by 2+ million people. When I joined, the app had a low rating and confused users. I conducted a four-phase diagnostic: App Store review analysis, a full design audit, usability testing that revealed 0% of users could complete a basic scenario unaided, and behavioral analytics showing registrations rising but training completions falling. I unified the fragmented design system, designed the FDA clinical trial module deployed in real patient studies, and delivered a research-backed blueprint of UX improvements grounded in both qualitative observation and quantitative data.",
+    "metaTitle": "Breather Coach — UX Research & Product Diagnostics - Denys Malovanyi Portfolio",
+    "metaDescription": "Case study: Breather Coach by Denys Malovanyi — UX research, usability testing, behavioral analytics, design system, FDA clinical trials for respiratory training device.",
+    "impact": "Evidence-based diagnostics: usability testing + behavioral analytics → validated blueprint",
     "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
   },
   {
