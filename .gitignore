@@ -1,10 +1,10 @@
 # Dependencies
 node_modules/
 
-# Build artifacts (uncomment if you add a non-root output directory)
-# dist/
-# _site/
-# .eleventy/
+# Build artifacts
+_site/
+dist/
+.eleventy/
 
 # Environment variables
 .env

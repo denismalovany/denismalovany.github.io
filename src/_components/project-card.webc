@@ -1,0 +1,13 @@
+<a :href="root + 'projects/project-' + project.id + '.html'" class="block h-full">
+  <div class="card-b h-full">
+    <img :src="project.image" :alt="project.title" class="card-b-img" loading="lazy">
+    <div class="card-b-body">
+      <div class="card-b-tags">
+        <span class="card-b-tag" webc:for="tag of project.tags" @text="tag"></span>
+      </div>
+      <h3 class="card-b-title" @text="project.title"></h3>
+      <p class="card-b-summary" @text="project.summary"></p>
+      <p class="card-b-meta" @text="project.role" webc:if="project.role"></p>
+    </div>
+  </div>
+</a>

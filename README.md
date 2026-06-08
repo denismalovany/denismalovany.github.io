@@ -2,13 +2,14 @@
 
 A static portfolio website for Denys Malovanyi, UX/UI and product designer with 9+ years of experience spanning frontend development, product design, and mechanical engineering.
 
-Built with plain HTML, CSS, and JavaScript. Styled with Tailwind CSS via CDN. Content is data-driven — all project cards, timeline entries, skills, and contact information originate from structured data files and are pre-rendered into static HTML at build time.
+Built with **[Eleventy (11ty)](https://www.11ty.dev/)** and **[WebC](https://www.11ty.dev/docs/languages/webc/)** as the sole templating and component engine. Styled with Tailwind CSS via CDN. Content is data-driven — all project cards, timeline entries, skills, and contact information originate from structured data files and are pre-rendered into static HTML at build time.
 
 ## Key Features
 
-- **Data-driven content** — Projects, timeline, skills, and site metadata live in structured JS data files. A single build command regenerates all pages.
+- **Data-driven content** — Projects, timeline, skills, and site metadata live in structured JS data files in `src/_data/`. A single build command regenerates all pages.
+- **WebC component architecture** — All UI fragments (header, footer, hero, project cards, timeline, skills, contact cards) are reusable WebC components in `src/_components/`.
 - **ATS-compatible output** — All text content exists in static HTML source with no JavaScript dependency. Structured data (JSON-LD `Person` schema), meta descriptions, and Open Graph tags are injected at build time.
-- **Semantic HTML** — Proper heading hierarchy (`h1`–`h3`), `<section>` landmarks, `<ul>` skill lists, and accessible ARIA attributes on the mobile menu.
+- **Semantic HTML** — Proper heading hierarchy (`h1`-`h3`), `<section>` landmarks, `<ul>` skill lists, and accessible ARIA attributes on the mobile menu.
 - **Zero runtime dependencies** — The production site loads no npm packages in the browser. Tailwind is served via CDN.
 - **Print-ready** — `@media print` styles produce a clean PDF resume when printed from the browser.
 - **Mobile-responsive** — Collapsible mobile navigation with smooth scroll and delegated event handling.
@@ -17,195 +18,125 @@ Built with plain HTML, CSS, and JavaScript. Styled with Tailwind CSS via CDN. Co
 
 | Page | Content |
 |---|---|
-| **Home** (`index.html`) | Hero, about preview with skills tags, professional timeline (expandable), featured projects, contact preview |
-| **About** (`about.html`) | Full bio, skills grid (5 categories), complete 8-entry career timeline |
+| **Home** (`index.html`) | Hero, about preview with skills tags, professional timeline (expandable), featured projects |
+| **About** (`about.html`) | Full bio, skills grid (3 categories), complete career timeline |
 | **All Projects** (`projects.html`) | Grid of 6 project case study cards with images and descriptions |
-| **Contact** (`contact.html`) | Email and LinkedIn contact information |
+| **Contact** (`contact.html`) | Email, LinkedIn, Behance, Dribbble contact cards |
 | **Project Detail ×6** (`projects/project-1.html` through `project-6.html`) | Individual case studies with hero, back navigation, image, and description |
 
 ## Project Structure
 
 ```
 DMpage/
-├── pages/                         # Source templates (edit these)
+├── src/                                    # Source (edit these)
+│   ├── _data/                              # 11ty global data files
+│   │   ├── site.js                         # Name, email, LinkedIn, page titles/descriptions
+│   │   ├── projects.js                     # 6 project objects (title, description, image, tags)
+│   │   ├── timeline.js                     # 7 career entries (period, company, role, details)
+│   │   └── skills.js                       # 3 skill categories with lists
+│   ├── _components/                        # WebC components (auto-discovered)
+│   │   ├── base-layout.webc                # Root HTML layout (DOCTYPE, head, body shell)
+│   │   ├── site-header.webc                # Navigation header with logo, nav links, mobile menu
+│   │   ├── site-footer.webc                # Footer with copyright and social links
+│   │   ├── hero-section.webc               # Reusable hero with title, subtitle, optional CTA slot
+│   │   ├── project-card.webc               # Individual project card (image, tags, title, summary)
+│   │   ├── project-grid.webc               # Grid container iterating project cards
+│   │   ├── timeline-entry.webc             # Single timeline row (dot, period, company, details)
+│   │   ├── timeline-section.webc           # Timeline container with expand/collapse support
+│   │   ├── skills-grid.webc                # 3-column skills grid (used on About page)
+│   │   ├── skills-tags.webc                # Inline skills tags (used on Home page)
+│   │   └── contact-card.webc               # Contact card with multiple type variants
+│   ├── assets/                             # Static assets (passthrough copy)
+│   │   ├── css/style.css                   # Custom styles (design system, layout, print)
+│   │   └── js/script.js                    # Client-side JS (mobile menu, timeline toggle, nav)
+│   ├── index.webc                          # Home page
+│   ├── about.webc                          # About page
+│   ├── contact.webc                        # Contact page
+│   ├── projects.webc                       # All projects listing
+│   └── projects/                           # Project detail pages
+│       ├── project-1.webc                  # CoffeeNanny Lviv
+│       ├── project-2.webc                  # Volunteer Centre County
+│       ├── project-3.webc                  # Capacitive Stamp Loyalty System
+│       ├── project-4.webc                  # Breather Coach
+│       ├── project-5.webc                  # FeliTalk
+│       └── project-6.webc                  # Safety Brochure
+├── _site/                                  # Build output (git-ignored)
 │   ├── index.html
 │   ├── about.html
 │   ├── contact.html
 │   ├── projects.html
-│   └── projects/
-│       ├── project-1.html
-│       ├── project-2.html
-│       ├── project-3.html
-│       ├── project-4.html
-│       └── project-6.html
-├── data/                          # Single source of truth for content
-│   ├── projects.js                # 6 project objects (title, description, image, caption)
-│   ├── timeline.js                # 6 career entries (period, company, role, details)
-│   ├── skills.js                  # 5 skill categories with lists
-│   └── site.js                    # Name, email, LinkedIn, page titles/descriptions
-├── scripts/
-│   └── build.js                   # Zero-dependency Node.js pre-render script
-├── assets/
-│   ├── css/
-│   │   └── style.css              # Custom styles (layout, typography, buttons, print)
-│   └── js/
-│       └── script.js              # Interactive logic (mobile menu, smooth scroll, timeline toggle)
-├── index.html                     # Build output (regenerated by npm run build)
-├── about.html                     # Build output
-├── contact.html                   # Build output
-├── projects.html                  # Build output
-├── projects/                      # Build output directory
-│   └── project-*.html
+│   ├── projects/*.html
+│   └── assets/
+├── eleventy.config.js                      # 11ty configuration (WebC plugin, passthrough)
 ├── package.json
 └── README.md
 ```
 
-**Key principle**: Files in `pages/` and `data/` are the source of truth. Files in the project root (and `projects/`) are build artifacts — generated by `npm run build` and never edited directly.
+**Key principle:** Files in `src/` are the source of truth. Files in `_site/` are build artifacts — generated by `npm run build` and never edited directly.
 
 ## Getting Started
 
 ### Prerequisites
 
-- **Node.js 18 or later** — Required only for the build script. The production site needs no server-side runtime.
-- **No npm install required** — The build script uses only Node.js built-in modules (`fs`, `path`).
+- **Node.js 18 or later**
 
-### Build
+### Install & Build
+
+```bash
+npm install
+npm run build
+```
+
+This reads all source templates from `src/`, processes WebC components using data from `src/_data/`, and writes populated HTML to `_site/`. **10 pages output.**
+
+### Local Development
+
+```bash
+npm run dev
+```
+
+Starts a local dev server with hot reload and incremental builds at `http://localhost:8080`.
+
+### Production Build
 
 ```bash
 npm run build
 ```
 
-This reads all source templates from `pages/`, processes build markers using data from `data/`, and writes populated HTML to the project root. **9 pages output.**
-
-You can also run the build script directly:
-
-```bash
-node scripts/build.js
-```
-
-### Local Development
-
-Open any built HTML file directly in a browser — no server needed:
-
-```bash
-open index.html
-```
-
-For a local dev server with automatic reload, use any static file server:
-
-```bash
-npx serve .        # or: python3 -m http.server 8000
-```
-
-**Note**: Always run `npm run build` after editing files in `pages/` or `data/`. The browser shows build output, not source templates.
-
-## How Build Markers Work
-
-Source templates in `pages/` contain HTML comment markers that the build script replaces at render time:
-
-| Marker | Replaced With | Used On |
-|---|---|---|
-| `<!-- BUILD_HEADER root="" -->` | Full `<header>` with navigation, mobile menu, logo | All pages |
-| `<!-- BUILD_TIMELINE collapsed=true -->` | All 6 timeline entries; collapsible on index, full on about | `index.html`, `about.html` |
-| `<!-- BUILD_PROJECTS count=2 -->` | Project cards rendered from `data/projects.js` | `index.html`, `projects.html` |
-| `<!-- BUILD_SKILLS mode=grid -->` | Skills grid (`<ul>` lists by category) or inline tags | `index.html`, `about.html` |
-| `<!-- BUILD_SITE_DATA field=email -->` | Single value from `data/site.js` (email, LinkedIn, etc.) | `index.html`, `contact.html` |
-| `<!-- BUILD_META page=about -->` | `<meta>` tags + JSON-LD structured data | All pages |
+Output is in `_site/`. Deploy that directory to any static host.
 
 ## Customization
 
 ### Updating Content
 
-All content is driven by the four data files in `data/`. Edit them and rebuild:
+All content is driven by the four data files in `src/_data/`. Edit them and rebuild:
 
 | Change | Edit |
 |---|---|
-| Add/remove/update a project | `data/projects.js` |
-| Add/remove/update a career timeline entry (set `collapsed: true` to hide behind expand button on home page) | `data/timeline.js` |
-| Add/remove/update a skill | `data/skills.js` |
-| Change email, LinkedIn URL, page titles, or copyright year | `data/site.js` |
-
-After editing, run:
-
-```bash
-npm run build
-```
-
-### Updating Page Layout
-
-Edit templates in `pages/`. The static HTML outside of build markers is passed through unchanged. To add new build markers, edit `scripts/build.js` to handle them.
+| Add/remove/update a project | `src/_data/projects.js` |
+| Add/remove/update a timeline entry | `src/_data/timeline.js` |
+| Add/remove/update a skill | `src/_data/skills.js` |
+| Change email, LinkedIn URL, page titles, or copyright year | `src/_data/site.js` |
 
 ### Updating Styles
 
-Edit `assets/css/style.css`. CSS custom properties (colors, shadows, transitions) are defined in `:root`. Print styles are in the `@media print` block at the bottom.
+Edit `src/assets/css/style.css`. CSS custom properties (colors, shadows, transitions) are defined in `:root`. Print styles are in the `@media print` block at the bottom.
 
 ### Adding a New Project Detail Page
 
-1. Create `pages/projects/project-7.html` — copy an existing detail page as a template
-2. Add the project entry to `data/projects.js` with a new `id`
+1. Create `src/projects/project-7.webc` — copy an existing detail page as a template
+2. Add the project entry to `src/_data/projects.js` with a new `id`
 3. Run `npm run build`
-
-The new detail page and its card on the projects listing are generated automatically.
-
-## Build Automation
-
-Manually running `npm run build` after every edit breaks flow. The following methods automate the build so it runs on save.
-
-### Quick Start: One Command
-
-```bash
-npm run watch
-```
-
-This watches `pages/`, `data/`, and `assets/` for changes and rebuilds automatically. Uses only Node.js built-ins — zero dependencies. Keep it running in a terminal while you work.
-
-For the full dev experience (auto-build + local server):
-
-```bash
-npm install --save-dev concurrently
-npm run dev
-```
-
-Opens a local server at `http://localhost:3000`. Edit a source file, save, refresh the browser — the build ran automatically.
-
-### How the Watcher Works
-
-`scripts/watch.js` uses Node.js `fs.watch` to listen for file changes in `pages/`, `data/`, and `assets/`. A 200 ms debounce coalesces rapid saves so the build fires once, not once per file. On macOS it uses FSEvents; on Linux, inotify.
-
-For alternative watchers, substitute the `watch` script:
-
-```bash
-# Nodemon (install: npm i -D nodemon)
-"watch": "nodemon --watch pages --watch data --watch assets --ext html,js,css --exec npm run build --delay 300ms"
-
-# chokidar (install: npm i -D chokidar-cli)
-"watch": "chokidar \"pages/**\" \"data/**\" \"assets/**\" -c \"npm run build\" --initial"
-```
-
-### VS Code Integration
-
-`Cmd+Shift+B` (macOS) / `Ctrl+Shift+B` (Windows/Linux) runs the build. A `.vscode/tasks.json` is included that defines both a **Build Portfolio** task and an optional **Watch & Build** task that can auto-start on folder open.
-
-### Git Pre-Commit Hook
-
-Ensures built output is always staged before commits:
-
-```bash
-ln -sf ../../scripts/pre-commit.sh .git/hooks/pre-commit
-```
-
-Now every `git commit` rebuilds the site first. If the build fails, the commit is aborted.
 
 ## ATS & Structured Data
 
-The build script injects the following into every page's `<head>`:
-
+Every page includes:
 - **`<meta name="description">`** — Page-specific description
 - **Open Graph tags** — `og:title`, `og:description`, `og:type`, `og:url`
 - **Twitter card** — `twitter:card` summary
-- **JSON-LD structured data** — `Person` schema with `name`, `email`, `jobTitle`, `knowsAbout`, and `alumniOf` (all 6 career entries with organization names and dates)
+- **JSON-LD structured data** — `Person` schema with `name`, `email`, `jobTitle`, `knowsAbout`, and `alumniOf`
 
-All text content (project descriptions, timeline entries, skills) exists in the static HTML source with zero JavaScript dependency, ensuring compatibility with ATS parsers and non-JS user agents.
+All text content exists in the static HTML source with zero JavaScript dependency.
 
 ### Print / PDF Export
 
@@ -216,25 +147,15 @@ Open any page in a browser and print to PDF. Print styles automatically:
 - Show all collapsed timeline content
 - Strip background patterns from the hero section
 
-The About page (`about.html`) produces the most resume-like output as it contains the complete bio, full timeline, and skills grid.
-
 ## Deployment
 
 ### GitHub Pages
 
-Push the repository to GitHub with Pages enabled on the `main` branch. The site is served from the repository root.
-
-```bash
-git add .
-git commit -m "Update content"
-git push origin main
-```
-
-Because all HTML files are pre-rendered and static, no build step is required on the server. Run `npm run build` locally before pushing.
+Push the repository to GitHub with Pages enabled on the `main` branch, configured to serve from the `_site/` directory (or set `output: "."` in `eleventy.config.js` to serve from root).
 
 ### Any Static Host
 
-The site is fully static — deploy to Netlify, Vercel, S3, or any static file server. No server-side processing, no environment variables, no database.
+The site is fully static — deploy `_site/` to Netlify, Vercel, S3, or any static file server.
 
 ## License
 

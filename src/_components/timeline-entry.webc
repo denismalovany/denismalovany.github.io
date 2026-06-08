@@ -1,0 +1,12 @@
+<div :class="entry.isLast ? 'relative pl-8 border-l-2 border-gray-200' : 'relative pl-8 pb-12 border-l-2 border-gray-200'">
+  <div :class="'absolute -left-[9px] top-0 w-4 h-4 rounded-full ' + (entry.dotColor === 'gray' ? 'bg-gray-400' : 'bg-black')"></div>
+  <p class="caption mb-1" @text="entry.period"></p>
+  <h3 class="text-xl font-serif font-bold mb-1" @text="entry.company"></h3>
+  <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3" @text="entry.subtitle" webc:if="entry.subtitle"></p>
+  <div class="space-y-3" webc:if="entry.details.length">
+    <div webc:for="detail of entry.details">
+      <p class="text-gray-700 font-medium mb-1" @text="detail.role" webc:if="detail.role"></p>
+      <p class="text-gray-600 leading-relaxed" @text="detail.description"></p>
+    </div>
+  </div>
+</div>

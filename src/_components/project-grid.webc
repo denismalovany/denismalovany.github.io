@@ -1,0 +1,25 @@
+<script webc:setup>
+const allProjects = this.projects || [];
+
+function esc(str) {
+  return String(str || "").replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+let cardsHtml = "";
+for (const project of allProjects) {
+  const tagsHtml = project.tags ? project.tags.map(t => '<span class="card-b-tag">' + esc(t) + '</span>').join("\n") : "";
+  const roleHtml = project.role ? '<p class="card-b-meta">' + esc(project.role) + '</p>' : "";
+  cardsHtml += '<a href="/projects/project-' + project.id + '.html" class="block h-full">\n';
+  cardsHtml += '  <div class="card-b h-full">\n';
+  cardsHtml += '    <img src="' + esc(project.image || '') + '" alt="' + esc(project.title || '') + '" class="card-b-img" loading="lazy">\n';
+  cardsHtml += '    <div class="card-b-body">\n';
+  cardsHtml += '      <div class="card-b-tags">\n' + tagsHtml + '\n      </div>\n';
+  cardsHtml += '      <h3 class="card-b-title">' + esc(project.title || '') + '</h3>\n';
+  cardsHtml += '      <p class="card-b-summary">' + esc(project.summary || project.description || '') + '</p>\n';
+  cardsHtml += '      ' + roleHtml + '\n';
+  cardsHtml += '    </div>\n';
+  cardsHtml += '  </div>\n';
+  cardsHtml += '</a>\n';
+}
+</script>
+<div id="projects-grid" class="grid gap-8 md:grid-cols-2" @raw="cardsHtml"></div>

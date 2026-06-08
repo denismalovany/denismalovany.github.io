@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title @text="metaTitle"></title>
+  <meta name="description" :content="metaDesc">
+  <meta property="og:title" :content="metaTitle">
+  <meta property="og:description" :content="metaDesc">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://malovanyi.com">
+  <meta name="twitter:card" content="summary">
+  <link webc:keep href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script webc:keep src="https://cdn.tailwindcss.com"></script>
+  <link webc:keep rel="stylesheet" href="/assets/css/style.css">
+  <script webc:keep src="/assets/js/script.js" defer></script>
+  <span @html="ldJson"></span>
+</head>
+<body class="antialiased">
+  <site-header></site-header>
+  <slot></slot>
+  <site-footer></site-footer>
+  <script webc:keep type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Denys Malovanyi",
+  "email": "denismalovany@gmail.com",
+  "url": "https://malovanyi.com",
+  "sameAs": ["https://linkedin.com/in/malovany"],
+  "jobTitle": "Product Designer & Mechanical Engineer",
+  "description": "UX/UI & Product Designer · AI-Augmented Workflows · 9+ Years of Experience",
+  "knowsAbout": [
+    "Product Design",
+    "Design Systems",
+    "Prototyping",
+    "UX Research",
+    "Usability Testing",
+    "Workshop Facilitation",
+    "AI-Augmented Workflows"
+  ],
+  "alumniOf": [
+    {"@type":"OrganizationRole","roleName":"Full-time · Mechanical Engineer, Product Designer","startDate":"Feb 2024 – Present","affiliation":{"@type":"Organization","name":"VOL Volunteer Optical Laboratory"}},
+    {"@type":"OrganizationRole","roleName":"Full-time Volunteer","startDate":"May 2022 – Dec 2023","affiliation":{"@type":"Organization","name":"Career Break — Volunteer Work"}},
+    {"@type":"OrganizationRole","roleName":"Full-time · UI Designer, UX Designer","startDate":"Jun 2021 – May 2022","affiliation":{"@type":"Organization","name":"HebronSoft"}},
+    {"@type":"OrganizationRole","roleName":"Part-time · UI Designer, HTML Developer","startDate":"Dec 2020 – May 2021","affiliation":{"@type":"Organization","name":"FeliTalk"}},
+    {"@type":"OrganizationRole","roleName":"Full-time · UX Designer, UI Developer","startDate":"Feb 2019 – Mar 2020","affiliation":{"@type":"Organization","name":"Cygnati Group"}},
+    {"@type":"OrganizationRole","roleName":"Full-time · HTML5 Developer","startDate":"Mar 2017 – Jan 2019","affiliation":{"@type":"Organization","name":"Codemotion Ninjas"}},
+    {"@type":"OrganizationRole","roleName":"","startDate":"Apr 2015 – Feb 2017","affiliation":{"@type":"Organization","name":"Early Career"}}
+  ]
+}
+  </script>
+</body>
+</html>

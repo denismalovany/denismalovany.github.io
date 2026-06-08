@@ -1,0 +1,85 @@
+---
+permalink: /index.html
+pageKey: index
+---
+<script webc:setup>
+const p = this.pageKey || "index";
+const page = this.site.pages[p] || this.site.pages.index;
+const metaTitle = page.title;
+const metaDesc = page.description;
+
+const featuredProjects = (this.projects || []).slice(0, 2);
+function esc(str) {
+  return String(str || "").replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+let featuredCardsHtml = "";
+for (const project of featuredProjects) {
+  const tagsHtml = project.tags ? project.tags.map(t => '<span class="card-b-tag">' + esc(t) + '</span>').join("\n") : "";
+  const roleHtml = project.role ? '<p class="card-b-meta">' + esc(project.role) + '</p>' : "";
+  featuredCardsHtml += '<a href="/projects/project-' + project.id + '.html" class="block h-full">\n';
+  featuredCardsHtml += '  <div class="card-b h-full">\n';
+  featuredCardsHtml += '    <img src="' + esc(project.image || '') + '" alt="' + esc(project.title || '') + '" class="card-b-img" loading="lazy">\n';
+  featuredCardsHtml += '    <div class="card-b-body">\n';
+  featuredCardsHtml += '      <div class="card-b-tags">\n' + tagsHtml + '\n      </div>\n';
+  featuredCardsHtml += '      <h3 class="card-b-title">' + esc(project.title || '') + '</h3>\n';
+  featuredCardsHtml += '      <p class="card-b-summary">' + esc(project.summary || project.description || '') + '</p>\n';
+  featuredCardsHtml += '      ' + roleHtml + '\n';
+  featuredCardsHtml += '    </div>\n';
+  featuredCardsHtml += '  </div>\n';
+  featuredCardsHtml += '</a>\n';
+}
+</script>
+<base-layout webc:nokeep :meta-title="metaTitle" :meta-desc="metaDesc">
+  <hero-section title="Denys Malovanyi" subtitle="UX/UI & Product Designer · AI-Augmented Workflows · 9+ Years of Experience">
+    <div class="mt-8 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center">
+      <a href="/projects.html" class="px-6 py-3 bg-black text-white rounded-lg font-medium sm:w-auto w-full sm:w-1/2 text-center btn-primary">Explore My Work</a>
+      <a href="/contact.html" class="mt-4 sm:mt-0 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium sm:w-auto w-full sm:w-1/2 text-center btn-outline">Get in Touch</a>
+    </div>
+  </hero-section>
+
+  <section id="about-preview" class="section py-16 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-serif section-title-mb-6">About Me</h2>
+      <p class="text-gray-700 leading-relaxed mb-6 max-w-2xl mx-auto">
+        I'm Denys Malovanyi, a UX/UI and product designer currently working as an engineer at Miltec. I specialize in creating user-centered digital experiences through interaction design, visual design, and prototyping.
+      </p>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        My approach combines rigorous research with thoughtful aesthetics to craft solutions that are both functional and delightful.
+      </p>
+      <p class="text-gray-600 max-w-2xl mx-auto mt-4">
+        I also experiment with AI agents and local LLM deployment to enhance my design research, prototyping, and workflow automation.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mt-8">
+        <skills-tags :skills="this.skills"></skills-tags>
+      </div>
+      <a href="/about.html" class="mt-8 inline-block text-sm font-medium text-gray-600 hover:opacity-70 transition-opacity">
+        Learn More About Me →
+      </a>
+    </div>
+  </section>
+
+  <section id="timeline" class="section py-20 px-6">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-serif section-title-mb-8 text-center">Professional Timeline</h2>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+        A chronological overview of my career progression from frontend development to product design and mechanical engineering.
+      </p>
+      <timeline-section :timeline="this.timeline"></timeline-section>
+    </div>
+  </section>
+
+  <section id="projects" class="section py-20 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-serif section-title-mb-8">Featured Projects</h2>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        A selection of recent work demonstrating my product design approach and problem-solving skills.
+      </p>
+      <div id="projects-grid" class="grid gap-8 md:grid-cols-2" @raw="featuredCardsHtml"></div>
+      <div class="mt-10 text-center">
+        <a href="/projects.html" class="inline-block px-8 py-4 bg-black text-white rounded-lg font-medium btn-primary">
+          See All Projects →
+        </a>
+      </div>
+    </div>
+  </section>
+</base-layout>

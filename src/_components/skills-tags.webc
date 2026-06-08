@@ -1,0 +1,5 @@
+<script webc:setup>
+const skills = this.skills || {};
+const all = Object.values(skills).flat().map(s => s.replace(/&amp;/g, '&'));
+</script>
+<span webc:for="skill of all" class="px-4 py-2 bg-white border border-gray-200 text-gray-700 text-sm font-medium rounded-full" @text="skill"></span>

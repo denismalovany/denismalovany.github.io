@@ -1,0 +1,23 @@
+---
+permalink: /projects.html
+pageKey: projects
+---
+<script webc:setup>
+const p = this.pageKey || "index";
+const page = this.site.pages[p] || this.site.pages.index;
+const metaTitle = page.title;
+const metaDesc = page.description;
+</script>
+<base-layout webc:nokeep :meta-title="metaTitle" :meta-desc="metaDesc">
+  <hero-section title="All Projects" subtitle="Complete portfolio of work"></hero-section>
+
+  <section id="projects" class="section py-20 px-6">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-serif section-title-mb-8">Project Portfolio</h2>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        A comprehensive collection of product design projects showcasing my approach to solving user problems through interaction design, visual design, and prototyping.
+      </p>
+      <project-grid :projects="this.projects"></project-grid>
+    </div>
+  </section>
+</base-layout>

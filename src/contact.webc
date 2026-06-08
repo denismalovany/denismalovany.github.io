@@ -1,0 +1,24 @@
+---
+permalink: /contact.html
+pageKey: contact
+---
+<script webc:setup>
+const p = this.pageKey || "index";
+const page = this.site.pages[p] || this.site.pages.index;
+const metaTitle = page.title;
+const metaDesc = page.description;
+</script>
+<base-layout webc:nokeep :meta-title="metaTitle" :meta-desc="metaDesc">
+  <hero-section title="Contact" subtitle="I'm open to collaborations, consulting, and design conversations"></hero-section>
+
+  <section class="section py-20 px-6">
+    <div class="container mx-auto max-w-2xl">
+      <contact-card type="email"></contact-card>
+      <div class="contact-grid">
+        <contact-card type="linkedin"></contact-card>
+        <contact-card type="design"></contact-card>
+      </div>
+      <contact-card type="resume"></contact-card>
+    </div>
+  </section>
+</base-layout>

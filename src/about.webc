@@ -1,0 +1,55 @@
+---
+permalink: /about.html
+pageKey: about
+---
+<script webc:setup>
+const p = this.pageKey || "index";
+const page = this.site.pages[p] || this.site.pages.index;
+const metaTitle = page.title;
+const metaDesc = page.description;
+</script>
+<base-layout webc:nokeep :meta-title="metaTitle" :meta-desc="metaDesc">
+  <hero-section title="Denys Malovanyi" subtitle="Designer/Engineer/AI Enthusiast"></hero-section>
+
+  <section id="about" class="section py-20 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-serif section-title-mb-6">About Me</h2>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        I'm Denys Malovanyi, a product designer and frontend developer with over 9 years of experience spanning UI/UX design, frontend development, and mechanical engineering. I currently work as a Mechanical Engineer and Product Designer at VOL Volunteer Optical Laboratory, creating user-centered digital and physical products.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Beyond traditional design and development skills, I experiment with AI agents and local LLM deployment to enhance my design research, prototyping, and workflow automation—bringing emerging technology principles into practical design solutions.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        My career began in frontend development at BITECC GmbH and InvestGo24 in 2015, where I built responsive interfaces and landing pages. I then grew into full-stack UI roles at Codemotion Ninjas and Cygnati Group, working on diverse projects from e-commerce platforms to medical information portals and mobile applications.
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        At HebronSoft, I transitioned fully into UI/UX design, leading design projects and mentoring junior designers. Following Russia's full-scale invasion of Ukraine in 2022, I dedicated myself to full-time volunteer work supporting the Armed Forces of Ukraine — an experience that deepened my skills in crisis management, logistics, and operational planning under pressure.
+      </p>
+      <hr class="divider">
+      <p class="text-gray-600">
+        My approach combines rigorous research with thoughtful aesthetics. I believe great design emerges from understanding user needs deeply, translating insights into intuitive interfaces, and refining every detail through iterative prototyping and testing.
+      </p>
+      <p class="text-gray-600 mt-4">
+        I'm proficient in HTML, CSS, JavaScript, and modern design tools. I thrive in cross-functional teams and enjoy bridging the gap between design and development to deliver polished, accessible, and performant products.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills" class="section py-16 px-6">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-serif section-title-mb-8 text-center">Skills &amp; Expertise</h2>
+      <skills-grid :skills="this.skills"></skills-grid>
+    </div>
+  </section>
+
+  <section id="timeline" class="section py-20 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-serif section-title-mb-8 text-center">Professional Timeline</h2>
+      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+        A chronological overview of my career progression from frontend development to product design and mechanical engineering.
+      </p>
+      <timeline-section-full :timeline="this.timeline"></timeline-section-full>
+    </div>
+  </section>
+</base-layout>

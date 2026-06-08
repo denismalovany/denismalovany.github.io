@@ -1,0 +1,30 @@
+<script webc:setup>
+const timeline = this.timeline || [];
+function esc(str) { return String(str || "").replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+let entriesHtml = "";
+for (let i = 0; i < timeline.length; i++) {
+  const isLast = i === timeline.length - 1;
+  const entry = timeline[i];
+  const borderClass = isLast ? "relative pl-8 border-l-2 border-gray-200" : "relative pl-8 pb-12 border-l-2 border-gray-200";
+  const dotColor = entry.dotColor === "gray" ? "bg-gray-400" : "bg-black";
+  let detailsHtml = "";
+  if (entry.details && entry.details.length) {
+    detailsHtml = '<div class="space-y-3">';
+    for (const d of entry.details) {
+      detailsHtml += '<div>';
+      if (d.role) detailsHtml += '<p class="text-gray-700 font-medium mb-1">' + esc(d.role) + '</p>';
+      if (d.description) detailsHtml += '<p class="text-gray-600 leading-relaxed">' + esc(d.description) + '</p>';
+      detailsHtml += '</div>';
+    }
+    detailsHtml += '</div>';
+  }
+  entriesHtml += '<div class="' + borderClass + '">';
+  entriesHtml += '<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full ' + dotColor + '"></div>';
+  entriesHtml += '<p class="caption mb-1">' + esc(entry.period) + '</p>';
+  entriesHtml += '<h3 class="text-xl font-serif font-bold mb-1">' + esc(entry.company) + '</h3>';
+  if (entry.subtitle) entriesHtml += '<p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">' + esc(entry.subtitle) + '</p>';
+  entriesHtml += detailsHtml;
+  entriesHtml += '</div>\n';
+}
+</script>
+<div id="timeline-container" class="space-y-0" @raw="entriesHtml"></div>

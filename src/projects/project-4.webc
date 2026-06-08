@@ -1,0 +1,142 @@
+---
+permalink: /projects/project-4.html
+pageKey: projects
+---
+<script webc:setup>
+const project = this.projects.find(p => p.id === 4);
+const metaTitle = project ? project.metaTitle : "Project - Denys Malovanyi Portfolio";
+const metaDesc = project ? project.metaDescription : "";
+</script>
+<base-layout webc:nokeep :meta-title="metaTitle" :meta-desc="metaDesc" nav-home="/" nav-about="/about.html" nav-projects="/projects.html" nav-contact="/contact.html">
+  <hero-section title="Breather Coach" subtitle="UX Research & Product Diagnostics · Healthcare UX · Design System"></hero-section>
+  <section class="section py-20 px-6">
+    <div class="container mx-auto max-w-4xl">
+      <div class="mb-8">
+        <a href="/projects.html" class="text-sm font-medium text-gray-600 hover:opacity-70 transition-opacity">&larr; Back to All Projects</a>
+      </div>
+      <p class="text-gray-500 uppercase tracking-wide text-sm font-medium mb-2">Case Study</p>
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-8">Breather Coach — UX Research & Product Diagnostics</h1>
+      <div class="grid md:grid-cols-2 gap-10 items-start mb-16">
+        <div>
+          <img :src="project ? project.image : ''" alt="Breather Coach respiratory training app interface" class="rounded-lg shadow-lg w-full h-auto object-cover" loading="lazy">
+        </div>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-1">Timeline</h3>
+            <p class="text-gray-700">2021–2022</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-1">My Role</h3>
+            <p class="text-gray-700">UX/UI Designer — sole designer, inherited a project with significant design debt</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-1">Product Site</h3>
+            <a href="https://thebreather.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline transition-colors">thebreather.com &#8599;</a>
+          </div>
+        </div>
+      </div>
+      <div class="mb-12">
+        <h2 class="text-2xl font-serif font-bold mb-4 section-title-mb-6">Context</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          The Breather is the world's first respiratory muscle training (RMT) device — a drug-free, clinically proven tool by PN Medical used by over 2 million people, from seniors with respiratory conditions to elite athletes and military pilots. The Breather Coach app is its digital companion: it guides users through training sessions, tracks their progress, and collects data for FDA clinical trials.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          When I joined, the app was in serious trouble. A low App Store rating and an interface fragmented across multiple prior iterations had left users confused and frustrated. My job was not to design a new feature — it was to understand what was broken, bring order to the chaos, and build an evidence base for what needed to change.
+        </p>
+      </div>
+      <div class="mb-12">
+        <h2 class="text-2xl font-serif font-bold mb-4 section-title-mb-6">Phase 1 — Diagnosis</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-semibold mb-2">App Store Review Analysis</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Before touching a single screen in Figma, I started where users were already talking: the App Store reviews. The app had a very low rating, and reading through the feedback revealed a clear split. Most complaints cited technical instability — crashes and glitches. But a significant portion pointed to a deeper UX problem: users didn't understand what they were supposed to do inside the app, how it connected to the device, or why they needed it at all. This gave me two clear problem dimensions to investigate.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-2">Design Audit & Inventory</h3>
+            <p class="text-gray-700 leading-relaxed">
+              I catalogued every screen, component variant, and color value across the entire app. The audit quantified the fragmentation: duplicate components with subtle inconsistencies, color values that differed by imperceptible amounts, and interaction patterns that shifted unpredictably between screens. The inventory became the definitive map of the gap between what existed and what should exist.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mb-12">
+        <h2 class="text-2xl font-serif font-bold mb-4 section-title-mb-6">Phase 2 — Research</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-semibold mb-2">Usability Testing</h3>
+            <p class="text-gray-700 leading-relaxed">
+              I designed a typical user scenario — a common task flow through the app — and broke it into discrete steps. For each step, I tracked whether users could complete it independently, needed a hint, or found it completely non-obvious. The result: <strong>nobody could complete the full scenario without help</strong>. The app's complexity was systemic — users didn't struggle with individual screens; they struggled with the entire mental model.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-2">Behavioral Analytics</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Working with the backend developers, I extracted user behavior data. What we found confirmed the usability test findings: while registrations were growing, the number of users who completed at least one training session was falling. Even users who pushed through the difficult registration process were dropping off at their very first training — a clear signal that the interface, not just the sign-up flow, was failing.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mb-12">
+        <h2 class="text-2xl font-serif font-bold mb-4 section-title-mb-6">Phase 3 — Execution</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-semibold mb-2">Design System Unification</h3>
+            <p class="text-gray-700 leading-relaxed">
+              With the audit complete, I consolidated all UI elements into a single, coherent design system. This meant reducing the color palette to a defined set, standardizing every component, and establishing consistent spacing, typography, and interaction rules. It was a significant effort — I learned and applied Figma plugin automation to batch-rename layers, swap color styles, and detect inconsistencies across hundreds of screens, turning what could have been weeks of manual cleanup into a faster, more systematic process.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-2">FDA Clinical Trial Module</h3>
+            <p class="text-gray-700 leading-relaxed">
+              In parallel, I designed the FDA-facing clinical trial module — training screens and patient questionnaires used in studies to validate the device's medical efficacy. The design adapted existing user screens to meet FDA protocol requirements while maintaining clarity for patients of varying ages and health conditions. The module was successfully built and deployed in real clinical studies spanning both medical treatment and military pilot training applications.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mb-12">
+        <h2 class="text-2xl font-serif font-bold mb-4 section-title-mb-6">Phase 4 — Validated Blueprint</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          With both qualitative and quantitative evidence in hand, I designed a set of targeted improvements. The centerpiece: restructuring the registration flow so users could complete their first training session immediately, with registration coming after — when they'd already invested effort and seen value. I also designed a guided onboarding flow to teach new users how the app worked before asking anything of them.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          The company prioritized a technical rebuild at that time, and my time on the project concluded. But the research — the usability test data, the behavioral funnel analysis, the proposed solutions — remained as a validated, evidence-grounded blueprint, ready for when the team turns to the user experience next.
+        </p>
+      </div>
+      <div class="mb-12">
+        <h2 class="text-2xl font-serif font-bold mb-4 section-title-mb-6">Result</h2>
+        <ul class="list-disc pl-6 space-y-3 text-gray-700 leading-relaxed">
+          <li>The design system was unified at the Figma level — all components, colors, and patterns standardized into a single source of truth that future teams could build from.</li>
+          <li>The FDA clinical trial module was deployed in real patient studies, collecting structured data on training adherence and device efficacy.</li>
+          <li>Usability testing and behavioral analytics together painted an undeniable picture of where the product was losing users — evidence that shifted the conversation from surface-level fixes to the fundamentals of the user journey.</li>
+          <li>The proposed solutions — onboarding, delayed registration, simplified sign-up — remain a research-backed blueprint grounded in both observation and quantitative funnel data.</li>
+        </ul>
+      </div>
+      <div class="mb-12">
+        <h2 class="text-2xl font-serif font-bold mb-4 section-title-mb-6">Key Takeaways</h2>
+        <ul class="list-disc pl-6 space-y-3 text-gray-700 leading-relaxed">
+          <li><strong>Start with evidence, not opinion.</strong> The usability study — showing that no user could complete the full scenario unaided — was far more persuasive than any design argument could have been.</li>
+          <li><strong>On messy projects, fundamentals first.</strong> A scattered design system creates friction for every subsequent feature. Fixing it is a force multiplier for everyone who touches the product next.</li>
+          <li><strong>Combine qualitative and quantitative.</strong> Usability testing told us what was happening; backend analytics told us at what scale. Together, the argument was undeniable.</li>
+          <li><strong>Design systems outlive implementation timelines.</strong> A well-organized Figma file is a durable asset that accelerates the next attempt — even when developers can't rebuild to match immediately.</li>
+          <li><strong>Automation amplifies design leverage.</strong> Figma plugins turned a manual cleanup slog into a systematic process — a small upfront investment that saved weeks.</li>
+          <li><strong>Research-backed solutions have value even when unshipped.</strong> They remain a validated blueprint grounded in real user behavior data, ready for the next phase of the product.</li>
+        </ul>
+      </div>
+      <hr class="divider mb-8">
+      <div>
+        <h2 class="text-lg font-serif font-bold mb-2">My Role</h2>
+        <p class="text-gray-600 leading-relaxed">
+          UX/UI Designer — App Store review analysis, design audit and inventory of the existing app, design system unification in Figma (with plugin automation), FDA clinical trial module design, usability testing (scenario design, step-by-step observation, task completion tracking), behavioral analytics extraction (collaboration with development team), proposed UX solutions (first-time user onboarding, delayed registration, redesigned sign-up flow).
+        </p>
+      </div>
+      <div class="mt-8">
+        <h2 class="text-lg font-serif font-bold mb-2">Product Site</h2>
+        <p class="text-gray-600 leading-relaxed">
+          <a href="https://thebreather.com" target="_blank" rel="noopener noreferrer" class="nav-link hover:opacity-70">thebreather.com &#8599;</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</base-layout>
