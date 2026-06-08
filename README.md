@@ -19,9 +19,9 @@ Built with plain HTML, CSS, and JavaScript. Styled with Tailwind CSS via CDN. Co
 |---|---|
 | **Home** (`index.html`) | Hero, about preview with skills tags, professional timeline (expandable), featured projects, contact preview |
 | **About** (`about.html`) | Full bio, skills grid (5 categories), complete 8-entry career timeline |
-| **All Projects** (`projects.html`) | Grid of 5 project case study cards with images and descriptions |
+| **All Projects** (`projects.html`) | Grid of 6 project case study cards with images and descriptions |
 | **Contact** (`contact.html`) | Email and LinkedIn contact information |
-| **Project Detail ×5** (`projects/project-1.html` through `project-5.html`) | Individual case studies with hero, back navigation, image, and description |
+| **Project Detail ×6** (`projects/project-1.html` through `project-6.html`) | Individual case studies with hero, back navigation, image, and description |
 
 ## Project Structure
 
@@ -37,9 +37,9 @@ DMpage/
 │       ├── project-2.html
 │       ├── project-3.html
 │       ├── project-4.html
-│       └── project-5.html
+│       └── project-6.html
 ├── data/                          # Single source of truth for content
-│   ├── projects.js                # 5 project objects (title, description, image, caption)
+│   ├── projects.js                # 6 project objects (title, description, image, caption)
 │   ├── timeline.js                # 6 career entries (period, company, role, details)
 │   ├── skills.js                  # 5 skill categories with lists
 │   └── site.js                    # Name, email, LinkedIn, page titles/descriptions
@@ -203,7 +203,7 @@ The build script injects the following into every page's `<head>`:
 - **`<meta name="description">`** — Page-specific description
 - **Open Graph tags** — `og:title`, `og:description`, `og:type`, `og:url`
 - **Twitter card** — `twitter:card` summary
-- **JSON-LD structured data** — `Person` schema with `name`, `email`, `jobTitle`, `knowsAbout` (all 30 skills), and `alumniOf` (all 6 career entries with organization names and dates)
+- **JSON-LD structured data** — `Person` schema with `name`, `email`, `jobTitle`, `knowsAbout`, and `alumniOf` (all 6 career entries with organization names and dates)
 
 All text content (project descriptions, timeline entries, skills) exists in the static HTML source with zero JavaScript dependency, ensuring compatibility with ATS parsers and non-JS user agents.
 
