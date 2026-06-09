@@ -1,0 +1,40 @@
+---
+import { timelineData } from '../data/timeline';
+import TimelineEntry from './TimelineEntry.astro';
+
+interface Props {
+  collapsed?: boolean;
+}
+
+const { collapsed = false } = Astro.props;
+
+const visible = timelineData.filter(e => !e.collapsed);
+const hidden = timelineData.filter(e => e.collapsed);
+---
+{
+  collapsed && hidden.length > 0 ? (
+    <>
+      <div id="timeline-container" class="space-y-0">
+        {visible.map((entry) => <TimelineEntry entry={entry} isLast={false} />)}
+        <div id="collapsed-timeline" class="timeline-collapsed collapsed">
+          {hidden.map((entry, i) => (
+            <TimelineEntry entry={entry} isLast={i === hidden.length - 1} />
+          ))}
+        </div>
+      </div>
+      <button id="expand-timeline" class="mt-6 inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium btn-primary">
+        <span>Expand Timeline &darr;</span>
+      </button>
+      <button id="collapse-timeline" class="mt-6 hidden inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium btn-primary">
+        <span>Collapse Timeline &uarr;</span>
+      </button>
+    </>
+  ) : (
+    <div id="timeline-container" class="space-y-0">
+      {visible.map((entry) => <TimelineEntry entry={entry} isLast={false} />)}
+      {hidden.map((entry, i) => (
+        <TimelineEntry entry={entry} isLast={i === hidden.length - 1 && hidden.length > 0} />
+      ))}
+    </div>
+  )
+}

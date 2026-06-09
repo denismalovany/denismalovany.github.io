@@ -1,0 +1,15 @@
+---
+import { skillsData } from '../data/skills';
+---
+<div class="grid gap-6 md:grid-cols-3">
+  {
+    Object.entries(skillsData).map(([category, skills]) => (
+      <div>
+        <h3 class="text-xl font-serif mb-4">{category}</h3>
+        <ul class="text-gray-600">
+          {skills.map(skill => <li>{skill}</li>)}
+        </ul>
+      </div>
+    ))
+  }
+</div>

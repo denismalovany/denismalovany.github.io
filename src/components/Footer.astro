@@ -1,0 +1,32 @@
+---
+import { siteData } from '../data/site';
+
+const socialLinks = [
+  { label: 'LinkedIn', href: siteData.linkedin, external: true },
+  { label: 'Email', href: `mailto:${siteData.email}`, external: false },
+  { label: 'Behance', href: siteData.behance, external: true },
+  { label: 'Dribbble', href: siteData.dribbble, external: true },
+];
+---
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <p class="footer-copy">&copy; {siteData.copyrightYear} {siteData.name}</p>
+    </div>
+    <div class="footer-right">
+      <div class="footer-social">
+        {
+          socialLinks.map(link => (
+            <a
+              href={link.href}
+              class="footer-link"
+              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteData } from '../data/site';
+
+const page = siteData.pages.contact;
+---
+<Layout
+  title={page.title}
+  description={page.description}
+  currentPage="contact"
+>
+  <!-- Hero -->
+  <section class="pt-20 pb-16 text-center px-6 hero-section">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 hero-title">Contact</h1>
+    <p class="text-lg text-gray-600 max-w-xl mx-auto hero-subtitle">I'm open to collaborations, consulting, and design conversations</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section py-20 px-6">
+    <div class="container mx-auto max-w-2xl">
+
+      <!-- Primary: Email -->
+      <div class="contact-card contact-card--primary">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <div class="contact-card-body">
+          <h3 class="contact-card-label">Email</h3>
+          <p class="contact-card-value"><a href={`mailto:${siteData.email}`} class="contact-card-link">{siteData.email}</a></p>
+        </div>
+        <div class="contact-card-action">
+          <a href={`mailto:${siteData.email}`} class="contact-btn contact-btn--primary">Send Message</a>
+        </div>
+      </div>
+
+      <!-- Two-column grid: LinkedIn + Design Platforms -->
+      <div class="contact-grid">
+
+        <!-- LinkedIn -->
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="contact-card-body">
+            <h3 class="contact-card-label">LinkedIn</h3>
+            <p class="contact-card-value"><a href={siteData.linkedin} target="_blank" rel="noopener noreferrer" class="contact-card-link">{siteData.linkedinHandle}</a></p>
+            <p class="contact-card-desc">Professional network &amp; resume</p>
+          </div>
+        </div>
+
+        <!-- Design Platforms -->
+        <div class="contact-card">
+          <div class="contact-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <div class="contact-card-body">
+            <h3 class="contact-card-label">Design Portfolio</h3>
+            <div class="contact-card-links">
+              <a href={siteData.behance} target="_blank" rel="noopener noreferrer" class="contact-card-link">Behance</a>
+              <span class="contact-card-sep">&middot;</span>
+              <a href={siteData.dribbble} target="_blank" rel="noopener noreferrer" class="contact-card-link">Dribbble</a>
+            </div>
+            <p class="contact-card-desc">Visual design &amp; case studies</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Resume Download -->
+      <div class="contact-card contact-card--resume">
+        <div class="contact-card-icon contact-card-icon--dark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+        </div>
+        <div class="contact-card-body">
+          <h3 class="contact-card-label">Download Resume</h3>
+          <p class="contact-card-desc">Detailed work history and skills</p>
+        </div>
+        <div class="contact-card-action">
+          <a href="" class="contact-btn contact-btn--primary" onclick="if(!this.href||this.href.endsWith('#')){window.print();return false}">Download PDF</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>

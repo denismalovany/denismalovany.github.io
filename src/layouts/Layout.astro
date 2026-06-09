@@ -1,0 +1,70 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteData } from '../data/site';
+import { skillsData } from '../data/skills';
+import { timelineData } from '../data/timeline';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>;
+  currentPage?: string;
+}
+
+const {
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  jsonLd,
+  currentPage,
+} = Astro.props;
+
+const defaultJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": siteData.name,
+  "email": siteData.email,
+  "url": "https://malovanyi.com",
+  "sameAs": [siteData.linkedin],
+  "jobTitle": "Product Designer & Mechanical Engineer",
+  "description": siteData.tagline,
+  "knowsAbout": Object.values(skillsData).flat(),
+  "alumniOf": timelineData.map(e => ({
+    "@type": "OrganizationRole",
+    "roleName": e.subtitle || "",
+    "startDate": e.period,
+    "affiliation": { "@type": "Organization", "name": e.company }
+  }))
+};
+
+const jsonLdString = JSON.stringify(jsonLd || defaultJsonLd, null, 4);
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <BaseHead
+    title={title}
+    description={description}
+    ogTitle={ogTitle}
+    ogDescription={ogDescription}
+    ogImage={ogImage}
+    jsonLd={jsonLdString}
+  />
+</head>
+<body class="antialiased">
+  <Header currentPage={currentPage} />
+  <slot />
+  <Footer />
+</body>
+</html>
+<script>
+  import '../scripts/menu.js';
+</script>

@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteData } from '../data/site';
+import { projectsData } from '../data/projects';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const page = siteData.pages.projects;
+---
+<Layout
+  title={page.title}
+  description={page.description}
+  currentPage="projects"
+>
+  <!-- Hero -->
+  <section class="pt-20 pb-16 text-center px-6 hero-section">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 hero-title">All Projects</h1>
+    <p class="text-lg text-gray-600 max-w-xl mx-auto hero-subtitle">Complete portfolio of work</p>
+  </section>
+
+  <!-- Projects Section (All Projects) -->
+  <section id="projects" class="section py-20 px-6">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-serif section-title-mb-8">Project Portfolio</h2>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        A comprehensive collection of product design projects showcasing my approach to solving user problems through interaction design, visual design, and prototyping.
+      </p>
+      <div id="projects-grid" class="grid gap-8 md:grid-cols-2">
+        {projectsData.map(project => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
