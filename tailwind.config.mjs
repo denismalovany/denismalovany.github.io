@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['Playfair Display', ...defaultTheme.fontFamily.serif],
+        serif: ['JetBrains Mono', ...defaultTheme.fontFamily.sans],
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
     },

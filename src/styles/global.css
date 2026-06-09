@@ -11,7 +11,7 @@
 
 /* Premium Design System */
 :root {
-  --font-serif: 'Playfair Display', serif;
+  --font-serif: 'JetBrains Mono', monospace;
   --font-sans: 'Inter', sans-serif;
   
   --color-black: #000000;
@@ -149,8 +149,10 @@ header {
 }
 
 .hero-title {
-  letter-spacing: -0.03em;
+  letter-spacing: 0.05em;
   line-height: 1.1;
+  font-weight: 700;
+  text-transform: uppercase;
   color: var(--color-black);
   position: relative;
   display: inline-block;
@@ -175,8 +177,9 @@ header {
 .section-title,
 .section-title-mb-6,
 .section-title-mb-8 {
-  font-weight: 800;
-  letter-spacing: -0.025em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--color-black);
   position: relative;
   display: inline-block;
@@ -421,11 +424,12 @@ hr.divider {
 
 .contact-card-label {
   font-family: var(--font-serif);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--color-black);
   margin-bottom: 0.25rem;
-  letter-spacing: -0.015em;
 }
 
 .contact-card-value {
@@ -749,9 +753,10 @@ hr.divider {
 
 .card-b-title {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--color-black);
   line-height: 1.2;
   margin-bottom: 0.75rem;
@@ -794,7 +799,7 @@ hr.divider {
 
 @media (min-width: 768px) {
   .card-b-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 1.25rem;
   }
 }
