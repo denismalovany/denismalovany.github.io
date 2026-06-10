@@ -21,63 +21,63 @@ const page = siteData.pages.contact;
     <div class="container mx-auto max-w-3xl">
 
       <!-- Primary: Email -->
-      <div class="contact-card contact-card--primary">
-        <div class="contact-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <div class="flex flex-col sm:flex-row items-start gap-3.5 sm:gap-5 p-5 sm:p-6 sm:px-7 border border-gray-200 rounded-lg bg-white mb-5">
+        <div class="flex items-center justify-center w-11 h-11 shrink-0 rounded-md bg-gray-50 text-gray-600">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         </div>
-        <div class="contact-card-body">
-          <h3 class="contact-card-label">Email</h3>
-          <p class="contact-card-value"><a href={`mailto:${siteData.email}`} class="contact-card-link">{siteData.email}</a></p>
+        <div class="flex-1 min-w-0 pt-0.5">
+          <h3 class="font-serif text-base font-bold uppercase tracking-wider text-black mb-1">Email</h3>
+          <p class="text-base-plus text-gray-700"><a href={`mailto:${siteData.email}`} class="text-gray-700 no-underline hover:text-black transition-colors duration-fast">{siteData.email}</a></p>
         </div>
-        <div class="contact-card-action">
-          <a href={`mailto:${siteData.email}`} class="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium btn-primary w-full sm:w-auto">Send Message</a>
+        <div class="shrink-0 flex items-center pt-0.5 self-stretch sm:self-auto">
+          <a href={`mailto:${siteData.email}`} class="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl active:-translate-y-px active:scale-[1.005] active:shadow-md transition duration-normal w-full sm:w-auto">Send Message</a>
         </div>
       </div>
 
       <!-- Two-column grid: LinkedIn + Design Platforms -->
-      <div class="contact-grid">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
         <!-- LinkedIn -->
-        <div class="contact-card">
-          <div class="contact-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <div class="flex flex-col sm:flex-row items-start gap-3.5 sm:gap-5 p-5 sm:p-6 sm:px-7 rounded-lg bg-white">
+          <div class="flex items-center justify-center w-11 h-11 shrink-0 rounded-md bg-gray-50 text-gray-600">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </div>
-          <div class="contact-card-body">
-            <h3 class="contact-card-label">LinkedIn</h3>
-            <p class="contact-card-value"><a href={siteData.linkedin} target="_blank" rel="noopener noreferrer" class="contact-card-link link-external">{siteData.linkedinHandle}</a></p>
-            <p class="contact-card-desc">Professional network &amp; resume</p>
+          <div class="flex-1 min-w-0 pt-0.5">
+            <h3 class="font-serif text-base font-bold uppercase tracking-wider text-black mb-1">LinkedIn</h3>
+            <p class="text-base-plus text-gray-700"><a href={siteData.linkedin} target="_blank" rel="noopener noreferrer" class="text-gray-700 no-underline hover:text-black transition-colors duration-fast link-external">{siteData.linkedinHandle}</a></p>
+            <p class="text-sm-plus text-gray-400 mt-1">Professional network &amp; resume</p>
           </div>
         </div>
 
         <!-- Design Platforms -->
-        <div class="contact-card">
-          <div class="contact-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <div class="flex flex-col sm:flex-row items-start gap-3.5 sm:gap-5 p-5 sm:p-6 sm:px-7 rounded-lg bg-white">
+          <div class="flex items-center justify-center w-11 h-11 shrink-0 rounded-md bg-gray-50 text-gray-600">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
           </div>
-          <div class="contact-card-body">
-            <h3 class="contact-card-label">Design Portfolio</h3>
-            <div class="contact-card-links">
-              <a href={siteData.behance} target="_blank" rel="noopener noreferrer" class="contact-card-link link-external">Behance</a>
-              <span class="contact-card-sep">&middot;</span>
-              <a href={siteData.dribbble} target="_blank" rel="noopener noreferrer" class="contact-card-link link-external">Dribbble</a>
+          <div class="flex-1 min-w-0 pt-0.5">
+            <h3 class="font-serif text-base font-bold uppercase tracking-wider text-black mb-1">Design Portfolio</h3>
+            <div class="flex items-center gap-2 text-base-plus">
+              <a href={siteData.behance} target="_blank" rel="noopener noreferrer" class="text-gray-700 no-underline hover:text-black transition-colors duration-fast link-external">Behance</a>
+              <span class="text-gray-300">&middot;</span>
+              <a href={siteData.dribbble} target="_blank" rel="noopener noreferrer" class="text-gray-700 no-underline hover:text-black transition-colors duration-fast link-external">Dribbble</a>
             </div>
-            <p class="contact-card-desc">Visual design &amp; case studies</p>
+            <p class="text-sm-plus text-gray-400 mt-1">Visual design &amp; case studies</p>
           </div>
         </div>
 
       </div>
 
       <!-- Resume Download -->
-      <div class="contact-card contact-card--resume">
-        <div class="contact-card-icon contact-card-icon--dark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+      <div class="flex flex-col sm:flex-row items-start gap-3.5 sm:gap-5 p-5 sm:p-6 sm:px-7 border border-gray-200 rounded-lg bg-gray-50 mt-5">
+        <div class="flex items-center justify-center w-11 h-11 shrink-0 rounded-md bg-black text-white">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
         </div>
-        <div class="contact-card-body">
-          <h3 class="contact-card-label">Download Resume</h3>
-          <p class="contact-card-desc">Detailed work history and skills</p>
+        <div class="flex-1 min-w-0 pt-0.5">
+          <h3 class="font-serif text-base font-bold uppercase tracking-wider text-black mb-1">Download Resume</h3>
+          <p class="text-sm-plus text-gray-400 mt-1">Detailed work history and skills</p>
         </div>
-        <div class="contact-card-action">
-          <a href="" class="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium btn-primary w-full sm:w-auto" onclick="if(!this.href||this.href.endsWith('#')){window.print();return false}">Download PDF</a>
+        <div class="shrink-0 flex items-center pt-0.5 self-stretch sm:self-auto">
+          <a href="" class="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl active:-translate-y-px active:scale-[1.005] active:shadow-md transition duration-normal w-full sm:w-auto" onclick="if(!this.href||this.href.endsWith('#')){window.print();return false}">Download PDF</a>
         </div>
       </div>
 

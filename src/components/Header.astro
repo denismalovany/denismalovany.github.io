@@ -24,11 +24,15 @@ function isActive(key: string, current: string | undefined): boolean {
   if (current === 'project-detail' && key === 'projects') return true;
   return false;
 }
+
+const pdfLinkClasses = 'inline-flex items-center gap-1 px-2 py-1 text-2xs font-medium text-gray-600 no-underline border border-gray-200 rounded-full transition duration-fast ml-1 tracking-[0.02em] uppercase hover:text-black hover:border-gray-400 hover:bg-gray-50';
+const pdfIconClasses = 'w-3 h-3 shrink-0';
 ---
+
 <header id="site-header" class="flex items-center justify-between px-6">
   <div class="flex items-center">
     <a href="/index.html" class="flex items-center space-x-2" aria-label="DM Portfolio — Home">
-      <span class="text-2xl font-serif font-bold tracking-tight site-logo">DM</span>
+      <span class="text-2xl font-serif font-bold tracking-tight text-black">DM</span>
       <span class="text-sm font-sans uppercase tracking-wider text-gray-500">Portfolio</span>
     </a>
   </div>
@@ -48,13 +52,13 @@ function isActive(key: string, current: string | undefined): boolean {
       ))}
     </ul>
     {hasPdf ? (
-      <a href={resumeLink} class="header-pdf-link" aria-label={resumeLabel}>
-        <svg class="header-pdf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <a href={resumeLink} class={pdfLinkClasses} aria-label={resumeLabel}>
+        <svg class={pdfIconClasses} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         <span>PDF</span>
       </a>
     ) : (
-      <a href="javascript:window.print()" class="header-pdf-link" aria-label="Print / Save PDF" onclick="window.print();return false">
-        <svg class="header-pdf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <a href="javascript:window.print()" class={pdfLinkClasses} aria-label="Print / Save PDF" onclick="window.print();return false">
+        <svg class={pdfIconClasses} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         <span>PDF</span>
       </a>
     )}
@@ -93,13 +97,13 @@ function isActive(key: string, current: string | undefined): boolean {
     ))}
     <li>
       {hasPdf ? (
-        <a href={resumeLink} class="header-pdf-link header-pdf-link--mobile">
-          <svg class="header-pdf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <a href={resumeLink} class={`${pdfLinkClasses} ml-0 mt-2 px-4 py-2.5 text-sm tracking-normal normal-case`}>
+          <svg class={pdfIconClasses} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           <span>{resumeLabel}</span>
         </a>
       ) : (
-        <a href="javascript:window.print()" class="header-pdf-link header-pdf-link--mobile" onclick="window.print();return false">
-          <svg class="header-pdf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <a href="javascript:window.print()" class={`${pdfLinkClasses} ml-0 mt-2 px-4 py-2.5 text-sm tracking-normal normal-case`} onclick="window.print();return false">
+          <svg class={pdfIconClasses} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           <span>{resumeLabel}</span>
         </a>
       )}

@@ -22,10 +22,10 @@ const hidden = timelineData.filter(e => e.collapsed);
           ))}
         </div>
       </div>
-      <button id="expand-timeline" class="mt-6 inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium btn-primary">
+      <button id="expand-timeline" class="mt-6 inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl active:-translate-y-px active:scale-[1.005] active:shadow-md transition duration-normal">
         <span>Expand Timeline &darr;</span>
       </button>
-      <button id="collapse-timeline" class="mt-6 hidden inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium btn-primary">
+      <button id="collapse-timeline" class="mt-6 hidden inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl active:-translate-y-px active:scale-[1.005] active:shadow-md transition duration-normal">
         <span>Collapse Timeline &uarr;</span>
       </button>
     </>

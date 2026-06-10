@@ -16,7 +16,7 @@ const dotClass = entry.dotColor === 'gray'
 ---
 <div class={borderClass}>
   <div class={dotClass}></div>
-  <p class="caption mb-1">{entry.period}</p>
+  <p class="text-sm font-medium uppercase tracking-[0.075em] text-gray-400 mb-1">{entry.period}</p>
   <h3 class="text-lg font-serif font-bold mb-1">{entry.company}</h3>
   {entry.subtitle && (
     <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">{entry.subtitle}</p>
@@ -31,7 +31,7 @@ const dotClass = entry.dotColor === 'gray'
                 <p class="text-gray-700 font-medium mb-1">{detail.role}</p>
               )}
               {detail.period && (
-                <p class="caption mb-0">{detail.period}</p>
+                <p class="text-sm font-medium uppercase tracking-[0.075em] text-gray-400 mb-0">{detail.period}</p>
               )}
               <p class="text-gray-600 leading-relaxed">{detail.description}</p>
             </div>
