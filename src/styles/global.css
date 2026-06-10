@@ -347,18 +347,6 @@ hr.divider {
   /* .container { max-width: 80rem; }  makes too much whitespace on large screens, so we'll just let it be full width with padding */
 }
 
-.section {
-  padding-top: calc(4rem + 4rem);
-  padding-bottom: calc(4rem + 4rem);
-}
-
-@media (min-width: 1024px) {
-  .section {
-    padding-top: calc(4rem + 5rem);
-    padding-bottom: calc(4rem + 5rem);
-  }
-}
-
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
