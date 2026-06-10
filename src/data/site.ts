@@ -14,7 +14,7 @@ export const siteData = {
   pages: {
     index: {
       title: "Denys Malovanyi - Product Designer Portfolio",
-      description: "Denys Malovanyi — UX/UI and Product Designer with 9+ years of experience in interaction design, visual design, prototyping, and AI-augmented workflows."
+      description: "Denys Malovanyi - UX/UI and Product Designer with 9+ years of experience in interaction design, visual design, prototyping, and AI-augmented workflows."
     },
     about: {
       title: "Denys Malovanyi - About",
@@ -22,7 +22,7 @@ export const siteData = {
     },
     contact: {
       title: "Denys Malovanyi - Contact",
-      description: "Contact Denys Malovanyi — product designer and engineer. Email, LinkedIn, Behance, Dribbble. Download resume."
+      description: "Contact Denys Malovanyi - product designer and engineer. Email, LinkedIn, Behance, Dribbble. Download resume."
     },
     projects: {
       title: "All Projects - Denys Malovanyi Portfolio",

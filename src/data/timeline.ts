@@ -27,7 +27,7 @@ export const timelineData: TimelineEntry[] = [
   },
   {
     period: "May 2022 – Dec 2023",
-    company: "Career Break — Volunteer Work",
+    company: "Career Break - Volunteer Work",
     subtitle: "Full-time Volunteer",
     dotColor: "gray",
     collapsed: false,
@@ -60,7 +60,7 @@ export const timelineData: TimelineEntry[] = [
     details: [
       {
         role: "UI Designer & HTML Developer",
-        description: "Designed and hand-coded ~90% of client-facing pages for a Japanese-market English learning platform — extending the visual language across ~20 unique templates."
+        description: "Designed and hand-coded ~90% of client-facing pages for a Japanese-market English learning platform - extending the visual language across ~20 unique templates."
       }
     ]
   },

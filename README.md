@@ -1,4 +1,4 @@
-# Denys Malovanyi — Product Designer Portfolio
+# Denys Malovanyi - Product Designer Portfolio
 
 Built with [Astro](https://astro.build/) and Tailwind CSS. Static output deployed to GitHub Pages.
 
@@ -34,4 +34,4 @@ Edit files in `src/data/` to update projects, timeline, skills, or site metadata
 
 ## Deployment
 
-Push to `main` — GitHub Actions builds and deploys to GitHub Pages automatically.
+Push to `main` - GitHub Actions builds and deploys to GitHub Pages automatically.
