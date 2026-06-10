@@ -39,7 +39,7 @@ function isActive(key: string, current: string | undefined): boolean {
         <li>
           <a
             href={item.href}
-            class={`nav-link${isActive(item.key, currentPage) ? ' active' : ''}`}
+            class={`nav-link text-sm font-medium no-underline px-3 py-2${isActive(item.key, currentPage) ? ' active' : ''}`}
             aria-current={isActive(item.key, currentPage) ? 'page' : undefined}
           >
             {item.label}
@@ -76,15 +76,15 @@ function isActive(key: string, current: string | undefined): boolean {
   </button>
 </header>
 
-<div id="mobile-menu-backdrop" aria-hidden="true"></div>
+<div id="mobile-menu-backdrop" class="fixed top-16 inset-x-0 bottom-0 bg-black/20 z-[998]" aria-hidden="true"></div>
 
-<nav id="mobile-menu" aria-label="Mobile navigation" inert>
-  <ul role="list">
+<nav id="mobile-menu" class="fixed top-16 inset-x-0 bg-white border-t border-gray-100 z-[999] overflow-hidden shadow-md" aria-label="Mobile navigation" inert>
+  <ul class="px-4 py-3 flex flex-col gap-1 list-none" role="list">
     {navItems.map(item => (
       <li>
         <a
           href={item.href}
-          class={`nav-link mobile-nav-link${isActive(item.key, currentPage) ? ' active' : ''}`}
+          class={`nav-link block py-2.5 px-4${isActive(item.key, currentPage) ? ' active' : ''}`}
           aria-current={isActive(item.key, currentPage) ? 'page' : undefined}
         >
           {item.label}
