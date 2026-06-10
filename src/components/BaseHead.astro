@@ -12,6 +12,8 @@ const { title, description, ogTitle, ogDescription, ogImage, jsonLd } = Astro.pr
 ---
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<!-- Add a /favicon.ico in public/ for legacy browser fallback -->
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta property="og:title" content={ogTitle || title} />
