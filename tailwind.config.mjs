@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['JetBrains Mono', ...defaultTheme.fontFamily.sans],
+        serif: ['-apple-system', 'BlinkMacSystemFont', 'Inter', ...defaultTheme.fontFamily.sans],
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {

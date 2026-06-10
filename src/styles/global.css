@@ -1,8 +1,4 @@
-@import '@fontsource/inter/400.css' layer(base);
-@import '@fontsource/inter/500.css' layer(base);
-@import '@fontsource/inter/600.css' layer(base);
-@import '@fontsource/jetbrains-mono/400.css' layer(base);
-@import '@fontsource/jetbrains-mono/700.css' layer(base);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap') layer(base);
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +6,7 @@
 
 /* Premium Design System */
 :root {
-  --font-serif: 'JetBrains Mono', monospace;
+  --font-serif: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
   --font-sans: 'Inter', sans-serif;
   
   --color-black: #000000;
