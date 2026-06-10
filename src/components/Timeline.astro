@@ -68,35 +68,42 @@ const hidden = timelineData.filter(e => e.collapsed);
 }
 
 <script is:inline>
-  var expandBtn = document.getElementById('expand-timeline');
-  var collapseBtn = document.getElementById('collapse-timeline');
-  var collapsedTimeline = document.getElementById('collapsed-timeline');
+  function setupTimeline() {
+    var expandBtn = document.getElementById('expand-timeline');
+    var collapseBtn = document.getElementById('collapse-timeline');
+    var collapsedTimeline = document.getElementById('collapsed-timeline');
 
-  if (expandBtn && collapsedTimeline) {
-    collapsedTimeline.classList.add('collapsed');
+    if (expandBtn && collapsedTimeline) {
+      collapsedTimeline.classList.add('collapsed');
 
-    var freshExpand = expandBtn.cloneNode(true);
-    expandBtn.parentNode.replaceChild(freshExpand, expandBtn);
+      var freshExpand = expandBtn.cloneNode(true);
+      expandBtn.parentNode.replaceChild(freshExpand, expandBtn);
 
-    var freshCollapse = null;
-    if (collapseBtn) {
-      freshCollapse = collapseBtn.cloneNode(true);
-      collapseBtn.parentNode.replaceChild(freshCollapse, collapseBtn);
-      freshCollapse.classList.add('hidden');
-    }
-
-    freshExpand.addEventListener('click', function() {
-      collapsedTimeline.classList.remove('collapsed');
-      freshExpand.classList.add('hidden');
-      if (freshCollapse) freshCollapse.classList.remove('hidden');
-    });
-
-    if (freshCollapse) {
-      freshCollapse.addEventListener('click', function() {
-        collapsedTimeline.classList.add('collapsed');
+      var freshCollapse = null;
+      if (collapseBtn) {
+        freshCollapse = collapseBtn.cloneNode(true);
+        collapseBtn.parentNode.replaceChild(freshCollapse, collapseBtn);
         freshCollapse.classList.add('hidden');
-        freshExpand.classList.remove('hidden');
+
+        freshCollapse.addEventListener('click', function() {
+          collapsedTimeline.classList.add('collapsed');
+          freshCollapse.classList.add('hidden');
+          freshExpand.classList.remove('hidden');
+        });
+      }
+
+      freshExpand.addEventListener('click', function() {
+        collapsedTimeline.classList.remove('collapsed');
+        freshExpand.classList.add('hidden');
+        if (freshCollapse) freshCollapse.classList.remove('hidden');
       });
     }
+  }
+
+  setupTimeline();
+
+  if (!document.body.dataset.timelineSwap) {
+    document.body.dataset.timelineSwap = '1';
+    document.addEventListener('astro:after-swap', setupTimeline);
   }
 </script>
