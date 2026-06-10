@@ -98,14 +98,17 @@ header {
 }
 
 .nav-link {
-  transition: all var(--transition-normal);
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-600);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
 .nav-link:hover {
   color: var(--color-black);
-  opacity: 1;
 }
 
 .nav-link.active {
@@ -117,10 +120,15 @@ header {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: 0.5rem;
+  right: 0.5rem;
   height: 2px;
   background: var(--color-black);
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 0.625rem 1rem;
 }
 
 .header-pdf-link {
@@ -287,17 +295,72 @@ header {
   box-shadow: var(--shadow-sm);
 }
 
+#mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  top: 4rem;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease-out, visibility 0s 300ms;
+}
+
+#mobile-menu-backdrop.menu-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 300ms ease-out, visibility 0s 0s;
+}
+
 #mobile-menu {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-gray-100);
+  z-index: 999;
   max-height: 0;
   opacity: 0;
+  visibility: hidden;
   overflow: hidden;
-  transition: max-height 300ms ease-out, opacity 300ms ease-out;
-  z-index: 999;
+  box-shadow: var(--shadow-md);
+  transition: max-height 300ms ease-out, opacity 300ms ease-out, visibility 0s 300ms;
 }
 
 #mobile-menu.menu-open {
   max-height: 500px;
   opacity: 1;
+  visibility: visible;
+  transition: max-height 300ms ease-out, opacity 300ms ease-out, visibility 0s 0s;
+}
+
+#mobile-menu ul {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.hamburger-icon {
+  display: block;
+}
+
+.close-icon {
+  display: none;
+}
+
+#mobile-menu-toggle.menu-open .hamburger-icon {
+  display: none;
+}
+
+#mobile-menu-toggle.menu-open .close-icon {
+  display: block;
+}
+
+body.menu-locked {
+  overflow: hidden;
 }
 
 .hero-section {
@@ -594,6 +657,7 @@ hr.divider {
   }
 
   #mobile-menu,
+  #mobile-menu-backdrop,
   #mobile-menu-toggle,
   .header-pdf-link {
     display: none;
