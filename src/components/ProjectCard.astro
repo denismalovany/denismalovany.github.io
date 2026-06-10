@@ -10,21 +10,21 @@ const { project, root = '' } = Astro.props;
 const summary = project.summary || project.description;
 ---
 <a href={`${root}projects/project-${project.id}.html`} class="block h-full">
-  <div class="card-b h-full">
-    <img src={project.image} alt={project.title} class="card-b-img" loading="lazy" />
-    <div class="card-b-body">
+  <div class="project-card h-full">
+    <img src={project.image} alt={project.title} class="project-card-img" loading="lazy" />
+    <div class="project-card-body">
       {
         project.tags && project.tags.length > 0 && (
-          <div class="card-b-tags">
+          <div class="project-card-tags">
             {project.tags.map(tag => (
-              <span class="card-b-tag">{tag}</span>
+              <span class="project-card-tag">{tag}</span>
             ))}
           </div>
         )
       }
-      <h3 class="card-b-title">{project.title}</h3>
-      <p class="card-b-summary">{summary}</p>
-      {project.role && <p class="card-b-meta">{project.role}</p>}
+      <h3 class="project-card-title">{project.title}</h3>
+      <p class="project-card-summary">{summary}</p>
+      {project.role && <p class="project-card-meta">{project.role}</p>}
     </div>
   </div>
 </a>
