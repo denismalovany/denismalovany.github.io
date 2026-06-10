@@ -11,8 +11,8 @@ const borderClass = isLast
   ? 'relative pl-8 border-l-2 border-gray-200'
   : 'relative pl-8 pb-12 border-l-2 border-gray-200';
 const dotClass = entry.dotColor === 'gray'
-  ? 'absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-400'
-  : 'absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-black';
+  ? 'timeline-dot timeline-dot--gray'
+  : 'timeline-dot';
 ---
 <div class={borderClass}>
   <div class={dotClass}></div>

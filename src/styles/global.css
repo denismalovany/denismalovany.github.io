@@ -251,6 +251,20 @@ header {
   transition: all var(--transition-normal);
 }
 
+.timeline-dot {
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background: var(--color-black);
+}
+
+.timeline-dot--gray {
+  background: var(--color-gray-400);
+}
+
 .btn-primary,
 .btn-outline {
   font-family: var(--font-sans);
