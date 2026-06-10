@@ -274,7 +274,7 @@ header {
   overflow: hidden;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .hero-section {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -331,7 +331,7 @@ hr.divider {
   margin: 3rem 0;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .hero-section {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
@@ -462,7 +462,7 @@ hr.divider {
   gap: 1.25rem;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 767px) {
   .contact-card {
     flex-direction: column;
     padding: 1.25rem;
@@ -527,7 +527,7 @@ hr.divider {
   flex-shrink: 0;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 767px) {
   .site-footer {
     padding: 1.25rem 1.5rem;
   }
