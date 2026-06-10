@@ -26,10 +26,6 @@
                     link.classList.add('active');
                 } else if (isNested && normalizedHref === 'projects.html') {
                     link.classList.add('active');
-                } else if (href === '#about' && currentPage === 'index.html' && hash === '') {
-                    link.classList.add('active');
-                } else if (href === '#contact' && hash === '#contact') {
-                    link.classList.add('active');
                 }
             });
         },
@@ -68,17 +64,6 @@
         setupDelegatedListeners: function() {
             var self = this;
             document.addEventListener('click', function(event) {
-                var anchor = event.target.closest('a[href^="#"]');
-                if (anchor) {
-                    event.preventDefault();
-                    var target = document.querySelector(anchor.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                    self.closeMobileMenu();
-                    return;
-                }
-
                 var navLink = event.target.closest('#mobile-menu .nav-link');
                 if (navLink) {
                     self.closeMobileMenu();
