@@ -280,14 +280,14 @@ header {
 @media (min-width: 640px) {
   .hero-section {
     padding-top: 6rem;
-    padding-bottom: 4rem;
+    padding-bottom: 6rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-section {
     padding-top: 8rem;
-    padding-bottom: 5rem;
+    padding-bottom: 8rem;
   }
 }
 
@@ -352,13 +352,13 @@ hr.divider {
 
 .section {
   padding-top: calc(4rem + 4rem);
-  padding-bottom: 10rem;
+  padding-bottom: calc(4rem + 4rem);
 }
 
 @media (min-width: 1024px) {
   .section {
     padding-top: calc(4rem + 5rem);
-    padding-bottom: 12rem;
+    padding-bottom: calc(4rem + 5rem);
   }
 }
 
@@ -667,7 +667,7 @@ hr.divider {
 
   .section,
   .hero-section {
-    padding: 1rem 0;
+    padding: 1rem;
   }
 
   .container {
