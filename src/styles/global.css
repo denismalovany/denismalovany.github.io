@@ -84,6 +84,26 @@ header {
   background-clip: text;
 }
 
+.text-link {
+  color: var(--color-gray-600);
+  transition: color var(--transition-fast);
+}
+.text-link:hover {
+  color: var(--color-black);
+}
+
+.link-arrow-back::before {
+  content: '\2190\00A0';
+}
+
+.link-arrow::after {
+  content: '\00A0\2192';
+}
+
+.link-external::after {
+  content: '\00A0\2197';
+}
+
 .nav-link {
   transition: all var(--transition-normal);
   position: relative;
