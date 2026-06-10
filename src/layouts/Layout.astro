@@ -15,6 +15,7 @@ interface Props {
   ogImage?: string;
   jsonLd?: Record<string, unknown>;
   currentPage?: string;
+  suppressJsonLd?: boolean;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   ogImage,
   jsonLd,
   currentPage,
+  suppressJsonLd = false,
 } = Astro.props;
 
 const defaultJsonLd = {
@@ -45,7 +47,7 @@ const defaultJsonLd = {
   }))
 };
 
-const jsonLdString = JSON.stringify(jsonLd || defaultJsonLd, null, 4);
+const jsonLdString = suppressJsonLd ? null : JSON.stringify(jsonLd || defaultJsonLd, null, 4);
 ---
 <!DOCTYPE html>
 <html lang="en">

@@ -5,7 +5,7 @@ import { projectsData } from '../../data/projects';
 const project = projectsData.find(p => p.id === 6)!;
 ---
 
-<Layout title={project.metaTitle} description={project.metaDescription} currentPage="project-detail">
+<Layout title={project.metaTitle} description={project.metaDescription} currentPage="project-detail" suppressJsonLd>
 
   <!-- Hero -->
   <section class="pt-20 pb-20 text-center px-6 hero-section">

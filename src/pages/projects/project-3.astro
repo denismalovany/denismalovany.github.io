@@ -5,7 +5,7 @@ import { projectsData } from '../../data/projects';
 const project = projectsData.find(p => p.id === 3)!;
 ---
 
-<Layout title={project.metaTitle} description={project.metaDescription} currentPage="project-detail">
+<Layout title={project.metaTitle} description={project.metaDescription} currentPage="project-detail" suppressJsonLd>
   <!-- Hero -->
   <section class="pt-20 pb-20 text-center px-6 hero-section">
     <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 hero-title">Capacitive Stamp Loyalty System</h1>
