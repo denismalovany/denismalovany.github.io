@@ -1,28 +1,28 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 import { siteData } from '../data/site';
 import { timelineData } from '../data/timeline';
 import { skillsData } from '../data/skills';
-import { projectsData } from '../data/projects';
 import Timeline from '../components/Timeline.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 
 const page = siteData.pages.index;
+const projects = await getCollection('projects');
+const featuredProjects = projects.sort((a, b) => a.data.weight - b.data.weight).slice(0, 2);
 ---
 <Layout
   title={page.title}
   description={page.description}
   currentPage="home"
 >
-  <!-- Hero -->
-  <section class="pt-20 pb-20 text-center px-6 hero-section">
-    <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 hero-title">{siteData.name}</h1>
-    <p class="text-lg text-gray-600 max-w-xl mx-auto hero-subtitle">{siteData.tagline}</p>
-    <div class="mt-8 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center">
+  <PageHero title={siteData.name} subtitle={siteData.tagline}>
+    <div slot="after" class="mt-8 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center relative z-[1]">
       <a href="/projects.html" class="px-6 py-3 bg-black text-white rounded-lg font-medium sm:w-auto w-full sm:w-1/2 text-center hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl active:-translate-y-px active:scale-[1.005] active:shadow-md transition duration-normal">Explore My Work</a>
       <a href="/contact.html" class="mt-4 sm:mt-0 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium sm:w-auto w-full sm:w-1/2 text-center hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl hover:border-gray-400 hover:bg-gray-50 active:-translate-y-px active:scale-[1.005] active:shadow-sm transition duration-normal">Get in Touch</a>
     </div>
-  </section>
+  </PageHero>
 
   <!-- About Section (Short Version) -->
   <section id="about-preview" class="section py-20 px-6 bg-gray-50">
@@ -71,7 +71,7 @@ const page = siteData.pages.index;
         A selection of recent work demonstrating my product design approach and problem-solving skills.
       </p>
       <div id="projects-grid" class="grid gap-8 md:grid-cols-2">
-        {projectsData.slice(0, 2).map(project => (
+        {featuredProjects.map(project => (
           <ProjectCard project={project} />
         ))}
       </div>

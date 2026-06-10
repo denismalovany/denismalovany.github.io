@@ -9,17 +9,19 @@ interface Props {
 }
 
 const { title, description, ogTitle, ogDescription, ogImage, jsonLd } = Astro.props;
+const canonicalURL = Astro.url.href;
 ---
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<!-- Add a /favicon.ico in public/ for legacy browser fallback -->
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link rel="canonical" href={canonicalURL} />
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta property="og:title" content={ogTitle || title} />
 <meta property="og:description" content={ogDescription || description} />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://denismalovany.github.io" />
+<meta property="og:url" content={canonicalURL} />
 {ogImage && <meta property="og:image" content={ogImage} />}
 <meta name="twitter:card" content="summary" />
 {

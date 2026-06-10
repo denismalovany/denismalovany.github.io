@@ -1,30 +1,32 @@
 ---
-import type { Project } from '../data/projects';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  project: Project;
+  project: CollectionEntry<'projects'>;
   root?: string;
 }
 
 const { project, root = '' } = Astro.props;
-const summary = project.summary || project.description;
+const { data } = project;
+const summary = data.summary;
 ---
-<a href={`${root}projects/project-${project.id}.html`} class="block h-full">
+<a href={`${root}projects/${project.slug}.html`} class="block h-full">
   <div class="flex flex-col border border-gray-100 rounded-lg bg-white transition duration-normal hover:-translate-y-1 hover:shadow-lg hover:border-gray-200 overflow-hidden h-full group">
-    <img src={project.image} alt={project.title} class="w-full aspect-[3/2] object-cover block transition duration-normal group-hover:brightness-95" loading="lazy" />
+    <Image src={data.image} alt={data.title} width={800} height={533} class="w-full aspect-[3/2] object-cover block transition duration-normal group-hover:brightness-95" loading="lazy" decoding="async" />
     <div class="px-6 pt-5 pb-6 flex flex-col grow">
       {
-        project.tags && project.tags.length > 0 && (
+        data.tags && data.tags.length > 0 && (
           <div class="flex flex-wrap gap-1.5 mb-3">
-            {project.tags.map(tag => (
+            {data.tags.map(tag => (
               <span class="inline-flex items-center py-1 px-2.5 text-2xs font-medium tracking-[0.02em] uppercase text-gray-600 bg-white border border-gray-200 rounded-full">{tag}</span>
             ))}
           </div>
         )
       }
-      <h3 class="font-serif text-lg md:text-xl font-bold uppercase tracking-wider text-black leading-tight mb-3 md:mb-5">{project.title}</h3>
+      <h3 class="font-serif text-lg md:text-xl font-bold uppercase tracking-wider text-black leading-tight mb-3 md:mb-5">{data.title}</h3>
       <p class="text-base-plus text-gray-600 leading-relaxed line-clamp-3 overflow-hidden mb-3 group-hover:text-gray-700">{summary}</p>
-      {project.role && <p class="text-sm font-medium uppercase tracking-[0.075em] text-gray-400 mt-auto pt-3 border-t border-gray-100 group-hover:text-gray-500">{project.role}</p>}
+      {data.role && <p class="text-sm font-medium uppercase tracking-[0.075em] text-gray-400 mt-auto pt-3 border-t border-gray-100 group-hover:text-gray-500">{data.role}</p>}
     </div>
   </div>
 </a>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 import { siteData } from '../data/site';
 import Timeline from '../components/Timeline.astro';
 import SkillsGrid from '../components/SkillsGrid.astro';
@@ -11,11 +12,7 @@ const page = siteData.pages.about;
   description={page.description}
   currentPage="about"
 >
-  <!-- Hero Section -->
-  <section class="pt-20 pb-20 text-center px-6 hero-section">
-    <h1 class="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 hero-title">{siteData.name}</h1>
-    <p class="text-lg text-gray-600 max-w-xl mx-auto hero-subtitle">{siteData.aboutTagline}</p>
-  </section>
+  <PageHero title={siteData.name} subtitle={siteData.aboutTagline} />
 
   <!-- About Section -->
   <section id="about" class="section py-20 px-6 bg-gray-50">
