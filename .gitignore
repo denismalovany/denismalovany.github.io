@@ -33,3 +33,22 @@ Thumbs.db
 
 # Kilo tool state
 .kilo/
+
+# deployment/build cache
+.turbo/
+.vercel/
+.netlify/
+
+# coverage/testing
+coverage/
+*.lcov
+.nyc_output/
+
+# TypeScript
+*.tsbuildinfo
+
+# lockfile alternates
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+bun.lock
