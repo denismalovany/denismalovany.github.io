@@ -12,13 +12,18 @@
   var staggerObserver = null;
 
   // ─── Scroll-Driven Reveals ────────────────────────────
+  var PAGE_SCOPE = 'main';
+
   function initScrollReveals() {
+    var page = document.querySelector(PAGE_SCOPE);
+    if (!page) return;
+
     if (reducedMotion) {
-      document.querySelectorAll('.reveal').forEach(function(el) {
+      page.querySelectorAll('.reveal').forEach(function(el) {
         el.style.opacity = '1';
         el.style.transform = 'none';
       });
-      document.querySelectorAll('.reveal-stagger').forEach(function(el) {
+      page.querySelectorAll('.reveal-stagger').forEach(function(el) {
         el.style.opacity = '1';
         el.style.transform = 'none';
       });
@@ -35,7 +40,7 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(function(el) {
+    page.querySelectorAll('.reveal').forEach(function(el) {
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px) scale(0.98)';
       el.style.transition = 'opacity 0.6s cubic-bezier(0.25,0.1,0.25,1), transform 0.6s cubic-bezier(0.25,0.1,0.25,1)';
@@ -58,7 +63,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal-container').forEach(function(el) {
+    page.querySelectorAll('.reveal-container').forEach(function(el) {
       el.querySelectorAll('.reveal-stagger').forEach(function(item) {
         item.style.opacity = '0';
         item.style.transform = 'translateY(24px)';
