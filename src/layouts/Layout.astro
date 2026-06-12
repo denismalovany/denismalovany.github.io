@@ -64,11 +64,11 @@ const jsonLdString = suppressJsonLd ? null : JSON.stringify(jsonLd || defaultJso
   <ViewTransitions />
 </head>
 <body class="antialiased">
-  <Header currentPage={currentPage} />
+  <Header currentPage={currentPage} transition:persist />
   <main class="flex-1">
     <slot />
   </main>
-  <Footer />
+  <Footer transition:persist />
   <script src="/scripts/interactive.js" type="module"></script>
 </body>
 </html>

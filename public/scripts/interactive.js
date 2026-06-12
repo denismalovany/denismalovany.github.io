@@ -102,13 +102,6 @@
     window.addEventListener('scroll', headerScrollHandler, { passive: true });
   }
 
-  function destroyScrollHeader() {
-    if (headerScrollHandler) {
-      window.removeEventListener('scroll', headerScrollHandler);
-      headerScrollHandler = null;
-    }
-  }
-
   // ─── Back to Top ─────────────────────────────────────
   var backToTopHandler = null;
 
@@ -145,30 +138,19 @@
     window.addEventListener('scroll', backToTopHandler, { passive: true });
   }
 
-  function destroyBackToTop() {
-    if (backToTopHandler) {
-      window.removeEventListener('scroll', backToTopHandler);
-      backToTopHandler = null;
-    }
-    var btn = document.getElementById('back-to-top');
-    if (btn) btn.remove();
-  }
-
   // ─── Lifecycle ────────────────────────────────────────
-  function initAll() {
+  function initContent() {
     initScrollReveals();
-    initScrollHeader();
-    initBackToTop();
   }
 
-  function destroyAll() {
+  function destroyContent() {
     destroyScrollReveals();
-    destroyScrollHeader();
-    destroyBackToTop();
   }
 
-  initAll();
+  initScrollHeader();
+  initBackToTop();
+  initContent();
 
-  document.addEventListener('astro:before-swap', destroyAll);
-  document.addEventListener('astro:after-swap', initAll);
+  document.addEventListener('astro:before-swap', destroyContent);
+  document.addEventListener('astro:after-swap', initContent);
 })();

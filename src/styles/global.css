@@ -198,6 +198,7 @@ header {
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   border-bottom: 1px solid var(--glass-border);
   z-index: 1000;
+  view-transition-name: site-header;
   transition: transform var(--transition-normal), background-color var(--transition-normal);
 }
 
