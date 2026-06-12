@@ -1,5 +1,5 @@
 /**
- * Interactive module — scroll animations, particle hero, micro-interactions
+ * Interactive module — scroll animations, scroll header, back to top
  */
 (function () {
   'use strict';
@@ -7,7 +7,9 @@
   if (typeof window === 'undefined') return;
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var isMobile = window.innerWidth < 1024;
+
+  var revealObserver = null;
+  var staggerObserver = null;
 
   // ─── Scroll-Driven Reveals ────────────────────────────
   function initScrollReveals() {
@@ -16,15 +18,19 @@
         el.style.opacity = '1';
         el.style.transform = 'none';
       });
+      document.querySelectorAll('.reveal-stagger').forEach(function(el) {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
       return;
     }
 
-    var observer = new IntersectionObserver(function(entries) {
+    revealObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           entry.target.style.opacity = '1';
           entry.target.style.transform = 'translateY(0) scale(1)';
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
@@ -33,10 +39,10 @@
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px) scale(0.98)';
       el.style.transition = 'opacity 0.6s cubic-bezier(0.25,0.1,0.25,1), transform 0.6s cubic-bezier(0.25,0.1,0.25,1)';
-      observer.observe(el);
+      revealObserver.observe(el);
     });
 
-    var staggerObserver = new IntersectionObserver(function(entries) {
+    staggerObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
           var container = entry.target;
@@ -62,15 +68,22 @@
     });
   }
 
+  function destroyScrollReveals() {
+    if (revealObserver) { revealObserver.disconnect(); revealObserver = null; }
+    if (staggerObserver) { staggerObserver.disconnect(); staggerObserver = null; }
+  }
+
   // ─── Scroll-Aware Header ─────────────────────────────
-  var scrollHeaderInit = false;
+  var headerScrollHandler = null;
+
   function initScrollHeader() {
     var header = document.getElementById('site-header');
-    if (!header || scrollHeaderInit) return;
-    scrollHeaderInit = true;
+    if (!header) return;
+
     var lastScroll = 0;
     var ticking = false;
-    window.addEventListener('scroll', function() {
+
+    headerScrollHandler = function() {
       if (!ticking) {
         requestAnimationFrame(function() {
           var currentScroll = window.scrollY;
@@ -84,12 +97,25 @@
         });
         ticking = true;
       }
-    }, { passive: true });
+    };
+
+    window.addEventListener('scroll', headerScrollHandler, { passive: true });
+  }
+
+  function destroyScrollHeader() {
+    if (headerScrollHandler) {
+      window.removeEventListener('scroll', headerScrollHandler);
+      headerScrollHandler = null;
+    }
   }
 
   // ─── Back to Top ─────────────────────────────────────
+  var backToTopHandler = null;
+
   function initBackToTop() {
-    if (document.getElementById('back-to-top')) return;
+    var existing = document.getElementById('back-to-top');
+    if (existing) { existing.remove(); }
+
     var btn = document.createElement('button');
     btn.id = 'back-to-top';
     btn.setAttribute('aria-label', 'Back to top');
@@ -99,7 +125,7 @@
     document.body.appendChild(btn);
 
     var ticking = false;
-    window.addEventListener('scroll', function() {
+    backToTopHandler = function() {
       if (!ticking) {
         requestAnimationFrame(function() {
           if (window.scrollY > 400) {
@@ -115,15 +141,34 @@
         });
         ticking = true;
       }
-    }, { passive: true });
+    };
+    window.addEventListener('scroll', backToTopHandler, { passive: true });
   }
 
-  // ─── Init All ────────────────────────────────────────
+  function destroyBackToTop() {
+    if (backToTopHandler) {
+      window.removeEventListener('scroll', backToTopHandler);
+      backToTopHandler = null;
+    }
+    var btn = document.getElementById('back-to-top');
+    if (btn) btn.remove();
+  }
+
+  // ─── Lifecycle ────────────────────────────────────────
   function initAll() {
     initScrollReveals();
     initScrollHeader();
     initBackToTop();
   }
 
+  function destroyAll() {
+    destroyScrollReveals();
+    destroyScrollHeader();
+    destroyBackToTop();
+  }
+
   initAll();
+
+  document.addEventListener('astro:before-swap', destroyAll);
+  document.addEventListener('astro:after-swap', initAll);
 })();
