@@ -27,8 +27,8 @@
   --color-accent-light: #bdb9c7;
   --color-accent-dark: #6b6578;
   --color-accent-secondary: #6b6578;
-  --color-accent-gradient: linear-gradient(135deg, #a8a3b4 0%, #6b6578 100%);
-  --color-accent-gradient-warm: linear-gradient(135deg, #a8a3b4 0%, #6b6578 100%);
+  --color-accent-gradient: linear-gradient(135deg, #9b96a8 0%, #6b6578 100%);
+
 
   --gradient-subtle: linear-gradient(180deg, rgba(155,150,168,0.04) 0%, transparent 100%);
   --gradient-radial: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(155,150,168,0.10) 0%, transparent 70%);
@@ -108,28 +108,13 @@ body {
     border-radius: var(--radius-lg);
     font-size: 0.9375rem;
     letter-spacing: 0.01em;
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
     box-shadow: var(--shadow-accent);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  }
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--color-accent-gradient-warm);
-    opacity: 0;
-    transition: opacity var(--transition-normal);
-    z-index: -1;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), filter var(--transition-normal);
   }
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-accent-lg);
     filter: brightness(1.1);
-  }
-  .btn-primary:hover::before {
-    opacity: 1;
   }
   .btn-primary:active {
     transform: translateY(0);
@@ -176,13 +161,6 @@ body {
   }
   .gradient-text:hover {
     filter: brightness(1.12);
-  }
-
-  .gradient-text-warm {
-    background: var(--color-accent-gradient-warm);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 
   .section-subtle {
@@ -391,11 +369,6 @@ hr.divider {
     padding-left: 3rem;
     padding-right: 3rem;
   }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Accent hover brightening ────────────────── */

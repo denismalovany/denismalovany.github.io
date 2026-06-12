@@ -63,95 +63,6 @@
     });
   }
 
-  // ─── Hero Particles ──────────────────────────────────
-  function initParticles() {
-    var hero = document.querySelector('.hero-section--grid');
-    if (!hero || reducedMotion || isMobile) return;
-    if (document.getElementById('particle-canvas')) return;
-
-    var canvas = document.createElement('canvas');
-    canvas.id = 'particle-canvas';
-    canvas.style.cssText = 'position:absolute;inset:0;z-index:0;pointer-events:none;';
-    hero.insertBefore(canvas, hero.firstChild);
-
-    var ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    var particles = [];
-    var animId;
-    var isVisible = true;
-
-    function resize() {
-      var rect = hero.getBoundingClientRect();
-      var dpr = window.devicePixelRatio || 1;
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      canvas.style.width = rect.width + 'px';
-      canvas.style.height = rect.height + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-
-    function createParticles() {
-      var rect = hero.getBoundingClientRect();
-      var count = Math.max(15, Math.floor((rect.width * rect.height) / 25000));
-      particles = [];
-      for (var i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * rect.width,
-          y: Math.random() * rect.height,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
-          r: Math.random() * 2 + 0.5,
-          alpha: Math.random() * 0.25 + 0.05,
-          pulse: Math.random() * Math.PI * 2
-        });
-      }
-    }
-
-    function draw() {
-      if (!ctx || !hero) return;
-      if (!isVisible) { animId = requestAnimationFrame(draw); return; }
-      var rect = hero.getBoundingClientRect();
-      ctx.clearRect(0, 0, rect.width, rect.height);
-      var color = '155, 150, 168';
-
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.pulse += 0.02;
-        if (p.x < 0) p.x = rect.width;
-        if (p.x > rect.width) p.x = 0;
-        if (p.y < 0) p.y = rect.height;
-        if (p.y > rect.height) p.y = 0;
-
-        var alpha = p.alpha + Math.sin(p.pulse) * 0.05;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(' + color + ', ' + Math.max(0, alpha) + ')';
-        ctx.fill();
-      }
-      animId = requestAnimationFrame(draw);
-    }
-
-    resize();
-    createParticles();
-    draw();
-
-    var observer = new IntersectionObserver(function(entries) {
-      isVisible = entries[0].isIntersecting;
-    }, { threshold: 0 });
-    observer.observe(hero);
-
-    var resizePending = false;
-    window.addEventListener('resize', function() {
-      if (!resizePending) {
-        resizePending = true;
-        requestAnimationFrame(function() { resize(); createParticles(); resizePending = false; });
-      }
-    });
-  }
-
   // ─── Ripple Effect ───────────────────────────────────
   var rippleInitialized = false;
   function initRipple() {
@@ -175,33 +86,6 @@
     var s = document.createElement('style');
     s.textContent = '@keyframes ripple { to { transform: scale(4); opacity: 0; } }';
     document.head.appendChild(s);
-  }
-
-  // ─── Counter Animation ───────────────────────────────
-  function initCounters() {
-    if (reducedMotion) return;
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var el = entry.target;
-          var target = parseInt(el.getAttribute('data-counter') || '0', 10);
-          var duration = 1500;
-          var start = performance.now();
-
-          function update(now) {
-            var elapsed = now - start;
-            var progress = Math.min(elapsed / duration, 1);
-            var eased = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.floor(eased * target);
-            if (progress < 1) requestAnimationFrame(update);
-            else el.textContent = target;
-          }
-          requestAnimationFrame(update);
-          observer.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-counter]').forEach(function(el) { observer.observe(el); });
   }
 
   // ─── Magnetic Hover ──────────────────────────────────
@@ -283,9 +167,7 @@
   // ─── Init All ────────────────────────────────────────
   function initAll() {
     initScrollReveals();
-    initParticles();
     initRipple();
-    initCounters();
     initMagnetic();
     initScrollHeader();
     initBackToTop();

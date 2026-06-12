@@ -1,5 +1,4 @@
 ---
-import { siteData } from '../data/site';
 ---
 <div id="contact-form-wrapper" class="mt-12 max-w-xl mx-auto reveal">
   <div class="glass-card p-8">
@@ -12,7 +11,6 @@ import { siteData } from '../data/site';
       class="space-y-5"
     >
       <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_subject" value="New message from portfolio" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_next" value="https://denismalovany.github.io/contact.html?submitted=true" />
 
@@ -49,7 +47,7 @@ import { siteData } from '../data/site';
         <input
           type="text"
           id="form-subject"
-          name="_subject_custom"
+          name="_subject"
           placeholder="Project Inquiry"
           class="form-input"
         />

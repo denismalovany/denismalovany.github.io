@@ -50,7 +50,7 @@ const hidden = timelineData.filter(e => e.collapsed);
   collapsed && hidden.length > 0 ? (
     <>
       <div id="timeline-container" class="space-y-0">
-        {visible.map((entry, i) => <TimelineEntry entry={entry} isLast={i === visible.length - 1 && hidden.length === 0} />)}
+        {visible.map((entry) => <TimelineEntry entry={entry} isLast={false} />)}
         <div id="collapsed-timeline" class="timeline-collapsed collapsed">
           {hidden.map((entry, i) => (
             <TimelineEntry entry={entry} isLast={i === hidden.length - 1} />

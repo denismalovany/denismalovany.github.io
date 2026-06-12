@@ -6,8 +6,6 @@ import { siteData } from '../data/site';
 import { skillsData } from '../data/skills';
 import Timeline from '../components/Timeline.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import FontPreview from '../components/FontPreview.astro';
-import AccentPreview from '../components/AccentPreview.astro';
 
 const page = siteData.pages.index;
 const projects = await getCollection('projects');
@@ -92,8 +90,4 @@ const featuredProjects = projects.sort((a, b) => a.data.weight - b.data.weight).
       </div>
     </div>
   </section>
-
-  <FontPreview />
-
-  <AccentPreview />
 </Layout>
