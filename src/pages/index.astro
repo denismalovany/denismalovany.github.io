@@ -16,7 +16,7 @@ const featuredProjects = projects.sort((a, b) => a.data.weight - b.data.weight).
   description={page.description}
   currentPage="home"
 >
-  <PageHero title={siteData.name} subtitle={siteData.tagline} gridOverlay={true}>
+  <PageHero title={siteData.name} subtitle={siteData.tagline}>
     <div slot="after" class="mt-10 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center relative z-[1] reveal">
       <a href="/projects.html" class="btn-primary group" data-astro-prefetch="hover" data-magnetic>
         <span>Explore My Work</span>
