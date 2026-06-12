@@ -17,7 +17,7 @@ const featuredProjects = projects.sort((a, b) => a.data.weight - b.data.weight).
   description={page.description}
   currentPage="home"
 >
-  <PageHero title={siteData.name} subtitle={siteData.tagline}>
+  <PageHero title={siteData.name} subtitle={siteData.tagline} gridOverlay={true}>
     <div slot="after" class="mt-8 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center relative z-[1]">
       <a href="/projects.html" class="px-6 py-3 bg-black text-white rounded-lg font-medium sm:w-auto w-full sm:w-1/2 text-center hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl active:-translate-y-px active:scale-[1.005] active:shadow-md transition duration-normal">Explore My Work</a>
       <a href="/contact.html" class="mt-4 sm:mt-0 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium sm:w-auto w-full sm:w-1/2 text-center hover:-translate-y-1 hover:scale-[1.01] hover:shadow-xl hover:border-gray-400 hover:bg-gray-50 active:-translate-y-px active:scale-[1.005] active:shadow-sm transition duration-normal">Get in Touch</a>
