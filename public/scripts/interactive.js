@@ -80,31 +80,37 @@
 
   // ─── Scroll-Aware Header ─────────────────────────────
   var headerScrollHandler = null;
+  var headerLastScroll = 0;
 
   function initScrollHeader() {
     var header = document.getElementById('site-header');
     if (!header) return;
 
-    var lastScroll = 0;
-    var ticking = false;
+    headerLastScroll = window.scrollY;
+    header.classList.remove('header-hidden');
 
     headerScrollHandler = function() {
-      if (!ticking) {
-        requestAnimationFrame(function() {
-          var currentScroll = window.scrollY;
-          if (currentScroll > 80 && currentScroll > lastScroll) {
-            header.classList.add('header-hidden');
-          } else {
-            header.classList.remove('header-hidden');
-          }
-          lastScroll = currentScroll;
-          ticking = false;
-        });
-        ticking = true;
+      var currentScroll = window.scrollY;
+      if (currentScroll > 80 && currentScroll > headerLastScroll) {
+        header.classList.add('header-hidden');
+      } else {
+        header.classList.remove('header-hidden');
       }
+      headerLastScroll = currentScroll;
     };
 
     window.addEventListener('scroll', headerScrollHandler, { passive: true });
+  }
+
+  function destroyScrollHeader() {
+    if (headerScrollHandler) {
+      window.removeEventListener('scroll', headerScrollHandler);
+      headerScrollHandler = null;
+    }
+    var header = document.getElementById('site-header');
+    if (header) {
+      header.classList.remove('header-hidden');
+    }
   }
 
   // ─── Back to Top ─────────────────────────────────────
@@ -122,38 +128,42 @@
     btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     document.body.appendChild(btn);
 
-    var ticking = false;
     backToTopHandler = function() {
-      if (!ticking) {
-        requestAnimationFrame(function() {
-          if (window.scrollY > 400) {
-            btn.style.opacity = '1';
-            btn.style.visibility = 'visible';
-            btn.style.transform = 'translateY(0)';
-          } else {
-            btn.style.opacity = '0';
-            btn.style.visibility = 'hidden';
-            btn.style.transform = 'translateY(10px)';
-          }
-          ticking = false;
-        });
-        ticking = true;
+      if (window.scrollY > 400) {
+        btn.style.opacity = '1';
+        btn.style.visibility = 'visible';
+        btn.style.transform = 'translateY(0)';
+      } else {
+        btn.style.opacity = '0';
+        btn.style.visibility = 'hidden';
+        btn.style.transform = 'translateY(10px)';
       }
     };
     window.addEventListener('scroll', backToTopHandler, { passive: true });
   }
 
+  function destroyBackToTop() {
+    if (backToTopHandler) {
+      window.removeEventListener('scroll', backToTopHandler);
+      backToTopHandler = null;
+    }
+    var btn = document.getElementById('back-to-top');
+    if (btn) { btn.remove(); }
+  }
+
   // ─── Lifecycle ────────────────────────────────────────
   function initContent() {
     initScrollReveals();
+    initScrollHeader();
+    initBackToTop();
   }
 
   function destroyContent() {
     destroyScrollReveals();
+    destroyScrollHeader();
+    destroyBackToTop();
   }
 
-  initScrollHeader();
-  initBackToTop();
   initContent();
 
   document.addEventListener('astro:before-swap', destroyContent);
