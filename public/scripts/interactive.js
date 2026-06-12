@@ -7,7 +7,6 @@
   if (typeof window === 'undefined') return;
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   var isMobile = window.innerWidth < 1024;
 
   // ─── Scroll-Driven Reveals ────────────────────────────
@@ -60,51 +59,6 @@
         item.style.transition = 'opacity 0.5s cubic-bezier(0.25,0.1,0.25,1), transform 0.5s cubic-bezier(0.25,0.1,0.25,1)';
       });
       staggerObserver.observe(el);
-    });
-  }
-
-  // ─── Ripple Effect ───────────────────────────────────
-  var rippleInitialized = false;
-  function initRipple() {
-    if (reducedMotion || rippleInitialized) return;
-    rippleInitialized = true;
-    document.addEventListener('click', function(e) {
-      var btn = e.target.closest('.btn-primary, .btn-outline');
-      if (!btn) return;
-
-      var ripple = document.createElement('span');
-      var rect = btn.getBoundingClientRect();
-      var size = Math.max(rect.width, rect.height);
-      var x = e.clientX - rect.left - size / 2;
-      var y = e.clientY - rect.top - size / 2;
-
-      ripple.style.cssText = 'position:absolute;border-radius:50%;width:' + size + 'px;height:' + size + 'px;left:' + x + 'px;top:' + y + 'px;background:rgba(255,255,255,0.3);transform:scale(0);animation:ripple 0.6s ease-out forwards;pointer-events:none;';
-      btn.appendChild(ripple);
-      ripple.addEventListener('animationend', function() { ripple.remove(); });
-    });
-
-    var s = document.createElement('style');
-    s.textContent = '@keyframes ripple { to { transform: scale(4); opacity: 0; } }';
-    document.head.appendChild(s);
-  }
-
-  // ─── Magnetic Hover ──────────────────────────────────
-  function initMagnetic() {
-    if (reducedMotion || isTouch) return;
-    document.querySelectorAll('[data-magnetic]').forEach(function(el) {
-      if (el._magneticInit) return;
-      el._magneticInit = true;
-      el.addEventListener('mousemove', function(e) {
-        var rect = el.getBoundingClientRect();
-        var x = e.clientX - rect.left - rect.width / 2;
-        var y = e.clientY - rect.top - rect.height / 2;
-        el.style.transform = 'translate(' + (x * 0.2) + 'px, ' + (y * 0.2) + 'px)';
-      });
-      el.addEventListener('mouseleave', function() {
-        el.style.transform = 'translate(0, 0)';
-        el.style.transition = 'transform 0.4s cubic-bezier(0.34,1.56,0.64,1)';
-        setTimeout(function() { el.style.transition = ''; }, 400);
-      });
     });
   }
 
@@ -167,8 +121,6 @@
   // ─── Init All ────────────────────────────────────────
   function initAll() {
     initScrollReveals();
-    initRipple();
-    initMagnetic();
     initScrollHeader();
     initBackToTop();
   }

@@ -18,11 +18,11 @@ const featuredProjects = projects.sort((a, b) => a.data.weight - b.data.weight).
 >
   <PageHero title={siteData.name} subtitle={siteData.tagline}>
     <div slot="after" class="mt-10 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center relative z-[1] reveal">
-      <a href="/projects.html" class="btn-primary group" data-astro-prefetch="hover" data-magnetic>
+      <a href="/projects.html" class="btn-primary group" data-astro-prefetch="hover">
         <span>Explore My Work</span>
         <span class="inline-block ml-2 transition-transform duration-fast group-hover:translate-x-1">&rarr;</span>
       </a>
-      <a href="/contact.html" class="btn-outline mt-3 sm:mt-0" data-astro-prefetch="hover" data-magnetic>
+      <a href="/contact.html" class="btn-outline mt-3 sm:mt-0" data-astro-prefetch="hover">
         Get in Touch
       </a>
     </div>
@@ -83,7 +83,7 @@ const featuredProjects = projects.sort((a, b) => a.data.weight - b.data.weight).
         ))}
       </div>
       <div class="mt-10 text-center reveal-stagger">
-         <a href="/projects.html" class="btn-primary group" data-astro-prefetch="hover" data-magnetic>
+         <a href="/projects.html" class="btn-primary group" data-astro-prefetch="hover">
           See All Projects
           <span class="inline-block ml-2 transition-transform duration-fast group-hover:translate-x-1">&rarr;</span>
         </a>

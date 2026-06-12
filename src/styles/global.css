@@ -109,16 +109,29 @@ body {
     font-size: 0.9375rem;
     letter-spacing: 0.01em;
     box-shadow: var(--shadow-accent);
+    position: relative;
+    overflow: hidden;
     transition: transform var(--transition-normal), box-shadow var(--transition-normal), filter var(--transition-normal);
   }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
   .btn-primary:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: var(--shadow-accent-lg);
     filter: brightness(1.1);
   }
   .btn-primary:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.99);
     box-shadow: var(--shadow-accent);
+  }
+  .btn-primary:active::after {
+    opacity: 1;
   }
 
   .btn-outline {
@@ -133,14 +146,20 @@ body {
     border-radius: var(--radius-lg);
     font-size: 0.9375rem;
     letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
     transition: all var(--transition-normal);
   }
   .btn-outline:hover {
     border-color: var(--color-accent-light);
     color: var(--color-accent-light);
     background: rgba(var(--color-accent-rgb), 0.08);
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(1.02);
     box-shadow: var(--shadow-md);
+  }
+  .btn-outline:active {
+    transform: translateY(0) scale(0.99);
+    background: rgba(var(--color-accent-rgb), 0.12);
   }
 
   .glass-card {
