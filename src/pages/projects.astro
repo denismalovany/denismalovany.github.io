@@ -8,6 +8,7 @@ import ProjectCard from '../components/ProjectCard.astro';
 const page = siteData.pages.projects;
 const projects = await getCollection('projects');
 const sortedProjects = projects.sort((a, b) => a.data.weight - b.data.weight);
+const allTags = [...new Set(sortedProjects.flatMap(p => p.data.tags))].sort();
 ---
 <Layout
   title={page.title}
@@ -17,17 +18,69 @@ const sortedProjects = projects.sort((a, b) => a.data.weight - b.data.weight);
 >
   <PageHero title="All Projects" subtitle="Complete portfolio of work" />
 
-  <section id="projects" class="section py-20 px-6 bg-gray-50">
+  <section id="projects" class="section py-24 px-6 section-subtle">
     <div class="container mx-auto max-w-3xl">
-      <h2 class="text-2xl font-serif section-title-mb-8">Project Portfolio</h2>
-      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+      <h2 class="text-2xl md:text-3xl section-title-mb-8">Project Portfolio</h2>
+      <p class="text-gray-500 mb-6 max-w-2xl">
         A comprehensive collection of product design projects showcasing my approach to solving user problems through interaction design, visual design, and prototyping.
       </p>
+
+      <div class="flex flex-wrap gap-2 mb-10" id="project-filters">
+        <button class="filter-btn px-4 py-2 text-sm font-medium rounded-full bg-accent-50 text-accent-700 border border-accent-200 active" data-filter="all">All</button>
+        {allTags.map(tag => (
+          <button class="filter-btn px-4 py-2 text-sm font-medium rounded-full bg-white text-gray-600 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors duration-fast" data-filter={tag}>{tag}</button>
+        ))}
+      </div>
+
       <div id="projects-grid" class="grid gap-8 md:grid-cols-2">
         {sortedProjects.map(project => (
-          <ProjectCard project={project} />
+          <div class="project-card-wrapper" data-tags={JSON.stringify(project.data.tags)}>
+            <ProjectCard project={project} />
+          </div>
         ))}
       </div>
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  (function() {
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.project-card-wrapper');
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var filter = this.getAttribute('data-filter');
+        filterBtns.forEach(function(b) { b.classList.remove('active', 'bg-accent-50', 'text-accent-700', 'border-accent-200'); b.classList.add('bg-white', 'text-gray-600', 'border-gray-200'); });
+        this.classList.add('active', 'bg-accent-50', 'text-accent-700', 'border-accent-200');
+        this.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+        cards.forEach(function(card) {
+          if (card._filterTimer) { clearTimeout(card._filterTimer); card._filterTimer = null; }
+          if (filter === 'all') {
+            card.style.display = '';
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          } else {
+            var tags = JSON.parse(card.getAttribute('data-tags') || '[]');
+            if (tags.indexOf(filter) !== -1) {
+              card.style.display = '';
+              card._filterTimer = setTimeout(function() { card.style.opacity = '1'; card.style.transform = 'scale(1)'; card._filterTimer = null; }, 50);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'scale(0.95)';
+              card._filterTimer = setTimeout(function() { card.style.display = 'none'; card._filterTimer = null; }, 300);
+            }
+          }
+        });
+      });
+    });
+  })();
+</script>
+
+<style is:global>
+  .project-card-wrapper {
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+  .filter-btn.active {
+    font-weight: 600;
+  }
+</style>

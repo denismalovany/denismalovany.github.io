@@ -14,50 +14,56 @@ const page = siteData.pages.about;
 >
   <PageHero title={siteData.name} subtitle={siteData.aboutTagline} />
 
-  <!-- About Section -->
-  <section id="about" class="section py-20 px-6 bg-gray-50">
-    <div class="container mx-auto max-w-3xl">
-      <h2 class="text-2xl font-serif section-title-mb-6">About Me</h2>
-      <p class="text-gray-700 leading-relaxed mb-6">
-        I'm Denys Malovanyi, a product designer and frontend developer with over 9 years of experience spanning UI/UX design, frontend development, and mechanical engineering. I currently work as a Mechanical Engineer and Product Designer at VOL Volunteer Optical Laboratory, creating user-centered digital and physical products.
-      </p>
-      <p class="text-gray-700 leading-relaxed mb-6">
-        Beyond traditional design and development skills, I experiment with AI agents and local LLM deployment to enhance my design research, prototyping, and workflow automation-bringing emerging technology principles into practical design solutions.
-      </p>
-      <p class="text-gray-700 leading-relaxed mb-6">
-        My career began in frontend development at BITECC GmbH and InvestGo24 in 2015, where I built responsive interfaces and landing pages. I then grew into full-stack UI roles at Codemotion Ninjas and Cygnati Group, working on diverse projects from e-commerce platforms to medical information portals and mobile applications.
-      </p>
-      <p class="text-gray-700 leading-relaxed mb-6">
-        At HebronSoft, I transitioned fully into UI/UX design, leading design projects and mentoring junior designers. Following Russia's full-scale invasion of Ukraine in 2022, I dedicated myself to full-time volunteer work supporting the Armed Forces of Ukraine - an experience that deepened my skills in crisis management, logistics, and operational planning under pressure.
-      </p>
+  <section id="about" class="section py-24 px-6 section-subtle">
+    <div class="container mx-auto max-w-3xl reveal-container">
+      <h2 class="text-2xl md:text-3xl section-title-mb-6 reveal-stagger">About Me</h2>
+      <div class="prose prose-gray max-w-none text-gray-600 leading-relaxed space-y-5">
+        <p class="reveal-stagger">
+          I'm Denys Malovanyi, a product designer and frontend developer with over 9 years of experience spanning UI/UX design, frontend development, and mechanical engineering. I currently work as a Mechanical Engineer and Product Designer at VOL Volunteer Optical Laboratory, creating user-centered digital and physical products.
+        </p>
+        <p class="reveal-stagger">
+          Beyond traditional design and development skills, I experiment with AI agents and local LLM deployment to enhance my design research, prototyping, and workflow automation-bringing emerging technology principles into practical design solutions.
+        </p>
+        <p class="reveal-stagger">
+          My career began in frontend development at BITECC GmbH and InvestGo24 in 2015, where I built responsive interfaces and landing pages. I then grew into full-stack UI roles at Codemotion Ninjas and Cygnati Group, working on diverse projects from e-commerce platforms to medical information portals and mobile applications.
+        </p>
+        <p class="reveal-stagger">
+          At HebronSoft, I transitioned fully into UI/UX design, leading design projects and mentoring junior designers. Following Russia's full-scale invasion of Ukraine in 2022, I dedicated myself to full-time volunteer work supporting the Armed Forces of Ukraine - an experience that deepened my skills in crisis management, logistics, and operational planning under pressure.
+        </p>
+      </div>
 
-      <hr class="divider" />
-      <p class="text-gray-600">
+      <hr class="divider reveal-stagger" />
+      <p class="text-gray-600 leading-relaxed reveal-stagger">
         My approach combines rigorous research with thoughtful aesthetics. I believe great design emerges from understanding user needs deeply, translating insights into intuitive interfaces, and refining every detail through iterative prototyping and testing.
       </p>
-      <p class="text-gray-600 mt-4">
+      <p class="text-gray-500 leading-relaxed mt-4 reveal-stagger">
         I'm proficient in HTML, CSS, JavaScript, and modern design tools. I thrive in cross-functional teams and enjoy bridging the gap between design and development to deliver polished, accessible, and performant products.
       </p>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section py-20 px-6">
-    <div class="container mx-auto max-w-3xl">
-      <h2 class="text-2xl font-serif section-title-mb-8 text-center">Skills &amp; Expertise</h2>
-      <SkillsGrid />
+  <section id="skills" class="section py-24 px-6">
+    <div class="container mx-auto max-w-3xl reveal-container">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl md:text-3xl section-title-mb-8 mx-auto text-center reveal-stagger">Skills &amp; Expertise</h2>
+      </div>
+      <div class="reveal-stagger">
+        <SkillsGrid />
+      </div>
     </div>
   </section>
 
-  <!-- Work Timeline Section -->
-  <section id="timeline" class="section py-20 px-6 bg-gray-50">
-    <div class="container mx-auto max-w-3xl">
-      <h2 class="text-2xl font-serif section-title-mb-8 text-center">Professional Timeline</h2>
-      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-        A chronological overview of my career progression from frontend development to product design and mechanical engineering.
-      </p>
-
-      <Timeline collapsed={false} />
+  <section id="timeline" class="section py-24 px-6 section-subtle">
+    <div class="container mx-auto max-w-3xl reveal-container">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl md:text-3xl section-title-mb-8 mx-auto text-center reveal-stagger">Professional Timeline</h2>
+        <p class="text-gray-500 mb-10 max-w-2xl mx-auto text-center reveal-stagger">
+          A chronological overview of my career progression from frontend development to product design and mechanical engineering.
+        </p>
+      </div>
+      <div class="reveal-stagger">
+        <Timeline collapsed={false} />
+      </div>
     </div>
   </section>
 </Layout>

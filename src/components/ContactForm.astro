@@ -1,0 +1,227 @@
+---
+import { siteData } from '../data/site';
+---
+<div id="contact-form-wrapper" class="mt-12 max-w-xl mx-auto reveal">
+  <div class="glass-card p-8">
+    <h3 class="font-display text-xl font-bold mb-6 text-black">Send a Message</h3>
+
+    <form
+      id="contact-form"
+      action="https://formsubmit.co/denismalovany@gmail.com"
+      method="POST"
+      class="space-y-5"
+    >
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_subject" value="New message from portfolio" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_next" value="https://denismalovany.github.io/contact.html?submitted=true" />
+
+      <div class="form-group">
+        <label for="form-name" class="form-label">Your Name</label>
+        <input
+          type="text"
+          id="form-name"
+          name="name"
+          required
+          placeholder="John Doe"
+          class="form-input"
+          autocomplete="name"
+        />
+        <span class="form-error">Please enter your name</span>
+      </div>
+
+      <div class="form-group">
+        <label for="form-email" class="form-label">Email Address</label>
+        <input
+          type="email"
+          id="form-email"
+          name="email"
+          required
+          placeholder="john@example.com"
+          class="form-input"
+          autocomplete="email"
+        />
+        <span class="form-error">Please enter a valid email</span>
+      </div>
+
+      <div class="form-group">
+        <label for="form-subject" class="form-label">Subject</label>
+        <input
+          type="text"
+          id="form-subject"
+          name="_subject_custom"
+          placeholder="Project Inquiry"
+          class="form-input"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="form-message" class="form-label">Message</label>
+        <textarea
+          id="form-message"
+          name="message"
+          required
+          rows="4"
+          placeholder="Tell me about your project or idea..."
+          class="form-input resize-none"
+        ></textarea>
+        <span class="form-error">Please write a message</span>
+      </div>
+
+      <button type="submit" id="form-submit" class="btn-primary w-full py-3.5 relative overflow-hidden">
+        <span class="submit-text">Send Message</span>
+        <span class="submit-loading hidden absolute inset-0 flex items-center justify-center bg-accent-600">
+          <svg class="animate-spin w-5 h-5 text-white" viewBox="0 0 24 24" fill="none">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+        </span>
+        <span class="submit-success hidden absolute inset-0 flex items-center justify-center bg-green-500 text-white font-semibold">
+          <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Sent!
+        </span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .form-group {
+    position: relative;
+  }
+  .form-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-gray-600);
+    margin-bottom: 0.375rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    color: var(--color-gray-800);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+    outline: none;
+  }
+  .form-input::placeholder {
+    color: var(--color-gray-400);
+  }
+  .form-input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.12);
+  }
+  .form-input.invalid {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  }
+  .form-input.valid {
+    border-color: #22c55e;
+  }
+  .form-error {
+    display: none;
+    font-size: 0.75rem;
+    color: #ef4444;
+    margin-top: 0.25rem;
+    font-weight: 500;
+  }
+  .form-group.show-error .form-error {
+    display: block;
+  }
+  .form-group.show-error .form-input {
+    border-color: #ef4444;
+  }
+  .form-input {
+    background-color: var(--color-surface);
+    color: var(--color-gray-800);
+  }
+</style>
+
+<script>
+  (function() {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    var inputs = form.querySelectorAll('.form-input[required]');
+    var submitBtn = document.getElementById('form-submit');
+    var submitText = submitBtn ? submitBtn.querySelector('.submit-text') : null;
+    var submitLoading = submitBtn ? submitBtn.querySelector('.submit-loading') : null;
+    var submitSuccess = submitBtn ? submitBtn.querySelector('.submit-success') : null;
+
+    function validateInput(input) {
+      var group = input.closest('.form-group');
+      if (!group) return true;
+
+      if (input.type === 'email') {
+        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(input.value.trim());
+      }
+      return input.value.trim().length > 0;
+    }
+
+    inputs.forEach(function(input) {
+      input.addEventListener('blur', function() {
+        var group = input.closest('.form-group');
+        if (!group) return;
+        if (!validateInput(input) && input.value.trim().length > 0) {
+          group.classList.add('show-error');
+          input.classList.add('invalid');
+          input.classList.remove('valid');
+        } else if (validateInput(input)) {
+          group.classList.remove('show-error');
+          input.classList.remove('invalid');
+          input.classList.add('valid');
+        }
+      });
+
+      input.addEventListener('input', function() {
+        var group = input.closest('.form-group');
+        if (!group) return;
+        if (validateInput(input)) {
+          group.classList.remove('show-error');
+          input.classList.remove('invalid');
+          input.classList.add('valid');
+        }
+      });
+    });
+
+    form.addEventListener('submit', function(e) {
+      var allValid = true;
+      inputs.forEach(function(input) {
+        var group = input.closest('.form-group');
+        if (!validateInput(input)) {
+          allValid = false;
+          if (group) group.classList.add('show-error');
+          input.classList.add('invalid');
+        }
+      });
+
+      if (!allValid) {
+        e.preventDefault();
+        return;
+      }
+
+      if (submitText) submitText.classList.add('hidden');
+      if (submitLoading) submitLoading.classList.remove('hidden');
+    });
+
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+      if (submitText && submitSuccess) {
+        submitText.classList.add('hidden');
+        submitSuccess.classList.remove('hidden');
+        if (submitLoading) submitLoading.classList.add('hidden');
+        setTimeout(function() {
+          submitSuccess.classList.add('hidden');
+          submitText.classList.remove('hidden');
+        }, 3000);
+      }
+    }
+  })();
+</script>

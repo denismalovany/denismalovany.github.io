@@ -8,18 +8,19 @@ const socialLinks = [
   { label: 'Dribbble', href: siteData.dribbble, external: true },
 ];
 ---
-<footer class="border-t border-gray-100 bg-gray-50 py-6 px-6">
-  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
-    <div class="flex items-center gap-6 flex-wrap min-w-0">
-      <p class="text-xs text-gray-400 whitespace-nowrap hidden sm:block">&copy; {siteData.copyrightYear} {siteData.name}</p>
-    </div>
-    <div class="shrink-0 self-start sm:self-auto">
-      <div class="flex items-center gap-5">
+<footer class="border-t border-gray-100/80 py-8 px-6 mt-auto">
+  <div class="container mx-auto max-w-6xl">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="flex flex-col gap-1">
+        <p class="text-xs text-gray-400">&copy; {siteData.copyrightYear} {siteData.name}</p>
+        <p class="text-xs text-gray-300">Product Designer &amp; Engineer</p>
+      </div>
+      <div class="flex items-center gap-6">
         {
           socialLinks.map(link => (
             <a
               href={link.href}
-              class="text-sm-plus font-medium text-gray-600 no-underline hover:text-black transition-colors duration-fast"
+              class="text-sm font-medium text-gray-500 no-underline link-underline"
               {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
               {link.label}
