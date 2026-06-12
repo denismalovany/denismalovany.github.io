@@ -407,6 +407,7 @@ span.text-accent-600:hover {
   animation: vt-fade-out 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 ::view-transition-new(root) {
+  opacity: 0;
   animation: vt-fade-in 0.45s 0.1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 }
 
