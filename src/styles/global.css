@@ -54,6 +54,9 @@ body {
   line-height: 1.7;
   font-weight: 400;
   padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {

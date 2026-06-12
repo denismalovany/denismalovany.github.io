@@ -65,7 +65,9 @@ const jsonLdString = suppressJsonLd ? null : JSON.stringify(jsonLd || defaultJso
 </head>
 <body class="antialiased">
   <Header currentPage={currentPage} />
-  <slot />
+  <main class="flex-1">
+    <slot />
+  </main>
   <Footer />
 </body>
 </html>
