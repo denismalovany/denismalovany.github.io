@@ -1,6 +1,5 @@
 {
+  "$schema": "https://app.kilo.ai/config.json",
   "instructions": [".kilo/rules/astro.md", ".kilo/rules/design-system.md"],
-  "model": {
-    "default": "deepseek/deepseek-v4-pro"
-  }
+  "model": "deepseek/deepseek-v4-pro"
 }
