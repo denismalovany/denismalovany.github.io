@@ -42,7 +42,7 @@ const { Content } = await project.render();
 
       <div class="glass-card p-8 mb-10">
         <Image src={data.image} alt={data.title} width={1200} height={800} class="w-full rounded-xl mb-8" loading="eager" />
-        <p class="text-sm font-semibold uppercase tracking-widest text-accent-500 mb-3">Case Study</p>
+        <p class="text-sm font-semibold text-accent-500 mb-3">Case Study</p>
         <h2 class="text-3xl md:text-4xl font-display font-extrabold mb-3 text-black">{data.title}</h2>
         <p class="text-gray-500 text-lg mb-6">{data.summary}</p>
         <div class="flex flex-wrap items-center gap-3 mb-6">
@@ -55,7 +55,7 @@ const { Content } = await project.render();
         </div>
         {data.impact && (
           <div class="border-t border-gray-100 pt-4 mt-4">
-            <p class="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-1">Impact</p>
+            <p class="text-sm font-semibold text-gray-400 mb-1">Impact</p>
             <p class="text-gray-600">{data.impact}</p>
           </div>
         )}

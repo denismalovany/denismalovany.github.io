@@ -290,8 +290,6 @@ hr.divider {
   .section-title {
     font-family: var(--font-display);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
     color: var(--color-black);
     position: relative;
     display: inline-block;
@@ -310,8 +308,6 @@ hr.divider {
   .section-title-mb-6 {
     font-family: var(--font-display);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
     color: var(--color-black);
     position: relative;
     display: inline-block;
@@ -331,8 +327,6 @@ hr.divider {
   .section-title-mb-8 {
     font-family: var(--font-display);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
     color: var(--color-black);
     position: relative;
     display: inline-block;

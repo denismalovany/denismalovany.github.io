@@ -10,7 +10,7 @@ const { title, subtitle, gridOverlay = false } = Astro.props;
 
 <section class:list={["pt-24 pb-24 md:pt-28 md:pb-28 text-center px-6 hero-section relative overflow-hidden", { "hero-section--grid": gridOverlay }]}>
   <div class="relative z-[1] max-w-3xl mx-auto">
-    <h1 class="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-5 tracking-tight leading-[1.1] text-black">
+    <h1 class="text-3xl md:text-5xl lg:text-6xl font-display font-bold mb-5 leading-[1.1] text-black">
       {title}
     </h1>
     <div class="w-16 h-1 mx-auto my-5 rounded-full" style="background: var(--color-accent-gradient)"></div>
