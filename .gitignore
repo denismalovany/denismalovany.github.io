@@ -32,7 +32,7 @@ Thumbs.db
 .astro/
 
 # Kilo tool state
-.kilo/
+.kilo/plans/
 
 # deployment/build cache
 .turbo/
