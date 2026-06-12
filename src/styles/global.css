@@ -383,6 +383,10 @@ hr.divider {
     padding-left: 3rem;
     padding-right: 3rem;
   }
+
+  header.header-hidden {
+    transform: none;
+  }
 }
 
 /* ── Accent hover brightening ────────────────── */
