@@ -5,7 +5,7 @@ export const siteData = {
   linkedinHandle: "linkedin.com/in/malovany",
   behance: "https://www.behance.net/malovany",
   dribbble: "https://dribbble.com/malovany",
-  resumePdf: "",
+  resumePdf: "/CV/Denys_Malovanyi_CV.pdf",
   tagline: "UX/UI & Product Designer · AI-Augmented Workflows · 9+ Years of Experience",
   aboutTagline: "Designer/Engineer/AI Enthusiast",
   currentRole: "Mechanical Engineer & Product Designer at VOL Volunteer Optical Laboratory",
