@@ -16,7 +16,8 @@ const hidden = timelineData.filter(e => e.collapsed);
   .timeline-collapsed {
     max-height: 2000px;
     opacity: 1;
-    overflow: hidden;
+    overflow: clip;
+    overflow-clip-margin: 10px;
     transition: max-height 500ms ease-out, opacity 500ms ease-out;
   }
   .timeline-collapsed.collapsed {

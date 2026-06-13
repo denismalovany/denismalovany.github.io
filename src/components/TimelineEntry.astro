@@ -12,8 +12,8 @@ const borderClass = isLast
   : 'relative pl-8 pb-12 border-l-2 border-gray-200';
 const dotColor = entry.dotColor === 'gray' ? '--color-gray-300' : '--color-accent-gradient';
 const dotClass = entry.dotColor === 'gray'
-  ? 'absolute -left-[9px] top-1 w-4 h-4 rounded-full'
-  : 'absolute -left-[9px] top-1 w-4 h-4 rounded-full';
+  ? 'absolute -left-[9px] w-4 h-4 rounded-full'
+  : 'absolute -left-[9px] w-4 h-4 rounded-full';
 ---
 <div class={`${borderClass}`}>
   <div class={`${dotClass}`} style={`background: var(${dotColor})`}></div>
