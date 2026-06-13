@@ -65,6 +65,7 @@ Standard Tailwind gray palette: 50–900
 - fade-out: 0.3s, translateY(0) → translateY(-8px)
 - fade-in: 0.45s with 0.1s delay, translateY(12px) → translateY(0)
 - `prefers-reduced-motion` disables all animations
+- **IMPORTANT**: All interactive inline scripts MUST use the `astro:before-swap` / `astro:after-swap` lifecycle pattern (see `astro.md` rules for full specification)
 
 ## Important Rules
 1. Do NOT create new colors — use existing ones from `tailwind.config.mjs` and `global.css`

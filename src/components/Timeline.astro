@@ -80,7 +80,20 @@ const hidden = timelineData.filter(e => e.collapsed);
 
     expandBtn.addEventListener('click', expand);
     if (collapseBtn) collapseBtn.addEventListener('click', collapse);
+
+    return function teardown() {
+      expandBtn.removeEventListener('click', expand);
+      if (collapseBtn) collapseBtn.removeEventListener('click', collapse);
+    };
   }
 
-  setupTimeline();
+  let timelineTeardown = setupTimeline();
+
+  document.addEventListener('astro:before-swap', () => {
+    if (timelineTeardown) { timelineTeardown(); timelineTeardown = null; }
+  });
+
+  document.addEventListener('astro:after-swap', () => {
+    timelineTeardown = setupTimeline();
+  });
 </script>
