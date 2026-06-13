@@ -44,63 +44,54 @@ weight: 3
 <div class="mb-12">
   <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Approach</h2>
   <div class="space-y-6">
-
     <div>
       <h3 class="text-base font-semibold mb-2">1. Stakeholder Interviews &amp; Team Alignment</h3>
       <p class="text-gray-700 leading-relaxed">
         I started with in-depth stakeholder interviews to understand VCC's goals, the problems to solve, and the constraints of a non-profit operating environment. Crucially, I involved the entire project team in these sessions &mdash; developers, QA, and project manager. This meant everyone heard the client's vision firsthand, building shared understanding and reducing misinterpretation downstream.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">2. Competitor Analysis &amp; Feature Matrix</h3>
       <p class="text-gray-700 leading-relaxed">
         I researched direct competitors &mdash; other volunteer-matching platforms and community portals &mdash; and built a feature matrix to establish a baseline of what users would expect. This matrix helped identify the absolute minimum viable feature set, differentiate VCC from similar services, and guide scope conversations with the client.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">3. Iterative Client Workshops</h3>
       <p class="text-gray-700 leading-relaxed">
         After each research phase, I facilitated workshops with the client to present findings, validate assumptions, and uncover additional domain knowledge. This cadence kept the client deeply embedded in the process and prevented the common trap of discovering misalignment late in the project.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">4. Feature Mindmap &amp; Sitemap</h3>
       <p class="text-gray-700 leading-relaxed">
         I created a comprehensive mindmap of all potential features, then distilled it into a hybrid sitemap that mapped both page hierarchy and the features living on each page. This artifact became the single source of truth for scope &mdash; and later, the blueprint for VCC's planned future improvements.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">5. Scope Validation with Client &amp; Team</h3>
       <p class="text-gray-700 leading-relaxed">
         I discussed the sitemap with the client to get her industry-informed perspective on both the public site and admin interface. Then I walked through the scope with the full team to determine what was realistically deliverable within the fixed budget and deadline. The team's involvement here was invaluable &mdash; they flagged out-of-scope additions before they became commitments.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">6. Wireframing &amp; Iterative Feedback</h3>
       <p class="text-gray-700 leading-relaxed">
         I produced low-fidelity wireframes for key pages &mdash; homepage, volunteer listings, partner profiles, donation needs, events. These were presented to the client on a regular cadence so she could provide feedback and discuss design decisions based on our collective knowledge. This iterative approach meant no surprises and continuous alignment.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">7. Style Tile Exploration</h3>
       <p class="text-gray-700 leading-relaxed">
         I created several style tiles showcasing different visual directions &mdash; typography, colour palettes, button styles, card treatments. The first iteration was ultimately declined because it unintentionally resembled FedEx branding. The second iteration was approved and became the foundation for the full design system.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">8. Figma Design System &amp; Full UI</h3>
       <p class="text-gray-700 leading-relaxed">
         With the visual direction confirmed, I built a complete Figma design system &mdash; reusable components, typography scales, colour tokens, and interaction patterns. All public-facing pages were designed to spec within this system. For the admin panel, I delivered wireframes only, as it would be built on a standard framework theme.
       </p>
     </div>
-
   </div>
 </div>
 

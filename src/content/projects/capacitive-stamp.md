@@ -54,49 +54,42 @@ weight: 4
 <div class="mb-12">
   <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Approach</h2>
   <div class="space-y-6">
-
     <div>
       <h3 class="text-base font-semibold mb-2">1. User Journey &amp; Interaction Mapping</h3>
       <p class="text-gray-700 leading-relaxed">
         I worked with the cross-functional team to map the full user journey - from a customer walking into a coffee shop and ordering, to tapping their phone against the stamp at the register, to seeing the bonus credited in the app. We identified when and how the interaction should work, where friction could appear, and what user expectations would be at each touchpoint.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">2. Technology &amp; Production Research</h3>
       <p class="text-gray-700 leading-relaxed">
         I researched production methods for the stamp: conductive materials, 3D printing filaments, and mass-manufacturing options. I also studied phone screen sizes and capacitive touch capabilities across different models and manufacturers - understanding how many simultaneous touch points the average phone can register, and how that limits the stamp's dot-grid resolution.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">3. Stamp Grid Design</h3>
       <p class="text-gray-700 leading-relaxed">
         The core idea: a grid of round conductive touch dots, where each connected business gets a unique binary pattern - some dots conductive (touching), some not. When pressed against the phone screen, the pattern is registered as a multi-touch event, identifying the business. I designed the grid layout, dot spacing, and pattern encoding scheme, balancing readability across different phone models with pattern uniqueness.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">4. 3D Prototyping &amp; Conductive Printing</h3>
       <p class="text-gray-700 leading-relaxed">
         First prototypes were 3D-printed using standard filament to validate the physical form factor - size, ergonomics, how it sits on a coffee shop counter. Once the form was approved, I ordered conductive filament and produced functional prototypes with actual conductive dots. These working stamps were handed to the development team so they could build and test the mobile app against real hardware.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">5. Testing &amp; Iteration</h3>
       <p class="text-gray-700 leading-relaxed">
         Testing revealed two key challenges. First, some phones had limited multi-touch detection - they couldn't register enough simultaneous touch points to read the full grid. Second, 3D printing imperfections meant not all conductive dots were reliably detected on every press. The solution was a software fallback: pattern recognition that could identify a business from a partial dot reading, using fuzzy matching rather than requiring every dot to be registered perfectly.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">6. Final Mold-Ready Model</h3>
       <p class="text-gray-700 leading-relaxed">
         I refined the prototype into a model suitable for combined molding + 3D printing production - the final form that could be mass-produced while maintaining conductive reliability. The design accounted for both visual aesthetics (it needed to look premium on a coffee shop counter) and engineering constraints (dot conductivity, durability, cleaning).
       </p>
     </div>
-
   </div>
 </div>
 

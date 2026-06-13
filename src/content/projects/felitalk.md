@@ -58,35 +58,30 @@ weight: 6
 <div class="mb-12">
   <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Approach</h2>
   <div class="space-y-6">
-
     <div>
       <h3 class="text-base font-semibold mb-2">1. Design System Onboarding</h3>
       <p class="text-gray-700 leading-relaxed">
         I started by thoroughly absorbing the existing design system &mdash; the component library, spacing rules, typographic scale, and color palette established by the previous designer. Rather than reinventing, my job was to extend: understand the logic behind each design decision well enough to apply it consistently to entirely new pages without breaking the visual language. The few completed pages served as north stars &mdash; reference implementations I could measure every new screen against.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">2. Page-by-Page Design &amp; Implementation</h3>
       <p class="text-gray-700 leading-relaxed">
         Working from the PM's wireframes and specifications, I designed and hand-coded each new page &mdash; approximately 20 unique page templates covering registration, lesson booking, teacher browsing, pricing, and the user dashboard. Subsequent pages reused these templates and their components, maintaining a consistent rhythm across the platform. Every design decision I made was immediately validated through code &mdash; I saw within minutes whether a layout worked at real screen sizes and in real browsers.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">3. Japanese Typography &amp; Layout Adaptation</h3>
       <p class="text-gray-700 leading-relaxed">
         This was my first experience designing for Japanese text &mdash; and it surfaced a challenge I hadn't anticipated. Simply replacing English placeholder text with Japanese kanji and kana broke layouts everywhere. Japanese characters need more visual space to be legible; what looked clean and spacious in Latin script became cramped and unreadable. I had to adjust font sizes, line heights, and container widths across the entire platform to accommodate the new script &mdash; a hands-on lesson in how typography changes across writing systems, and why localization isn't just translation.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">4. Git-Based Delivery &amp; Integration</h3>
       <p class="text-gray-700 leading-relaxed">
         My workflow was straightforward: pull the project from the dev branch, build locally, design and code the new pages, then push back to dev. When the frontend developers needed to integrate my markup into the backend, any questions or adjustments were handled through the same git flow &mdash; no handoff documents, no ambiguity, just working code in the repository. If something didn't look right after integration, I fixed it in the source and pushed the update.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">5. Developer Collaboration &mdash; Technical Fluency in Practice</h3>
       <p class="text-gray-700 leading-relaxed">

@@ -47,7 +47,6 @@ weight: 5
 <div class="mb-12">
   <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Approach</h2>
   <div class="space-y-6">
-
     <div>
       <h3 class="text-base font-semibold mb-2">1. Workshop &mdash; Separating Human Errors from Inevitable Failures</h3>
       <p class="text-gray-700 leading-relaxed">
@@ -57,7 +56,6 @@ weight: 5
         One problem stood apart: the most expensive component kept burning out because <strong>operators skipped the manual and turned on the device in daylight</strong>. This was a <strong>human-caused failure</strong> &mdash; preventable through communication, not engineering. That's why I took ownership of it.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">2. From Insight to Multi-Channel Response</h3>
       <p class="text-gray-700 leading-relaxed">
@@ -70,28 +68,24 @@ weight: 5
         <strong>Physical track</strong> &mdash; something placed directly with the equipment, reaching operators at the exact moment they first held the device. This became the brochure.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">3. Brief &amp; Wireframe &mdash; Translating Rules into a Story</h3>
       <p class="text-gray-700 leading-relaxed">
         Technical rules like "do not activate in bright light" are easy to ignore. I structured the information not as a list of prohibitions, but as a short narrative sequence &mdash; what the operator needs to know, in the order they need to know it. The wireframe defined the flow, the key messages for each panel, and how the folding structure would reveal the story step by step.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">4. Handoff to Graphic Designer</h3>
       <p class="text-gray-700 leading-relaxed">
         I handed the brief and wireframe to the graphic designer. During our discussion, the comic format emerged naturally &mdash; an illustrated dialogue between the device and the operator. The device "speaks" to explain how to handle it, while the operator asks the questions a real user would have. This made the rules feel like a conversation, not a lecture.
       </p>
     </div>
-
     <div>
       <h3 class="text-base font-semibold mb-2">5. Delivery &mdash; Into Every Box</h3>
       <p class="text-gray-700 leading-relaxed">
         The finished brochure &mdash; a compact z-fold &mdash; was placed inside every repaired device returned to operators. The physical format mattered: it couldn't be ignored or scrolled past. It was right there when the operator opened the box, before the first power-on.
       </p>
     </div>
-
   </div>
 </div>
 
