@@ -20,19 +20,21 @@ const page = siteData.pages.about;
     <div class="container mx-auto max-w-3xl reveal-container">
       <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 reveal-stagger">About Me</h2>
 
-      <div class="grid md:grid-cols-[1fr_320px] gap-10 md:gap-14 items-start">
-        <div class="prose prose-gray max-w-none text-gray-600 leading-relaxed space-y-5">
-          <p class="reveal-stagger">
-            I'm Denys Malovanyi, a product designer and frontend developer with over 9 years of experience across UI/UX design, frontend development, and mechanical engineering. Currently, I work as a {siteData.currentRole}, creating user-centered digital and physical products.
-          </p>
-          <p class="reveal-stagger">
-            Beyond traditional design and development, I experiment with AI agents and local LLM deployment to enhance my design research, prototyping, and workflow automation — bringing emerging technology principles into practical design solutions. My approach bridges the gap between design thinking and technical execution, with a focus on iterative prototyping and thoughtful aesthetics.
-          </p>
-          <p class="reveal-stagger">
-            When I'm not designing, I'm likely snowboarding or rock climbing.
-          </p>
+      <div class="grid md:grid-cols-[1fr_320px] gap-10 md:gap-14">
+        <div class="flex flex-col h-full">
+          <div class="prose prose-gray max-w-none text-gray-600 leading-relaxed space-y-5">
+            <p class="reveal-stagger">
+              I'm Denys Malovanyi, a product designer and frontend developer with over 9 years of experience across UI/UX design, frontend development, and mechanical engineering. Currently, I work as a {siteData.currentRole}, creating user-centered digital and physical products.
+            </p>
+            <p class="reveal-stagger">
+              Beyond traditional design and development, I experiment with AI agents and local LLM deployment to enhance my design research, prototyping, and workflow automation — bringing emerging technology principles into practical design solutions. My approach bridges the gap between design thinking and technical execution, with a focus on iterative prototyping and thoughtful aesthetics.
+            </p>
+            <p class="reveal-stagger">
+              When I'm not designing, I'm likely snowboarding or rock climbing.
+            </p>
+          </div>
 
-          <div class="flex flex-col sm:flex-row sm:space-x-4 pt-4 reveal-stagger">
+          <div class="flex flex-col sm:flex-row sm:space-x-4 mt-auto reveal-stagger">
             <a href={siteData.resumePdf} target="_blank" class="btn-primary group">
               <span>Download Resume</span>
               <span class="inline-block ml-2 transition-transform duration-fast group-hover:translate-x-1">&rarr;</span>
@@ -44,16 +46,18 @@ const page = siteData.pages.about;
         </div>
 
         <div class="reveal-stagger md:sticky md:top-28 space-y-6">
-          <div class="relative">
-            <div class="absolute -inset-2 rounded-2xl bg-gradient-to-br from-accent-300/40 to-accent-600/20 blur-sm"></div>
-            <Image
-              src={portrait}
-              alt="Denys Malovanyi"
-              class="relative w-full max-w-[320px] mx-auto rounded-xl shadow-accent-lg object-cover"
-              width={320}
-              height={480}
-              loading="lazy"
-            />
+          <div class="relative group">
+            <div class="absolute -inset-2 rounded-2xl bg-accent-500/15 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-normal"></div>
+            <div class="relative rounded-2xl overflow-hidden shadow-accent border border-gray-100">
+              <Image
+                src={portrait}
+                alt="Denys Malovanyi"
+                class="w-full max-w-[320px] mx-auto object-cover"
+                width={320}
+                height={480}
+                loading="lazy"
+              />
+            </div>
           </div>
 
           <div class="space-y-4 pt-2">
