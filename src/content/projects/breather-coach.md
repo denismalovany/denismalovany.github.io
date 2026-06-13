@@ -35,7 +35,7 @@ weight: 2
 
 <!-- Context -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Context</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Context</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     The Breather is the world's first respiratory muscle training (RMT) device - a drug-free, clinically proven tool by PN Medical used by over 2 million people, from seniors with respiratory conditions to elite athletes and military pilots. The Breather Coach app is its digital companion: it guides users through training sessions, tracks their progress, and collects data for FDA clinical trials.
   </p>
@@ -46,7 +46,7 @@ weight: 2
 
 <!-- Phase 1: Diagnosis -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Phase 1 - Diagnosis</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Phase 1 - Diagnosis</h2>
   <div class="space-y-6">
     <div>
       <h3 class="text-base font-semibold mb-2">App Store Review Analysis</h3>
@@ -65,7 +65,7 @@ weight: 2
 
 <!-- Phase 2: Research -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Phase 2 - Research</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Phase 2 - Research</h2>
   <div class="space-y-6">
     <div>
       <h3 class="text-base font-semibold mb-2">Usability Testing</h3>
@@ -84,7 +84,7 @@ weight: 2
 
 <!-- Phase 3: Execution -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Phase 3 - Execution</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Phase 3 - Execution</h2>
   <div class="space-y-6">
     <div>
       <h3 class="text-base font-semibold mb-2">Design System Unification</h3>
@@ -103,7 +103,7 @@ weight: 2
 
 <!-- Phase 4: Legacy -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Phase 4 - Validated Blueprint</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Phase 4 - Validated Blueprint</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     With both qualitative and quantitative evidence in hand, I designed a set of targeted improvements. The centerpiece: restructuring the registration flow so users could complete their first training session immediately, with registration coming after - when they'd already invested effort and seen value. I also designed a guided onboarding flow to teach new users how the app worked before asking anything of them.
   </p>
@@ -114,7 +114,7 @@ weight: 2
 
 <!-- Result -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Result</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Result</h2>
   <ul class="list-disc pl-6 space-y-3 text-gray-700 leading-relaxed">
     <li>The design system was unified at the Figma level - all components, colors, and patterns standardized into a single source of truth that future teams could build from.</li>
     <li>The FDA clinical trial module was deployed in real patient studies, collecting structured data on training adherence and device efficacy.</li>
@@ -125,7 +125,7 @@ weight: 2
 
 <!-- Key Takeaways -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Key Takeaways</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Key Takeaways</h2>
   <ul class="list-disc pl-6 space-y-3 text-gray-700 leading-relaxed">
     <li><strong>Start with evidence, not opinion.</strong> The usability study - showing that no user could complete the full scenario unaided - was far more persuasive than any design argument could have been.</li>
     <li><strong>On messy projects, fundamentals first.</strong> A scattered design system creates friction for every subsequent feature. Fixing it is a force multiplier for everyone who touches the product next.</li>
@@ -139,7 +139,7 @@ weight: 2
 <!-- Role -->
 <hr class="divider mb-8">
 <div>
-  <h2 class="text-base font-serif font-bold mb-2">My Role</h2>
+  <h2 class="text-base font-bold mb-2">My Role</h2>
   <p class="text-gray-600 leading-relaxed">
     UX/UI Designer - App Store review analysis, design audit and inventory of the existing app, design system unification in Figma (with plugin automation), FDA clinical trial module design, usability testing (scenario design, step-by-step observation, task completion tracking), behavioral analytics extraction (collaboration with development team), proposed UX solutions (first-time user onboarding, delayed registration, redesigned sign-up flow).
   </p>
@@ -147,7 +147,7 @@ weight: 2
 
 <!-- Live Site -->
 <div class="mt-8">
-  <h2 class="text-base font-serif font-bold mb-2">Product Site</h2>
+  <h2 class="text-base font-bold mb-2">Product Site</h2>
   <p class="text-gray-600 leading-relaxed">
     <a href="https://thebreather.com" target="_blank" rel="noopener noreferrer" class="text-link link-external">thebreather.com</a>
   </p>

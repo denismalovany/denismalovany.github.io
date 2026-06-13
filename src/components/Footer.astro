@@ -20,7 +20,7 @@ const socialLinks = [
           socialLinks.map(link => (
             <a
               href={link.href}
-              class="text-sm font-medium text-gray-500 no-underline link-underline"
+              class="text-sm font-medium text-gray-500 no-underline link-underline link-external"
               {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             >
               {link.label}

@@ -38,7 +38,7 @@ weight: 4
 
 <!-- Context -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Context</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Context</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     A startup was building a digital loyalty program for small businesses - coffee shops, cafes, local stores - where customers could collect bonuses and rewards. The challenge: how to identify which business a customer was at without relying on NFC (inconsistent phone support) or QR codes (impersonal, requires camera and good lighting).
   </p>
@@ -52,7 +52,7 @@ weight: 4
 
 <!-- Approach -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Approach</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Approach</h2>
   <div class="space-y-6">
 
     <div>
@@ -102,7 +102,7 @@ weight: 4
 
 <!-- Result -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Result</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Result</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     The project reached live testing with several connected coffee shops. The stamp system worked - customers could tap their phone and receive loyalty bonuses, and the backend correctly identified businesses from the partial pattern recognition.
   </p>
@@ -116,7 +116,7 @@ weight: 4
 
 <!-- Key Learnings -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Key Takeaways</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Key Takeaways</h2>
   <ul class="list-disc pl-6 space-y-3 text-gray-700 leading-relaxed">
     <li><strong>Physical design requires engineering thinking.</strong> You can't "ship and iterate" a physical product the same way - every prototype costs time and materials, so research matters more upfront.</li>
     <li><strong>Hardware constraints define software requirements.</strong> The phone's touch detection limits directly shaped the pattern recognition algorithm - the software had to accommodate hardware imperfection.</li>
@@ -129,7 +129,7 @@ weight: 4
 <!-- Role -->
 <hr class="divider mb-8">
 <div>
-  <h2 class="text-base font-serif font-bold mb-2">My Role</h2>
+  <h2 class="text-base font-bold mb-2">My Role</h2>
   <p class="text-gray-600 leading-relaxed">
     Product Designer (Physical &amp; Digital) - user journey mapping with cross-functional team, technology and production research (conductive materials, phone touch capabilities, 3D printing), binary dot-grid pattern design for business identification, 3D prototype design and conductive filament production, testing with developers and real-world iteration, final mold-ready model design.
   </p>

@@ -49,6 +49,7 @@ const defaultJsonLd = {
 };
 
 const jsonLdString = suppressJsonLd ? null : JSON.stringify(jsonLd || defaultJsonLd, null, 4);
+const finalOgImage = ogImage || new URL('/favicon.svg', Astro.url.origin).href;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +59,7 @@ const jsonLdString = suppressJsonLd ? null : JSON.stringify(jsonLd || defaultJso
     description={description}
     ogTitle={ogTitle}
     ogDescription={ogDescription}
-    ogImage={ogImage}
+    ogImage={finalOgImage}
     jsonLd={jsonLdString}
   />
   <ViewTransitions />

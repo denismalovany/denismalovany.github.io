@@ -8,14 +8,15 @@ interface Props {
 
 const { entry, isLast } = Astro.props;
 const borderClass = isLast
-  ? 'relative pl-8 border-l-2 timeline-line pb-0'
-  : 'relative pl-8 pb-12 border-l-2 timeline-line';
+  ? 'relative pl-8 border-l-2 border-gray-200 pb-0'
+  : 'relative pl-8 pb-12 border-l-2 border-gray-200';
+const dotColor = entry.dotColor === 'gray' ? '--color-gray-300' : '--color-accent-gradient';
 const dotClass = entry.dotColor === 'gray'
-  ? 'timeline-dot timeline-dot--gray'
-  : 'timeline-dot timeline-dot--accent';
+  ? 'absolute -left-[9px] top-1 w-4 h-4 rounded-full'
+  : 'absolute -left-[9px] top-1 w-4 h-4 rounded-full';
 ---
-<div class={`timeline-entry ${borderClass}`}>
-  <div class={dotClass}></div>
+<div class={`${borderClass}`}>
+  <div class={`${dotClass}`} style={`background: var(${dotColor})`}></div>
   <p class="text-xs font-semibold text-gray-400 mb-1.5">{entry.period}</p>
   <h3 class="text-lg font-display font-bold mb-0.5 text-black">{entry.company}</h3>
   {entry.subtitle && (

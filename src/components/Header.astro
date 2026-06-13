@@ -7,7 +7,8 @@ interface Props {
 
 const { currentPage } = Astro.props;
 
-const resumeLabel = siteData.resumePdf ? 'Download PDF' : 'Print / Save PDF';
+const showResumeBtn = !!siteData.resumePdf;
+const pdfLabel = siteData.resumePdf ? 'Download PDF' : 'Print / Save PDF';
 
 const navItems = [
   { href: '/index.html', label: 'Home', key: 'home' },
@@ -53,7 +54,7 @@ const pdfIconClasses = 'w-3 h-3 shrink-0';
     </ul>
       <a href="javascript:window.print()" class={pdfLinkClasses} aria-label="Print / Save PDF" onclick="window.print();return false">
         <svg class={pdfIconClasses} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        <span>PDF</span>
+        <span>Print</span>
       </a>
   </nav>
 
@@ -91,30 +92,27 @@ const pdfIconClasses = 'w-3 h-3 shrink-0';
     ))}
     <li>
       <a href="javascript:window.print()" class="block py-2.5 px-4 text-sm font-medium text-gray-600 hover:text-accent-600 rounded-lg" onclick="window.print();return false">
-        <span>{resumeLabel}</span>
+        <span>{pdfLabel}</span>
       </a>
     </li>
   </ul>
 </nav>
 
-<script data-astro-rerun>
-  (function() {
+<script>
+  function setupMobileMenu() {
     const BREAKPOINT = 768;
     const toggle = document.getElementById('mobile-menu-toggle');
     const menu = document.getElementById('mobile-menu');
     const backdrop = document.getElementById('mobile-menu-backdrop');
     if (!toggle || !menu) return;
 
-    const freshToggle = toggle.cloneNode(true);
-    toggle.parentNode.replaceChild(freshToggle, toggle);
-
     let isOpen = false;
 
     function open() {
       isOpen = true;
       menu.inert = false;
-      freshToggle.classList.add('menu-open');
-      freshToggle.setAttribute('aria-expanded', 'true');
+      toggle.classList.add('menu-open');
+      toggle.setAttribute('aria-expanded', 'true');
       menu.classList.add('menu-open');
       if (backdrop) {
         backdrop.classList.add('menu-open');
@@ -126,8 +124,8 @@ const pdfIconClasses = 'w-3 h-3 shrink-0';
     function close() {
       isOpen = false;
       menu.inert = true;
-      freshToggle.classList.remove('menu-open');
-      freshToggle.setAttribute('aria-expanded', 'false');
+      toggle.classList.remove('menu-open');
+      toggle.setAttribute('aria-expanded', 'false');
       menu.classList.remove('menu-open');
       if (backdrop) {
         backdrop.classList.remove('menu-open');
@@ -138,35 +136,22 @@ const pdfIconClasses = 'w-3 h-3 shrink-0';
 
     close();
 
-    freshToggle.addEventListener('click', function() {
-      isOpen ? close() : open();
+    toggle.addEventListener('click', () => { isOpen ? close() : open(); });
+    if (backdrop) backdrop.addEventListener('click', close);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) { close(); toggle.focus(); }
     });
 
-    if (backdrop) {
-      backdrop.addEventListener('click', function() {
-        close();
-      });
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && isOpen) {
-        close();
-        freshToggle.focus();
-      }
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= BREAKPOINT && isOpen) close();
     });
 
-    window.addEventListener('resize', function() {
-      if (window.innerWidth >= BREAKPOINT && isOpen) {
-        close();
-      }
-    });
-
-    menu.addEventListener('click', function(e) {
+    menu.addEventListener('click', (e) => {
       const link = e.target.closest('a');
-      if (link && link.getAttribute('href') !== 'javascript:window.print()' && !link.closest('button')) {
-        close();
-      }
+      if (link && link.getAttribute('href') !== 'javascript:window.print()') close();
     });
+  }
 
-  })();
+  setupMobileMenu();
 </script>

@@ -12,7 +12,7 @@ const visible = timelineData.filter(e => !e.collapsed);
 const hidden = timelineData.filter(e => e.collapsed);
 ---
 
-<style is:global>
+<style>
   .timeline-collapsed {
     max-height: 2000px;
     opacity: 1;
@@ -22,28 +22,6 @@ const hidden = timelineData.filter(e => e.collapsed);
   .timeline-collapsed.collapsed {
     max-height: 0;
     opacity: 0;
-  }
-  .timeline-dot {
-    position: absolute;
-    left: -9px;
-    top: 0.25rem;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 9999px;
-    background: var(--color-black);
-  }
-  .timeline-dot--accent {
-    background: var(--color-accent-gradient);
-    transition: filter var(--transition-fast);
-  }
-  .timeline-entry:hover .timeline-dot--accent {
-    filter: brightness(1.15);
-  }
-  .timeline-dot--gray {
-    background: var(--color-gray-300);
-  }
-  .timeline-line {
-    border-color: var(--color-gray-200);
   }
 </style>
 {
@@ -78,43 +56,31 @@ const hidden = timelineData.filter(e => e.collapsed);
   )
 }
 
-<script is:inline>
+<script>
   function setupTimeline() {
-    var expandBtn = document.getElementById('expand-timeline');
-    var collapseBtn = document.getElementById('collapse-timeline');
-    var collapsedTimeline = document.getElementById('collapsed-timeline');
+    const expandBtn = document.getElementById('expand-timeline');
+    const collapseBtn = document.getElementById('collapse-timeline');
+    const collapsedTimeline = document.getElementById('collapsed-timeline');
+    if (!expandBtn || !collapsedTimeline) return;
 
-    if (expandBtn && collapsedTimeline) {
-      collapsedTimeline.classList.add('collapsed');
+    collapsedTimeline.classList.add('collapsed');
+    if (collapseBtn) collapseBtn.classList.add('hidden');
 
-      var freshExpand = expandBtn.cloneNode(true);
-      expandBtn.parentNode.replaceChild(freshExpand, expandBtn);
-
-      var freshCollapse = null;
-      if (collapseBtn) {
-        freshCollapse = collapseBtn.cloneNode(true);
-        collapseBtn.parentNode.replaceChild(freshCollapse, collapseBtn);
-        freshCollapse.classList.add('hidden');
-
-        freshCollapse.addEventListener('click', function() {
-          collapsedTimeline.classList.add('collapsed');
-          freshCollapse.classList.add('hidden');
-          freshExpand.classList.remove('hidden');
-        });
-      }
-
-      freshExpand.addEventListener('click', function() {
-        collapsedTimeline.classList.remove('collapsed');
-        freshExpand.classList.add('hidden');
-        if (freshCollapse) freshCollapse.classList.remove('hidden');
-      });
+    function expand() {
+      collapsedTimeline.classList.remove('collapsed');
+      expandBtn.classList.add('hidden');
+      if (collapseBtn) collapseBtn.classList.remove('hidden');
     }
+
+    function collapse() {
+      collapsedTimeline.classList.add('collapsed');
+      if (collapseBtn) collapseBtn.classList.add('hidden');
+      expandBtn.classList.remove('hidden');
+    }
+
+    expandBtn.addEventListener('click', expand);
+    if (collapseBtn) collapseBtn.addEventListener('click', collapse);
   }
 
   setupTimeline();
-
-  if (!document.body.dataset.timelineSwap) {
-    document.body.dataset.timelineSwap = '1';
-    document.addEventListener('astro:after-swap', setupTimeline);
-  }
 </script>

@@ -124,7 +124,6 @@
     btn.id = 'back-to-top';
     btn.setAttribute('aria-label', 'Back to top');
     btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>';
-    btn.style.cssText = 'position:fixed;bottom:2rem;right:2rem;z-index:900;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--color-gray-200);background:var(--glass-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:var(--color-gray-500);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 0.3s ease,transform 0.3s ease,visibility 0s 0.3s;box-shadow:var(--shadow-md);';
     btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     document.body.appendChild(btn);
 

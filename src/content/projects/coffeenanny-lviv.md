@@ -29,7 +29,7 @@ weight: 1
 
 <!-- Context -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Context</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Context</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     The original franchise site &mdash; built for the Kyiv office &mdash; went down during the full-scale invasion. The Lviv franchise needed a new digital presence urgently, but more importantly, they needed one that actually worked for their local market. Research revealed the core issue wasn't just missing functionality &mdash; it was <strong>trust</strong>.
   </p>
@@ -43,7 +43,7 @@ weight: 1
 
 <!-- Approach -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Approach</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Approach</h2>
   <div class="space-y-6">
     <div>
       <h3 class="text-base font-semibold mb-2">1. UX Audit &amp; Competitive Research</h3>
@@ -80,7 +80,7 @@ weight: 1
 
 <!-- Result -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Result</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Result</h2>
 
   <p class="text-gray-700 leading-relaxed mb-4">
     The business went from near-collapse to stable growth. The new site launched in days and became a working client-generation engine. Four years later, the site is still live and the franchise has expanded to <strong>9 cities</strong> across Ukraine.
@@ -127,7 +127,7 @@ weight: 1
 <!-- Role -->
 <hr class="divider mb-8">
 <div>
-  <h2 class="text-base font-serif font-bold mb-2">My Role</h2>
+  <h2 class="text-base font-bold mb-2">My Role</h2>
   <p class="text-gray-600 leading-relaxed">
     UX/UI Designer &amp; Product Designer &mdash; competitive research, client &amp; stakeholder interviews, information architecture, Figma design with AI-assisted style exploration, Wix MVP development, analytics review and iteration.
   </p>
@@ -135,7 +135,7 @@ weight: 1
 
 <!-- Live Site -->
 <div class="mt-8">
-  <h2 class="text-base font-serif font-bold mb-2">Live Site</h2>
+  <h2 class="text-base font-bold mb-2">Live Site</h2>
   <p class="text-gray-600 leading-relaxed">
     <a href="https://www.coffeenanny.lviv.ua/" target="_blank" rel="noopener noreferrer" class="text-link link-external">https://www.coffeenanny.lviv.ua/</a>
   </p>

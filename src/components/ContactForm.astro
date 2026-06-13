@@ -114,16 +114,16 @@
     box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.12);
   }
   .form-input.invalid {
-    border-color: #ef4444;
+    border-color: var(--color-error);
     box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
   }
   .form-input.valid {
-    border-color: #22c55e;
+    border-color: var(--color-success);
   }
   .form-error {
     display: none;
     font-size: 0.75rem;
-    color: #ef4444;
+    color: var(--color-error);
     margin-top: 0.25rem;
     font-weight: 500;
   }
@@ -131,12 +131,9 @@
     display: block;
   }
   .form-group.show-error .form-input {
-    border-color: #ef4444;
+    border-color: var(--color-error);
   }
-  .form-input {
-    background-color: var(--color-surface);
-    color: var(--color-gray-800);
-  }
+
 </style>
 
 <script>

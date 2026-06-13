@@ -50,7 +50,7 @@ Standard Tailwind gray palette: 50–900
 
 ### Section Titles
 - **section-title** — font-display, font-bold, black, inline-block, with accent gradient underline (36px wide, 3px tall)
-- Use `section-title-mb-6` or `section-title-mb-8` variants when margin-bottom is needed
+- Use `section-title section-title--mb-6` or `section-title section-title--mb-8` variants when margin-bottom is needed
 
 ### Links
 - **link-arrow** — text + `→` arrow that slides right on hover

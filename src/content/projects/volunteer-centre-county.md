@@ -31,7 +31,7 @@ weight: 3
 
 <!-- Context -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Context</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Context</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     Volunteer Centre County (VCC) is a 501(c)(3) non-profit organisation serving Centre County, Pennsylvania. Its mission: provide a free, user-friendly website and app that connects local residents with nonprofits seeking volunteers and donated goods. Founded in 2018 as a Penn State Intergenerational Leadership Institute project, VCC needed a complete digital platform &mdash; both a public-facing portal for volunteer/donation discovery, and an admin interface for managing community partner listings.
   </p>
@@ -42,7 +42,7 @@ weight: 3
 
 <!-- Approach -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Approach</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Approach</h2>
   <div class="space-y-6">
 
     <div>
@@ -106,7 +106,7 @@ weight: 3
 
 <!-- Result -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Result</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Result</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     The project was delivered with minimal delays &mdash; a direct outcome of the collaborative, transparent process we established from day one. Because the entire team was involved in every design phase, everyone understood the scope, the rationale behind decisions, and when to push back on out-of-scope additions.
   </p>
@@ -120,7 +120,7 @@ weight: 3
 
 <!-- Key Takeaways -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Key Takeaways</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Key Takeaways</h2>
   <ul class="list-disc pl-6 space-y-3 text-gray-700 leading-relaxed">
     <li><strong>Involve the whole team early.</strong> Including developers in stakeholder interviews eliminated handoff friction and built collective ownership of the project goals.</li>
     <li><strong>Continuous client workshops prevent rework.</strong> Presenting work after every phase kept the client in the loop and eliminated end-of-project surprises.</li>
@@ -133,7 +133,7 @@ weight: 3
 <!-- Role -->
 <hr class="divider mb-8">
 <div>
-  <h2 class="text-base font-serif font-bold mb-2">My Role</h2>
+  <h2 class="text-base font-bold mb-2">My Role</h2>
   <p class="text-gray-600 leading-relaxed">
     UX/UI Designer &amp; Product Designer/Manager &mdash; stakeholder interviews and team alignment, competitor research and feature matrix, iterative client workshops, mindmapping and information architecture (sitemap), scope validation against fixed-price constraints, wireframing and iterative feedback loops, style tile exploration (2 iterations), Figma design system and full UI, design handoff with team-wide context.
   </p>
@@ -141,7 +141,7 @@ weight: 3
 
 <!-- Live Site -->
 <div class="mt-8">
-  <h2 class="text-base font-serif font-bold mb-2">Live Site</h2>
+  <h2 class="text-base font-bold mb-2">Live Site</h2>
   <p class="text-gray-600 leading-relaxed">
     <a href="https://volunteercentrecounty.org" target="_blank" rel="noopener noreferrer" class="text-link link-external">volunteercentrecounty.org</a>
   </p>

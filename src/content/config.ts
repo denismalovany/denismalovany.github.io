@@ -19,6 +19,7 @@ const projectsCollection = defineCollection({
     }).optional(),
     liveSite: z.string().optional(),
     weight: z.number(),
+    draft: z.boolean().default(false),
   }),
 });
 

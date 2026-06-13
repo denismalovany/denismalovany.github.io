@@ -34,7 +34,7 @@ weight: 5
 
 <!-- Context -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Context</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Context</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     A volunteer workshop was repairing specialized optical equipment. One problem kept coming back: the most expensive and scarce component was burning out at an alarming rate. The root cause was not a manufacturing defect &mdash; it was user behavior. Operators were turning on the equipment in daylight or bright conditions, instantly destroying the component. The manual existed, but nobody read it.
   </p>
@@ -45,7 +45,7 @@ weight: 5
 
 <!-- Approach -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Approach</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Approach</h2>
   <div class="space-y-6">
 
     <div>
@@ -97,7 +97,7 @@ weight: 5
 
 <!-- Result -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Result</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Result</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     Repeat component burnouts decreased after the brochure was introduced. While multiple factors may have contributed, two signals stood out: fewer devices returned with the same damage pattern, and the brochure itself was noticed.
   </p>
@@ -108,7 +108,7 @@ weight: 5
 
 <!-- Key Takeaways -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Key Takeaways</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Key Takeaways</h2>
   <ul class="list-disc pl-6 space-y-3 text-gray-700 leading-relaxed">
     <li><strong>Workshops reveal what you don't know you know.</strong> The engineers had all the information. The workshop simply gave it a structure &mdash; and a matrix that made priorities impossible to ignore.</li>
     <li><strong>Match the format to the moment.</strong> A manual on a website competes with everything else. A brochure in the box meets the operator at the exact moment of first use &mdash; no friction, no search, no scroll.</li>
@@ -120,7 +120,7 @@ weight: 5
 <!-- Role -->
 <hr class="divider mb-8">
 <div>
-  <h2 class="text-base font-serif font-bold mb-2">My Role</h2>
+  <h2 class="text-base font-bold mb-2">My Role</h2>
   <p class="text-gray-600 leading-relaxed">
     Workshop Facilitator &amp; Instructional Designer &mdash; facilitated a cross-department workshop with engineers and department leads, mapped problems on a repair speed/cost matrix to surface the highest-impact issue, collected handling rules from domain experts, coordinated the multi-channel response (social media + physical brochure), created the instructional brief and structural wireframe for the brochure, handed off to the graphic designer for final visual execution.
   </p>

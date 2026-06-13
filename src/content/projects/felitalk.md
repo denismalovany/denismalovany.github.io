@@ -42,7 +42,7 @@ weight: 6
 
 <!-- Context -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Context</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Context</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     FeliTalk is an online English conversation platform built for the Japanese market, connecting learners with English-speaking teachers &mdash; the majority of whom are based in Ukraine. The platform's value proposition combines professional language instruction with a premium, motivation-driven experience: carefully selected instructors, original learning materials, and a streamlined platform designed to keep learners engaged and coming back.
   </p>
@@ -56,7 +56,7 @@ weight: 6
 
 <!-- Approach -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Approach</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Approach</h2>
   <div class="space-y-6">
 
     <div>
@@ -99,7 +99,7 @@ weight: 6
 
 <!-- Result -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Result</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Result</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     I delivered approximately 90% of the client-facing platform &mdash; roughly 20 unique page templates that scaled through component reuse across the entire user journey. The site launched successfully and remains live today at felitalk.com, serving Japanese learners connecting with English teachers.
   </p>
@@ -113,7 +113,7 @@ weight: 6
 
 <!-- Key Takeaways -->
 <div class="mb-12">
-  <h2 class="text-xl font-serif font-bold mb-4 section-title-mb-6">Key Takeaways</h2>
+  <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Key Takeaways</h2>
   <ul class="list-disc pl-6 space-y-3 text-gray-700 leading-relaxed">
     <li><strong>Designing with implementation awareness reduces friction.</strong> Knowing how your designs will be built &mdash; the HTML structure, the CSS constraints, the browser quirks &mdash; means you design things that are not just beautiful, but buildable. Every decision carries an implicit estimate of effort.</li>
     <li><strong>Technical fluency is leverage in developer conversations.</strong> When a developer says something is difficult, being able to assess that claim from real technical knowledge &mdash; not trust &mdash; changes the dynamic. It turns negotiations into collaborations.</li>
@@ -126,7 +126,7 @@ weight: 6
 <!-- Role -->
 <hr class="divider mb-8">
 <div>
-  <h2 class="text-base font-serif font-bold mb-2">My Role</h2>
+  <h2 class="text-base font-bold mb-2">My Role</h2>
   <p class="text-gray-600 leading-relaxed">
     UI Designer &amp; HTML Developer &mdash; design system onboarding and extension, page-by-page UI design across ~20 unique templates, hand-coded HTML/CSS markup for ~90% of client-facing pages, Japanese typography and layout adaptation, git-based delivery to development team, technical collaboration with backend developers including effort estimation and implementation guidance.
   </p>
