@@ -7,7 +7,7 @@ export const siteData = {
   dribbble: "https://dribbble.com/malovany",
   resumePdf: "/CV/Denys_Malovanyi_CV.pdf",
   tagline: "UX/UI & Product Designer · AI-Augmented Workflows · 9+ Years of Experience",
-  aboutTagline: "Designer/Engineer/AI Enthusiast",
+  aboutTagline: "Product designer and frontend developer with 9+ years of experience across UI/UX, development, and mechanical engineering.",
   currentRole: "Mechanical Engineer & Product Designer at VOL Volunteer Optical Laboratory",
   currentEmployer: "VOL Volunteer Optical Laboratory",
   copyrightYear: 2026,
