@@ -1,14 +1,16 @@
 ---
 import { skillsData } from '../data/skills';
 ---
-<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
   {
     Object.entries(skillsData).map(([category, skills]) => (
-      <div class="glass-card p-6">
-        <h3 class="text-lg font-display font-bold mb-4 text-black">{category}</h3>
-        <ul class="space-y-2">
+      <div>
+        <h3 class="font-display font-bold text-black text-sm uppercase tracking-wider mb-4">
+          {category}
+        </h3>
+        <ul class="space-y-2.5">
           {skills.map(skill => (
-            <li class="flex items-center gap-2 text-gray-600 text-sm-plus">
+            <li class="flex items-center gap-2.5 text-gray-600 text-sm-plus">
               <span class="w-1.5 h-1.5 rounded-full bg-accent-400 shrink-0"></span>
               {skill}
             </li>
