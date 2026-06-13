@@ -134,24 +134,39 @@ const pdfIconClasses = 'w-3 h-3 shrink-0';
       document.body.classList.remove('menu-locked');
     }
 
-    close();
-
-    toggle.addEventListener('click', () => { isOpen ? close() : open(); });
-    if (backdrop) backdrop.addEventListener('click', close);
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isOpen) { close(); toggle.focus(); }
-    });
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= BREAKPOINT && isOpen) close();
-    });
-
-    menu.addEventListener('click', (e) => {
+    function onToggleClick() { isOpen ? close() : open(); }
+    function onEscape(e) { if (e.key === 'Escape' && isOpen) { close(); toggle.focus(); } }
+    function onResize() { if (window.innerWidth >= BREAKPOINT && isOpen) close(); }
+    function onMenuClick(e) {
       const link = e.target.closest('a');
       if (link && link.getAttribute('href') !== 'javascript:window.print()') close();
-    });
+    }
+
+    close();
+
+    toggle.addEventListener('click', onToggleClick);
+    if (backdrop) backdrop.addEventListener('click', close);
+    document.addEventListener('keydown', onEscape);
+    window.addEventListener('resize', onResize);
+    menu.addEventListener('click', onMenuClick);
+
+    return function teardown() {
+      close();
+      toggle.removeEventListener('click', onToggleClick);
+      if (backdrop) backdrop.removeEventListener('click', close);
+      document.removeEventListener('keydown', onEscape);
+      window.removeEventListener('resize', onResize);
+      menu.removeEventListener('click', onMenuClick);
+    };
   }
 
-  setupMobileMenu();
+  let teardownMobileMenu = setupMobileMenu();
+
+  document.addEventListener('astro:before-swap', () => {
+    if (teardownMobileMenu) { teardownMobileMenu(); teardownMobileMenu = null; }
+  });
+
+  document.addEventListener('astro:after-swap', () => {
+    teardownMobileMenu = setupMobileMenu();
+  });
 </script>

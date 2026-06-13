@@ -81,9 +81,21 @@ Every interactive `<script>` in an Astro component/page that attaches event list
 6. **Always call `setupComponent()` once for the first page load** — view transition events do NOT fire on initial navigation.
 7. **Do NOT use `addEventListener` without a corresponding `removeEventListener`** — it causes memory leaks and duplicate handlers across navigations.
 
-### Exception: `transition:persist` elements
+### `transition:persist` elements — narrowed exception
 
-Components marked with `transition:persist` (currently only `Header` and `Footer`) retain their DOM and event listeners across navigations. Their scripts do NOT need lifecycle hooks.
+Components marked with `transition:persist` (currently only `Header` and `Footer`) retain their DOM across navigations. However, the exception to the lifecycle pattern is **narrowed**:
+
+**Scripts in persisted components STILL REQUIRE lifecycle hooks when they manage mutable state.** This includes menus, toggles, accordions, form inputs, or any logic that sets classes on `document.body`, uses `inert` / `aria-expanded`, or tracks state in closure variables (`isOpen`, `isExpanded`, etc.).
+
+After a View Transition, the `document.body` is a new element, and closure-captured state variables may reference stale DOM or incorrect conditions. The lifecycle hooks ensure:
+- `astro:before-swap`: close/teardown mutable state and remove all listeners
+- `astro:after-swap`: re-query fresh DOM references and re-initialize
+
+**Scripts in persisted components may omit lifecycle hooks ONLY when they are truly stateless** — pure one-time decoration (e.g., setting `currentYear` in a footer) with no event listeners, no mutable closure state, and no body-level side effects.
+
+### `transition:persist` + `view-transition-name` conflict — PROHIBITED
+
+**Never apply CSS `view-transition-name` to any element that uses `transition:persist`.** The browser's native View Transitions API attempts to independently animate named elements, which conflicts with Astro's DOM-persistence mechanism. This dual-transition behavior corrupts DOM state and disconnects event listeners. The `transition:persist` directive alone is sufficient for preserving elements across navigations.
 
 ## Images
 - Allowed domains: `images.unsplash.com`
