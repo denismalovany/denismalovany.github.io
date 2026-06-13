@@ -2,7 +2,14 @@ export const skillsData: Record<string, string[]> = {
   "Design": [
     "Product Design",
     "Design Systems",
-    "Prototyping"
+    "Prototyping",
+    "Interaction Design"
+  ],
+  "Tools": [
+    "Figma",
+    "Principle",
+    "Webflow",
+    "Wix"
   ],
   "Research & Testing": [
     "UX Research",
@@ -10,6 +17,8 @@ export const skillsData: Record<string, string[]> = {
     "Workshop Facilitation"
   ],
   "AI & Emerging Tech": [
-    "AI-Augmented Workflows"
+    "AI-Augmented Workflows",
+    "Hermes Agent",
+    "Kilo Code"
   ]
 };
