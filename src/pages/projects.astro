@@ -24,13 +24,15 @@ const allTags = [...new Set(sortedProjects.flatMap(p => p.data.tags))].sort();
       <p class="text-gray-500 mb-6 max-w-2xl">
         A comprehensive collection of product design projects showcasing my approach to solving user problems through interaction design, visual design, and prototyping.
       </p>
-
+      <!-- the projects are organized by tags, allowing you to filter and explore specific areas of interest. Each project includes detailed case studies, design artifacts, and insights into the design process. -->
+      <!--
       <div class="flex flex-wrap gap-2 mb-10" id="project-filters">
         <button class="filter-btn px-4 py-2 text-sm font-medium rounded-full bg-accent-50 text-accent-700 border border-accent-200 active" data-filter="all">All</button>
         {allTags.map(tag => (
           <button class="filter-btn px-4 py-2 text-sm font-medium rounded-full bg-white text-gray-600 border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors duration-fast" data-filter={tag}>{tag}</button>
         ))}
       </div>
+      -->
 
       <div id="projects-grid" class="grid gap-8 md:grid-cols-2">
         {sortedProjects.map(project => (
