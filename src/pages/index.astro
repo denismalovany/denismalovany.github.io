@@ -20,7 +20,7 @@ const featuredProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.da
     <div slot="after" class="mt-10 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center relative z-[1] reveal">
       <a href="/projects.html" class="btn-primary group" data-astro-prefetch="hover">
         <span>Explore My Work</span>
-        <span class="inline-block ml-2 transition-transform duration-fast group-hover:translate-x-1">&rarr;</span>
+        <span class="btn-arrow">&rarr;</span>
       </a>
       <a href="/contact.html" class="btn-outline mt-3 sm:mt-0" data-astro-prefetch="hover">
         Get in Touch
@@ -30,7 +30,7 @@ const featuredProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.da
 
   <section id="about-preview" class="section py-24 px-6 section-subtle">
     <div class="container mx-auto max-w-3xl reveal-container">
-      <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 reveal-stagger">About Me</h2>
+      <h2 class="section-title section-title--mb-8 reveal-stagger">About Me</h2>
       <div class="prose prose-gray max-w-2xl mx-auto mb-10 reveal-stagger">
         <p class="text-gray-600 leading-relaxed mb-5 text-lg reveal-stagger">
           I'm Denys Malovanyi, a UX/UI and product designer currently working as an engineer at {siteData.currentEmployer}. I specialize in creating user-centered digital experiences through interaction design, visual design, and prototyping.
@@ -58,7 +58,7 @@ const featuredProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.da
   <section id="timeline" class="section py-24 px-6 section-subtle">
     <div class="container mx-auto max-w-3xl reveal-container">
       <div class="mb-10">
-        <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 mx-auto text-center reveal-stagger">Professional Timeline</h2>
+        <h2 class="section-title section-title--mb-8 mx-auto text-center reveal-stagger">Professional Timeline</h2>
         <p class="text-gray-500 mb-10 max-w-2xl mx-auto reveal-stagger">
           A chronological overview of my career progression from frontend development to product design.
         </p>
@@ -71,7 +71,7 @@ const featuredProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.da
 
   <section id="projects" class="section py-24 px-6 section-subtle">
     <div class="container mx-auto max-w-3xl reveal-container">
-      <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 reveal-stagger">Featured Projects</h2>
+      <h2 class="section-title section-title--mb-8 reveal-stagger">Featured Projects</h2>
       <p class="text-gray-500 mb-10 max-w-2xl mx-auto reveal-stagger">
         A selection of recent work demonstrating my product design approach and problem-solving skills.
       </p>
@@ -85,7 +85,7 @@ const featuredProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.da
       <div class="mt-10 text-center reveal-stagger">
          <a href="/projects.html" class="btn-primary group" data-astro-prefetch="hover">
           See All Projects
-          <span class="inline-block ml-2 transition-transform duration-fast group-hover:translate-x-1">&rarr;</span>
+          <span class="btn-arrow">&rarr;</span>
         </a>
       </div>
     </div>

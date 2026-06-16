@@ -8,12 +8,19 @@ export default {
     extend: {
       fontFamily: {
         display: ['Lexend', ...defaultTheme.fontFamily.sans],
-        serif: ['Lexend', ...defaultTheme.fontFamily.sans],
+        // serif: deprecated in 2.x — see F-21. Lexend covers both roles.
+        // serif: ['Lexend', ...defaultTheme.fontFamily.sans],
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
         '2xs': ['0.6875rem', { lineHeight: '1.3' }],
         'sm-plus': ['0.8125rem', {}],
+      },
+      lineHeight: {
+        tight: '1.1',
+      },
+      letterSpacing: {
+        chip: '0.02em',
       },
       colors: {
         accent: {
@@ -27,7 +34,8 @@ export default {
           700: '#6e6980',
           800: '#5e5a6e',
           900: '#42404d',
-          950: '#28262e',
+          // 950: unused — see F-22
+          // 950: '#28262e',
         },
         gray: {
           50: '#f9fafb',
@@ -41,6 +49,18 @@ export default {
           800: '#1f2937',
           900: '#111827',
         },
+        success: {
+          500: '#16a34a',
+        },
+        black: '#0a0a0a',
+        white: '#fafafa',
+      },
+      zIndex: {
+        header: '60',
+        overlay: '50',
+        // back-to-top + site-header continue to use raw values where needed
+        'back-to-top': '900',
+        'site-header': '1000',
       },
       transitionDuration: {
         fast: '150ms',
