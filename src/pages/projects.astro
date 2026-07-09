@@ -9,6 +9,26 @@ const page = siteData.pages.projects;
 const projects = await getCollection('projects');
 const sortedProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.data.weight - b.data.weight);
 
+const allTags = [...new Set(sortedProjects.flatMap(p => p.data.tags))].sort();
+
+const filterCategories = [
+  { key: 'all', label: 'All', match: () => true },
+  ...allTags.map(tag => ({
+    key: tag.toLowerCase().replace(/\s+/g, '-'),
+    label: tag,
+    match: (projectTags: string[]) => projectTags.includes(tag),
+  })),
+];
+
+const tagCounts: Record<string, number> = {};
+for (const cat of filterCategories) {
+  tagCounts[cat.key] = sortedProjects.filter(p => cat.match(p.data.tags)).length;
+}
+
+const projectsJson = JSON.stringify(sortedProjects.map(p => ({
+  slug: p.slug,
+  tags: p.data.tags,
+})));
 ---
 <Layout
   title={page.title}
@@ -16,18 +36,35 @@ const sortedProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.data
   currentPage="projects"
   suppressJsonLd
 >
-  <PageHero title="All Projects" subtitle="Complete portfolio of work" />
+  <PageHero
+    title="All Projects"
+    subtitle="Complete portfolio of work"
+  />
 
-  <section id="projects" class="section py-24 px-6 section-subtle">
-    <div class="container mx-auto max-w-3xl">
-      <h2 class="text-2xl md:text-3xl section-title section-title--mb-8">Project Portfolio</h2>
-      <p class="text-gray-600 mb-6 max-w-2xl">
+  <section id="projects" class="py-24 px-6 section-subtle">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="text-2xl md:text-3xl section-title section-title--mb-6">Project Portfolio</h2>
+      <p class="lede mb-4">
         A comprehensive collection of product design projects showcasing my approach to solving user problems through interaction design, visual design, and prototyping.
       </p>
 
+      <div id="project-filters" class="filters mb-8">
+        <span class="filters__label">Filter</span>
+        {filterCategories.map(cat => (
+          <button
+            type="button"
+            class={`filter-btn${cat.key === 'all' ? ' is-active' : ''}`}
+            data-filter={cat.key}
+          >
+            {cat.label}
+            <span class="filter-btn__count" data-count={cat.key}>{tagCounts[cat.key]}</span>
+          </button>
+        ))}
+      </div>
+
       <div id="projects-grid" class="grid gap-8 md:grid-cols-2">
         {sortedProjects.map(project => (
-          <div class="project-card-wrapper">
+          <div class="project-card-wrapper" data-tags={JSON.stringify(project.data.tags)}>
             <ProjectCard project={project} />
           </div>
         ))}
@@ -36,3 +73,66 @@ const sortedProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.data
   </section>
 </Layout>
 
+<script>
+  function setupProjectFilters() {
+    const filterBar = document.getElementById('project-filters');
+    const cards = document.querySelectorAll('.project-card-wrapper');
+    if (!filterBar || !cards.length) return;
+
+    const buttons = filterBar.querySelectorAll('.filter-btn');
+    const counts = filterBar.querySelectorAll('.filter-btn__count');
+
+    function applyFilter(filterKey: string) {
+      buttons.forEach((b) => b.classList.remove('is-active'));
+      const activeBtn = filterBar.querySelector(`.filter-btn[data-filter="${filterKey}"]`);
+      if (activeBtn) activeBtn.classList.add('is-active');
+
+      let visible = 0;
+      cards.forEach((card) => {
+        let tags: string[] = [];
+        try { tags = JSON.parse(card.getAttribute('data-tags') || '[]'); } catch(e) {}
+        const show = filterKey === 'all' || tags.map(t => t.toLowerCase().replace(/\s+/g, '-')).includes(filterKey);
+        (card as HTMLElement).style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      counts.forEach((slot) => {
+        const key = slot.getAttribute('data-count');
+        if (!key) return;
+        if (key === 'all') { slot.textContent = String(cards.length); return; }
+        let n = 0;
+        cards.forEach((card) => {
+          let tags: string[] = [];
+          try { tags = JSON.parse(card.getAttribute('data-tags') || '[]'); } catch(e) {}
+          if (tags.map(t => t.toLowerCase().replace(/\s+/g, '-')).includes(key)) n++;
+        });
+        slot.textContent = String(n);
+      });
+    }
+
+    function handleClick(this: HTMLElement, e: Event) {
+      e.preventDefault();
+      applyFilter(this.getAttribute('data-filter') || 'all');
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', handleClick);
+    });
+
+    return function teardown() {
+      buttons.forEach((btn) => {
+        btn.removeEventListener('click', handleClick);
+      });
+    };
+  }
+
+  let teardownFilters = setupProjectFilters();
+
+  document.addEventListener('astro:before-swap', () => {
+    if (teardownFilters) { teardownFilters(); teardownFilters = null; }
+  });
+
+  document.addEventListener('astro:after-swap', () => {
+    teardownFilters = setupProjectFilters();
+  });
+</script>

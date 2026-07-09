@@ -14,10 +14,10 @@ const page = siteData.pages.about;
   description={page.description}
   currentPage="about"
 >
-  <PageHero title={siteData.name} subtitle={siteData.aboutTagline} />
+  <PageHero title={siteData.name} subtitle={siteData.aboutTagline} eyebrow="About me" />
 
-  <section id="about" class="section py-24 px-6 section-subtle">
-    <div class="container mx-auto max-w-3xl reveal-container">
+  <section id="about" class="py-24 px-6 section-subtle">
+    <div class="mx-auto max-w-6xl reveal-container">
       <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 reveal-stagger">About Me</h2>
 
       <div class="md:hidden reveal-stagger mb-8">
@@ -44,7 +44,7 @@ const page = siteData.pages.about;
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
             </svg>
             <span>Kyiv, Ukraine</span>
-            <span class="inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-accent-100 text-accent-700 border border-accent-300">Remote / On-site</span>
+            <span class="tag tag--plain">Remote / On-site</span>
           </div>
 
           <div class="prose prose-gray max-w-none text-gray-600 leading-relaxed space-y-5">
@@ -104,8 +104,8 @@ const page = siteData.pages.about;
     </div>
   </section>
 
-  <section id="skills" class="section py-24 px-6 section-subtle">
-    <div class="container mx-auto max-w-3xl reveal-container">
+  <section id="skills" class="py-24 px-6 section-subtle">
+    <div class="mx-auto max-w-6xl reveal-container">
       <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 reveal-stagger">Skills &amp; Expertise</h2>
       <div class="reveal-stagger">
         <SkillsGrid />
@@ -113,8 +113,8 @@ const page = siteData.pages.about;
     </div>
   </section>
 
-  <section id="timeline" class="section py-24 px-6 section-subtle">
-    <div class="container mx-auto max-w-3xl reveal-container">
+  <section id="timeline" class="py-24 px-6 section-subtle">
+    <div class="mx-auto max-w-6xl reveal-container">
       <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 reveal-stagger">Professional Timeline</h2>
       <div class="reveal-stagger">
         <Timeline collapsed={false} />

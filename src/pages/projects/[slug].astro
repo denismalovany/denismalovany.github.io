@@ -14,6 +14,14 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { data } = project;
 const siteUrl = 'https://denismalovany.github.io';
+
+const allProjects = (await getCollection('projects'))
+  .filter(p => !p.data.draft)
+  .sort((a, b) => a.data.weight - b.data.weight);
+const currentIndex = allProjects.findIndex(p => p.slug === project.slug);
+const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
+const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
+
 const breadcrumbs = [
   { name: 'All Projects', url: `${siteUrl}/projects.html` },
   { name: data.title, url: `${siteUrl}/projects/${project.slug}.html` },
@@ -36,7 +44,7 @@ const { Content } = await project.render();
   currentPage="project-detail"
   suppressJsonLd
 >
-  <PageHero title={data.heroTitle} subtitle={data.heroSubtitle}>
+  <PageHero title={data.heroTitle} subtitle={data.heroSubtitle} eyebrow="Case Study">
     {
       data.heroCta && (
         <div slot="after" class="mt-8">
@@ -48,8 +56,8 @@ const { Content } = await project.render();
     }
   </PageHero>
 
-  <section class="section py-20 px-6 section-subtle">
-    <div class="container mx-auto max-w-3xl">
+  <section class="py-20 px-6 section-subtle">
+    <div class="mx-auto max-w-6xl">
       <nav aria-label="Breadcrumb" class="mb-10">
          <ol class="flex items-center flex-wrap gap-x-1.5 text-sm">
            <li class="flex items-center">
@@ -64,10 +72,10 @@ const { Content } = await project.render();
       <script type="application/ld+json" set:html={breadcrumbJsonLd}></script>
 
       <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="text-sm font-medium text-accent-600 bg-accent-50 px-3 py-1 rounded-full">{data.role}</span>
+        <span class="tag">{data.role}</span>
         {
           data.tags.map(tag => (
-            <span class="text-sm text-gray-500 bg-gray-50 border border-gray-200 px-3 py-1 rounded-full">{tag}</span>
+            <span class="tag tag--plain">{tag}</span>
           ))
         }
       </div>
@@ -91,6 +99,39 @@ const { Content } = await project.render();
           </div>
         )
       }
+
+      <nav class="case-nav mt-16 pt-10 border-t border-gray-100" aria-label="Other cases">
+        {
+          prevProject ? (
+            <a href={`/projects/${prevProject.slug}.html`} class="case-nav__item" data-astro-prefetch="hover">
+              <div class="case-nav__label">Previous case</div>
+              <div class="case-nav__title">{prevProject.data.title}</div>
+              <div class="case-nav__arrow">Read</div>
+            </a>
+          ) : (
+            <a href="/projects.html" class="case-nav__item" data-astro-prefetch="hover">
+              <div class="case-nav__label">All projects</div>
+              <div class="case-nav__title">Back to the list</div>
+              <div class="case-nav__arrow">All cases</div>
+            </a>
+          )
+        }
+        {
+          nextProject ? (
+            <a href={`/projects/${nextProject.slug}.html`} class="case-nav__item case-nav__item--next" data-astro-prefetch="hover">
+              <div class="case-nav__label">Next case</div>
+              <div class="case-nav__title">{nextProject.data.title}</div>
+              <div class="case-nav__arrow">Read</div>
+            </a>
+          ) : (
+            <a href="/projects.html" class="case-nav__item case-nav__item--next" data-astro-prefetch="hover">
+              <div class="case-nav__label">All projects</div>
+              <div class="case-nav__title">Back to the list</div>
+              <div class="case-nav__arrow">All cases</div>
+            </a>
+          )
+        }
+      </nav>
     </div>
   </section>
 </Layout>

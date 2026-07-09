@@ -9,7 +9,7 @@ export const siteData = {
   tagline: "UX/UI & Product Designer · AI-Augmented Workflows · 9+ Years of Experience",
   aboutTagline: "Product designer and frontend developer with 9+ years of experience across UI/UX, development, and mechanical engineering.",
   currentRole: "Mechanical Engineer & Product Designer at VOL Volunteer Optical Laboratory",
-  currentEmployer: "VOL Volunteer Optical Laboratory",
+  currentEmployer: "VOL",
   copyrightYear: 2026,
   pages: {
     index: {
