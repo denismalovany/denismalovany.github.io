@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
-import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -64,26 +63,19 @@ const { Content } = await project.render();
       </nav>
       <script type="application/ld+json" set:html={breadcrumbJsonLd}></script>
 
-      <div class="glass-card p-8 mb-10">
-        <Image src={data.image} alt={data.title} width={1200} height={800} class="w-full rounded-xl mb-8" loading="eager" />
-        <p class="text-sm font-semibold text-accent-500 mb-3">Case Study</p>
-        <h2 class="text-3xl md:text-4xl font-display font-extrabold mb-3 text-black">{data.title}</h2>
-        <p class="text-gray-500 text-lg mb-6">{data.summary}</p>
-        <div class="flex flex-wrap items-center gap-3 mb-6">
-          <span class="text-sm font-medium text-accent-600 bg-accent-50 px-3 py-1 rounded-full">{data.role}</span>
-          {
-            data.tags.map(tag => (
-              <span class="text-sm text-gray-500 bg-gray-50 border border-gray-200 px-3 py-1 rounded-full">{tag}</span>
-            ))
-          }
-        </div>
-        {data.impact && (
-          <div class="border-t border-gray-100 pt-4 mt-4">
-            <p class="text-sm font-semibold text-gray-400 mb-1">Impact</p>
-            <p class="text-gray-600">{data.impact}</p>
-          </div>
-        )}
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span class="text-sm font-medium text-accent-600 bg-accent-50 px-3 py-1 rounded-full">{data.role}</span>
+        {
+          data.tags.map(tag => (
+            <span class="text-sm text-gray-500 bg-gray-50 border border-gray-200 px-3 py-1 rounded-full">{tag}</span>
+          ))
+        }
       </div>
+      {data.impact && (
+        <div class="mb-10 text-sm text-gray-500">
+          <span class="font-semibold text-gray-400">Impact: </span>{data.impact}
+        </div>
+      )}
 
       <div class="prose prose-gray max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:text-black prose-a:text-accent-600 prose-blockquote:border-accent-500">
         <Content />
