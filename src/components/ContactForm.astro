@@ -25,8 +25,9 @@
             placeholder="John Doe"
             class="form-input"
             autocomplete="name"
+            aria-describedby="form-name-error"
           />
-          <span class="form-error">Please enter your name</span>
+          <span class="form-error" id="form-name-error" role="alert">Please enter your name</span>
         </div>
 
         <div class="form-group">
@@ -39,8 +40,9 @@
             placeholder="john@example.com"
             class="form-input"
             autocomplete="email"
+            aria-describedby="form-email-error"
           />
-          <span class="form-error">Please enter a valid email</span>
+          <span class="form-error" id="form-email-error" role="alert">Please enter a valid email</span>
         </div>
       </div>
 
@@ -64,8 +66,9 @@
           rows="4"
           placeholder="Tell me about your project or idea..."
           class="form-input resize-none"
+          aria-describedby="form-message-error"
         ></textarea>
-        <span class="form-error">Please write a message</span>
+        <span class="form-error" id="form-message-error" role="alert">Please write a message</span>
       </div>
 
       <button type="submit" id="form-submit" class="btn-primary w-full py-3.5 relative overflow-hidden">
@@ -139,84 +142,114 @@
 </style>
 
 <script>
-  (function() {
-    var form = document.getElementById('contact-form');
-    if (!form) return;
+function setupContactForm() {
+  const wrapper = document.getElementById('contact-form-wrapper');
+  if (!wrapper) return;
 
-    var inputs = form.querySelectorAll('.form-input[required]');
-    var submitBtn = document.getElementById('form-submit');
-    var submitText = submitBtn ? submitBtn.querySelector('.submit-text') : null;
-    var submitLoading = submitBtn ? submitBtn.querySelector('.submit-loading') : null;
-    var submitSuccess = submitBtn ? submitBtn.querySelector('.submit-success') : null;
+  const form = wrapper.querySelector('form');
+  if (!form) return;
 
-    function validateInput(input) {
-      var group = input.closest('.form-group');
-      if (!group) return true;
+  const inputs = form.querySelectorAll('.form-input[required]');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitText = submitBtn?.querySelector('.submit-text');
+  const submitLoading = submitBtn?.querySelector('.submit-loading');
+  const submitSuccess = submitBtn?.querySelector('.submit-success');
 
-      if (input.type === 'email') {
-        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(input.value.trim());
-      }
-      return input.value.trim().length > 0;
+  function validateInput(input) {
+    const group = input.closest('.form-group');
+    if (!group) return true;
+    if (input.type === 'email') {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
     }
+    return input.value.trim().length > 0;
+  }
 
+  function handleBlur(e) {
+    const input = e.target;
+    const group = input.closest('.form-group');
+    if (!group) return;
+    input.setAttribute('aria-invalid', 'false');
+    if (!validateInput(input) && input.value.trim().length > 0) {
+      group.classList.add('show-error');
+      input.classList.add('invalid');
+      input.classList.remove('valid');
+      input.setAttribute('aria-invalid', 'true');
+    } else if (validateInput(input)) {
+      group.classList.remove('show-error');
+      input.classList.remove('invalid');
+      input.classList.add('valid');
+    }
+  }
+
+  function handleInput(e) {
+    const input = e.target;
+    const group = input.closest('.form-group');
+    if (!group) return;
+    input.setAttribute('aria-invalid', 'false');
+    if (validateInput(input)) {
+      group.classList.remove('show-error');
+      input.classList.remove('invalid');
+      input.classList.add('valid');
+    }
+  }
+
+  function handleSubmit(e) {
+    let allValid = true;
     inputs.forEach(function(input) {
-      input.addEventListener('blur', function() {
-        var group = input.closest('.form-group');
-        if (!group) return;
-        if (!validateInput(input) && input.value.trim().length > 0) {
-          group.classList.add('show-error');
-          input.classList.add('invalid');
-          input.classList.remove('valid');
-        } else if (validateInput(input)) {
-          group.classList.remove('show-error');
-          input.classList.remove('invalid');
-          input.classList.add('valid');
-        }
-      });
-
-      input.addEventListener('input', function() {
-        var group = input.closest('.form-group');
-        if (!group) return;
-        if (validateInput(input)) {
-          group.classList.remove('show-error');
-          input.classList.remove('invalid');
-          input.classList.add('valid');
-        }
-      });
-    });
-
-    form.addEventListener('submit', function(e) {
-      var allValid = true;
-      inputs.forEach(function(input) {
-        var group = input.closest('.form-group');
-        if (!validateInput(input)) {
-          allValid = false;
-          if (group) group.classList.add('show-error');
-          input.classList.add('invalid');
-        }
-      });
-
-      if (!allValid) {
-        e.preventDefault();
-        return;
+      const group = input.closest('.form-group');
+      if (!validateInput(input)) {
+        allValid = false;
+        if (group) group.classList.add('show-error');
+        input.classList.add('invalid');
+        input.setAttribute('aria-invalid', 'true');
       }
-
-      if (submitText) submitText.classList.add('hidden');
-      if (submitLoading) submitLoading.classList.remove('hidden');
     });
-
-    var urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('submitted') === 'true') {
-      if (submitText && submitSuccess) {
-        submitText.classList.add('hidden');
-        submitSuccess.classList.remove('hidden');
-        if (submitLoading) submitLoading.classList.add('hidden');
-        setTimeout(function() {
-          submitSuccess.classList.add('hidden');
-          submitText.classList.remove('hidden');
-        }, 3000);
-      }
+    if (!allValid) {
+      e.preventDefault();
+      return;
     }
-  })();
+    if (submitText) submitText.classList.add('hidden');
+    if (submitLoading) submitLoading.classList.remove('hidden');
+  }
+
+  inputs.forEach(function(input) {
+    input.addEventListener('blur', handleBlur);
+    input.addEventListener('input', handleInput);
+  });
+  form.addEventListener('submit', handleSubmit);
+
+  let successTimer = null;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('submitted') === 'true') {
+    if (submitText && submitSuccess) {
+      submitText.classList.add('hidden');
+      submitSuccess.classList.remove('hidden');
+      if (submitLoading) submitLoading.classList.add('hidden');
+      successTimer = setTimeout(function() {
+        submitSuccess.classList.add('hidden');
+        submitText.classList.remove('hidden');
+      }, 3000);
+    }
+  }
+
+  return function teardown() {
+    if (successTimer) clearTimeout(successTimer);
+    inputs.forEach(function(input) {
+      input.removeEventListener('blur', handleBlur);
+      input.removeEventListener('input', handleInput);
+    });
+    form.removeEventListener('submit', handleSubmit);
+  };
+}
+
+let teardownContactForm = setupContactForm();
+
+document.addEventListener('astro:before-swap', () => {
+  if (teardownContactForm) { teardownContactForm(); teardownContactForm = null; }
+});
+
+document.addEventListener('astro:after-swap', () => {
+  teardownContactForm = setupContactForm();
+});
 </script>

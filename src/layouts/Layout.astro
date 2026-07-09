@@ -65,8 +65,11 @@ const finalOgImage = ogImage || new URL('/favicon.svg', Astro.url.origin).href;
   <ViewTransitions />
 </head>
 <body class="antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[9999] focus:px-4 focus:py-2.5 focus:bg-accent-500 focus:text-white focus:rounded-lg focus:shadow-lg focus:text-sm focus:font-semibold focus:outline-none">
+    Skip to content
+  </a>
   <Header currentPage={currentPage} transition:persist />
-  <main class="flex-1">
+  <main class="flex-1" id="main-content">
     <slot />
   </main>
   <Footer transition:persist />
