@@ -43,7 +43,7 @@
     page.querySelectorAll('.reveal').forEach(function(el) {
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px) scale(0.98)';
-      el.style.transition = 'opacity 0.6s cubic-bezier(0.25,0.1,0.25,1), transform 0.6s cubic-bezier(0.25,0.1,0.25,1)';
+      el.style.transition = 'opacity 0.6s cubic-bezier(0.25,0.1,0.25,1), transform 0.6s cubic-bezier(0.25,0.1,0.25,1), background-size 0.3s cubic-bezier(0.25,0.1,0.25,1)';
       revealObserver.observe(el);
     });
 
@@ -67,7 +67,7 @@
       el.querySelectorAll('.reveal-stagger').forEach(function(item) {
         item.style.opacity = '0';
         item.style.transform = 'translateY(24px)';
-        item.style.transition = 'opacity 0.5s cubic-bezier(0.25,0.1,0.25,1), transform 0.5s cubic-bezier(0.25,0.1,0.25,1)';
+        item.style.transition = 'opacity 0.5s cubic-bezier(0.25,0.1,0.25,1), transform 0.5s cubic-bezier(0.25,0.1,0.25,1), background-size 0.3s cubic-bezier(0.25,0.1,0.25,1)';
       });
       staggerObserver.observe(el);
     });
