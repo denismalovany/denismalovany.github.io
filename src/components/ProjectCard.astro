@@ -19,7 +19,7 @@ const coverFallbackVariants = [
 ];
 const fallbackClass = coverFallbackVariants[project.slug.length % coverFallbackVariants.length];
 ---
-<a href={`projects/${project.slug}.html`} class="block h-full group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 rounded-2xl" data-astro-prefetch="hover">
+<a href={`projects/${project.slug}.html`} class="block h-full group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 rounded-2xl" data-astro-prefetch="hover" data-od-id={`project-card-${project.slug}`}>
   <div class="flex flex-col glass-card rounded-2xl transition-all duration-normal overflow-hidden h-full hover:shadow-accent-lg hover:-translate-y-1">
     <div class="overflow-hidden">
       <div class="relative w-full aspect-[3/2]">
@@ -46,9 +46,9 @@ const fallbackClass = coverFallbackVariants[project.slug.length % coverFallbackV
           </div>
         )
       }
-      <h3 class="font-display text-lg md:text-xl font-bold text-black leading-tight mb-3 md:mb-5 group-hover:text-accent-600 transition-colors duration-fast">{data.title}</h3>
-      <p class="text-sm-plus text-gray-600 leading-relaxed line-clamp-3 overflow-hidden mb-3">{data.summary}</p>
-      {data.role && <p class="text-sm font-semibold text-gray-400 mt-auto pt-4 border-t border-gray-100">{data.role}</p>}
+      <h3 class="font-display text-lg md:text-xl font-bold text-black leading-tight mb-3 md:mb-5 group-hover:text-accent-600 transition-colors duration-fast" data-od-id={`project-title-${project.slug}`}>{data.title}</h3>
+      <p class="text-sm-plus text-gray-600 leading-relaxed line-clamp-3 overflow-hidden mb-3" data-od-id={`project-summary-${project.slug}`}>{data.summary}</p>
+      {data.role && <p class="text-sm font-semibold text-gray-400 mt-auto pt-4 border-t border-gray-100" data-od-id={`project-role-${project.slug}`}>{data.role}</p>}
     </div>
   </div>
 </a>
