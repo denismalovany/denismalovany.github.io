@@ -41,37 +41,40 @@ const coverFallbackVariants = [
   <section id="about-preview" class="py-24 px-6 section-subtle">
     <div class="mx-auto max-w-6xl reveal-container">
       <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 reveal-stagger">About Me</h2>
-      <div class="prose prose-gray max-w-2xl mx-auto mb-10 reveal-stagger">
-        <p class="text-gray-600 leading-relaxed mb-5 text-lg reveal-stagger">
-          I'm Denys Malovanyi, a UX/UI and product designer currently working as an engineer at {siteData.currentEmployer}. I specialize in creating user-centered digital experiences through interaction design, visual design, and prototyping.
-        </p>
-        <p class="text-gray-600 leading-relaxed mb-5 reveal-stagger">
-          My approach combines rigorous research with thoughtful aesthetics to craft solutions that are both functional and delightful.
-        </p>
-        <p class="text-gray-600 leading-relaxed reveal-stagger">
-          I also experiment with AI agents and local LLM deployment to enhance my design research, prototyping, and workflow automation.
-        </p>
+      <div class="split">
+        <div class="reveal-stagger">
+          <div class="text-gray-600 leading-relaxed text-lg space-y-5">
+            <p>
+              I'm Denys Malovanyi, a UX/UI and product designer currently working as an engineer at {siteData.currentEmployer}. I specialize in creating user-centered digital experiences through interaction design, visual design, and prototyping.
+            </p>
+            <p>
+              My approach combines rigorous research with thoughtful aesthetics to craft solutions that are both functional and delightful.
+            </p>
+            <p>
+              I also experiment with AI agents and local LLM deployment to enhance my design research, prototyping, and workflow automation.
+            </p>
+          </div>
+          <a href="/about.html" class="mt-8 inline-block text-sm font-semibold text-accent-600 link-arrow" data-astro-prefetch="hover">
+            Learn More About Me
+          </a>
+        </div>
+        <div class="flex flex-col gap-5 reveal-stagger">
+          <div class="proof-strip proof-strip--sidebar" aria-label="Quick facts">
+            <span><strong>9+</strong> years in product design/development</span>
+            <span class="proof-strip__sep">·</span>
+            <span><strong>14</strong> launches</span>
+            <span class="proof-strip__sep">·</span>
+            <span><strong>3</strong> design systems from scratch</span>
+            <span class="proof-strip__sep">·</span>
+            <span><strong>EN B2</strong> · <strong>UA native</strong></span>
+          </div>
+          <div class="flex flex-wrap gap-2.5">
+            {Object.values(skillsData).flat().map(skill => (
+              <span class="tag">{skill}</span>
+            ))}
+          </div>
+        </div>
       </div>
-
-      <div class="proof-strip reveal-stagger" aria-label="Quick facts">
-        <span><strong>9+</strong> years in product</span>
-        <span class="proof-strip__sep">·</span>
-        <span><strong>14</strong> launches</span>
-        <span class="proof-strip__sep">·</span>
-        <span><strong>3</strong> design systems from scratch</span>
-        <span class="proof-strip__sep">·</span>
-        <span><strong>EN B2</strong> · <strong>UA native</strong></span>
-      </div>
-
-      <div class="flex flex-wrap gap-2.5 mt-6 reveal-stagger">
-        {Object.values(skillsData).flat().map(skill => (
-          <span class="tag">{skill}</span>
-        ))}
-      </div>
-
-      <a href="/about.html" class="mt-8 inline-block text-sm font-semibold text-accent-600 link-arrow reveal-stagger" data-astro-prefetch="hover">
-        Learn More About Me
-      </a>
     </div>
   </section>
 
@@ -79,9 +82,9 @@ const coverFallbackVariants = [
     <div class="mx-auto max-w-6xl reveal-container">
       <div class="mb-10">
         <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 mx-auto text-center reveal-stagger">Professional Timeline</h2>
-        <p class="text-gray-600 mb-10 max-w-2xl mx-auto reveal-stagger">
+        <!-- <p class="text-gray-600 mb-10 max-w-2xl mx-auto reveal-stagger">
           A chronological overview of my career progression from frontend development to product design.
-        </p>
+        </p> -->
       </div>
       <div class="reveal-stagger">
         <Timeline collapsed={true} />
