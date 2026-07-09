@@ -140,19 +140,13 @@ body {
     border: 1px solid #ecebef;
     transition: background var(--transition-fast), border-color var(--transition-fast);
   }
-  .tag:hover {
-    background: rgba(var(--color-accent-rgb), 0.12);
-    border-color: #dbd7e0;
-  }
+
   .tag--plain {
     color: var(--color-gray-500);
     background: var(--color-gray-50);
     border-color: var(--color-gray-100);
   }
-  .tag--plain:hover {
-    background: var(--color-gray-100);
-    border-color: var(--color-gray-200);
-  }
+
 
   .btn-ghost {
     display: inline-flex;
