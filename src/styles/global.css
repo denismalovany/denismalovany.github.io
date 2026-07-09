@@ -732,6 +732,7 @@ body {
   }
   .featured__cta {
     position: relative;
+    align-self: flex-start;
     font-size: 0.8125rem;
     font-weight: 500;
     line-height: 1;
