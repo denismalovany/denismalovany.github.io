@@ -16,7 +16,6 @@ const { project } = Astro.props;
 const { data } = project;
 const siteUrl = 'https://denismalovany.github.io';
 const breadcrumbs = [
-  { name: 'Home', url: `${siteUrl}/index.html` },
   { name: 'All Projects', url: `${siteUrl}/projects.html` },
   { name: data.title, url: `${siteUrl}/projects/${project.slug}.html` },
 ];
@@ -53,15 +52,11 @@ const { Content } = await project.render();
   <section class="section py-20 px-6 section-subtle">
     <div class="container mx-auto max-w-3xl">
       <nav aria-label="Breadcrumb" class="mb-10">
-        <ol class="flex items-center flex-wrap gap-x-1.5 text-sm">
-          <li class="flex items-center">
-            <a href="/index.html" class="text-accent-600 hover:text-accent-500 transition-colors duration-fast" data-astro-prefetch="hover">Home</a>
-            <span class="mx-1.5 text-gray-300 select-none" aria-hidden="true">/</span>
-          </li>
-          <li class="flex items-center">
-            <a href="/projects.html" class="text-accent-600 hover:text-accent-500 transition-colors duration-fast" data-astro-prefetch="hover">All Projects</a>
-            <span class="mx-1.5 text-gray-300 select-none" aria-hidden="true">/</span>
-          </li>
+         <ol class="flex items-center flex-wrap gap-x-1.5 text-sm">
+           <li class="flex items-center">
+             <a href="/projects.html" class="text-accent-600 hover:text-accent-500 transition-colors duration-fast" data-astro-prefetch="hover">All Projects</a>
+             <span class="mx-1.5 text-gray-300 select-none" aria-hidden="true">/</span>
+           </li>
           <li>
             <span class="text-gray-500" aria-current="page">{data.title}</span>
           </li>
