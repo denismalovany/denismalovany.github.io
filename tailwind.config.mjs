@@ -47,6 +47,10 @@ export default {
         normal: '300ms',
         slow: '500ms',
       },
+      letterSpacing: {
+        wider: '0.08em',
+        widest: '0.12em',
+      },
       boxShadow: {
         accent: '0 4px 14px rgba(155, 150, 168, 0.28)',
         'accent-lg': '0 10px 40px rgba(155, 150, 168, 0.35)',

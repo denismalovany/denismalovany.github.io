@@ -124,7 +124,7 @@
     btn.id = 'back-to-top';
     btn.setAttribute('aria-label', 'Back to top');
     btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>';
-    btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    btn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' }); });
     document.body.appendChild(btn);
 
     backToTopHandler = function() {
