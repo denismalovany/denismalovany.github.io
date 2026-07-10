@@ -14,6 +14,7 @@ heroCta:
   label: "Visit Live Site"
 liveSite: "https://felitalk.com"
 weight: 6
+bentoLayout: 'span-2-wide'
 ---
 
 <div class="grid md:grid-cols-2 gap-10 items-start mb-16">

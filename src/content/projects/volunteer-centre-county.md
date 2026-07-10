@@ -11,6 +11,8 @@ heroTitle: "Volunteer Centre County"
 heroSubtitle: "UX/UI Design · Product Design/Management · Non-Profit · Community Platform"
 liveSite: "https://volunteercentrecounty.org"
 weight: 3
+bentoLayout: 'span-2-tall'
+bentoAccent: true
 ---
 
 <div class="grid md:grid-cols-2 gap-10 items-start mb-16">

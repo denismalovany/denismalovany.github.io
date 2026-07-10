@@ -17,22 +17,7 @@ const uniqueDisciplines = allTags.length;
 const featuredProject = sortedProjects[0];
 const gridProjects = sortedProjects.slice(1);
 
-const gridSlugs = [
-  'volunteer-centre-county',
-  'breather-coach',
-  'felitalk',
-  'capacitive-stamp',
-  'safety-brochure',
-];
-const orderedGrid = gridSlugs
-  .map(slug => gridProjects.find(p => p.slug === slug))
-  .filter(Boolean) as typeof gridProjects;
-const statsInsertAt = 2;
-
-const bentoVariants: Record<string, { variant: 'span-2-tall' | 'span-2-wide'; accent?: boolean }> = {
-  'volunteer-centre-county': { variant: 'span-2-tall', accent: true },
-  'felitalk': { variant: 'span-2-wide' },
-};
+const statsInsertAt = Math.floor(gridProjects.length / 2);
 
 const filterCategories = [
   { key: 'all', label: 'All' },
@@ -63,7 +48,7 @@ for (const cat of filterCategories) {
   <PageHero
     eyebrow="Portfolio"
     title="Selected Work"
-    subtitle="Six projects spanning UX research, UI design, design systems, and front-end implementation — each included for the problem it solved, not just the visual output."
+    subtitle={`${totalProjects} projects spanning UX research, UI design, design systems, and front-end implementation — each included for the problem it solved, not just the visual output.`}
   >
     <div slot="after" class="flex flex-wrap items-center justify-center gap-6 mt-7" data-od-id="hero-stats">
       <div class="text-center">
@@ -104,15 +89,15 @@ for (const cat of filterCategories) {
       </div>
 
       <div class="bento-grid" id="bento-grid" data-od-id="projects-grid">
-        {orderedGrid.map((project, i) => (
+        {gridProjects.map((project, i) => (
           <>
             {i === statsInsertAt && (
               <ProjectCard variant="stats" statsTotal={totalProjects} />
             )}
             <ProjectCard
               project={project}
-              variant={bentoVariants[project.slug]?.variant ?? 'default'}
-              accent={bentoVariants[project.slug]?.accent ?? false}
+              variant={project.data.bentoLayout ?? 'default'}
+              accent={project.data.bentoAccent ?? false}
             />
           </>
         ))}
