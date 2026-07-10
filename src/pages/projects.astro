@@ -2,8 +2,9 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
-import { siteData } from '../data/site';
+import FeaturedProject from '../components/FeaturedProject.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import { siteData } from '../data/site';
 
 const page = siteData.pages.projects;
 const projects = await getCollection('projects');
@@ -13,18 +14,43 @@ const totalProjects = sortedProjects.length;
 const allTags = [...new Set(sortedProjects.flatMap(p => p.data.tags))].sort();
 const uniqueDisciplines = allTags.length;
 
+const featuredProject = sortedProjects[0];
+const gridProjects = sortedProjects.slice(1);
+
+const gridSlugs = [
+  'volunteer-centre-county',
+  'breather-coach',
+  'felitalk',
+  'capacitive-stamp',
+  'safety-brochure',
+];
+const orderedGrid = gridSlugs
+  .map(slug => gridProjects.find(p => p.slug === slug))
+  .filter(Boolean) as typeof gridProjects;
+const statsInsertAt = 2;
+
+const bentoVariants: Record<string, { variant: 'span-2-tall' | 'span-2-wide'; accent?: boolean }> = {
+  'volunteer-centre-county': { variant: 'span-2-tall', accent: true },
+  'felitalk': { variant: 'span-2-wide' },
+};
+
 const filterCategories = [
-  { key: 'all', label: 'All', match: () => true },
+  { key: 'all', label: 'All' },
   ...allTags.map(tag => ({
     key: tag.toLowerCase().replace(/\s+/g, '-'),
     label: tag,
-    match: (projectTags: string[]) => projectTags.includes(tag),
   })),
 ];
 
 const tagCounts: Record<string, number> = {};
 for (const cat of filterCategories) {
-  tagCounts[cat.key] = sortedProjects.filter(p => cat.match(p.data.tags)).length;
+  if (cat.key === 'all') {
+    tagCounts[cat.key] = totalProjects;
+  } else {
+    tagCounts[cat.key] = sortedProjects.filter(p =>
+      p.data.tags.map(t => t.toLowerCase().replace(/\s+/g, '-')).includes(cat.key)
+    ).length;
+  }
 }
 ---
 
@@ -52,139 +78,104 @@ for (const cat of filterCategories) {
     </div>
   </PageHero>
 
-  <section id="projects" class="py-24 px-6 section-subtle" data-od-id="projects-section">
-    <div class="mx-auto max-w-6xl">
-      <h2 class="text-2xl md:text-3xl section-title section-title--mb-6" data-od-id="projects-heading">Project Portfolio</h2>
-      <p class="lede mb-4" data-od-id="projects-description">
-        A comprehensive collection of product design projects showcasing my approach to solving user problems through interaction design, visual design, and prototyping.
-      </p>
+  <section class="px-6 pb-24" data-od-id="projects-section">
+    <div class="mx-auto max-w-7xl">
 
-      <div class="flex items-center justify-between gap-4 mb-6 flex-wrap">
-        <div id="project-filters" class="filters flex-1 min-w-0" data-od-id="project-filters">
-          <span class="filters__label">Filter</span>
-          {filterCategories.map(cat => (
-            <button
-              type="button"
-              class={`filter-btn${cat.key === 'all' ? ' is-active' : ''}`}
-              data-filter={cat.key}
-              data-od-id={`filter-${cat.key}`}
-            >
-              {cat.label}
-              <span class="filter-btn__count" data-count={cat.key}>{tagCounts[cat.key]}</span>
-            </button>
-          ))}
-        </div>
-        <span
-          id="results-count"
-          class="text-xs text-gray-400 font-medium uppercase tracking-wider whitespace-nowrap"
-          data-od-id="results-count"
-        >
+      <div class="projects-filter" data-od-id="projects-filter">
+        <span class="projects-filter__label">Filter</span>
+        {filterCategories.map(cat => (
+          <button
+            type="button"
+            class={`filter-btn${cat.key === 'all' ? ' is-active' : ''}`}
+            data-filter={cat.key}
+            data-od-id={`filter-${cat.key}`}
+          >
+            {cat.label}
+            <span class="filter-btn__count">{tagCounts[cat.key]}</span>
+          </button>
+        ))}
+        <span id="results-count" class="projects-filter__count" data-od-id="results-count">
           Showing <strong class="text-gray-600">{totalProjects}</strong> of {totalProjects}
         </span>
       </div>
 
-      <div id="projects-grid" class="grid gap-8 md:grid-cols-2" data-od-id="projects-grid">
-        {sortedProjects.map((project, index) => (
-          <div
-            class="project-card-wrapper"
-            data-tags={JSON.stringify(project.data.tags)}
-            style={`--stagger-idx: ${index};`}
-            data-od-id={`project-card-wrapper-${project.slug}`}
-          >
-            <ProjectCard project={project} />
-          </div>
-        ))}
+      <div class="fp-wrap" data-od-id="featured-wrap">
+        <FeaturedProject project={featuredProject} />
       </div>
 
-      <div id="grid-empty" class="hidden py-24 text-center" data-od-id="grid-empty">
-        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-accent-50 flex items-center justify-center" aria-hidden="true">
-          <svg class="w-8 h-8 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 6h12M6 12h8M6 18h4" />
-          </svg>
+      <div class="bento-grid" id="bento-grid" data-od-id="projects-grid">
+        {orderedGrid.map((project, i) => (
+          <>
+            {i === statsInsertAt && (
+              <ProjectCard variant="stats" statsTotal={totalProjects} />
+            )}
+            <ProjectCard
+              project={project}
+              variant={bentoVariants[project.slug]?.variant ?? 'default'}
+              accent={bentoVariants[project.slug]?.accent ?? false}
+            />
+          </>
+        ))}
+
+        <div class="bento-empty" id="bento-empty" data-od-id="bento-empty">
+          <h3>No projects match</h3>
+          <p>Try a different filter or <button type="button" id="clear-filter">view all projects</button>.</p>
         </div>
-        <h3 class="font-display text-lg font-bold text-black mb-2">No projects match</h3>
-        <p class="text-sm text-gray-500 max-w-md mx-auto">
-          No projects found with the selected tag. Try a different filter or <button type="button" id="clear-filter-btn" class="text-accent-600 font-medium link-underline">view all projects</button>.
-        </p>
       </div>
+
     </div>
   </section>
 </Layout>
 
 <script>
-  const FILTER_DURATION = 200;
-
-  function setupProjectFilters() {
-    const filterBar = document.getElementById('project-filters');
-    const cards = document.querySelectorAll('.project-card-wrapper');
-    const emptyState = document.getElementById('grid-empty');
+  function setupFilters() {
+    const filterBar = document.querySelector('.projects-filter');
+    const featuredWrap = document.querySelector('.fp-wrap');
+    const featureCard = featuredWrap?.querySelector('.fp-card');
+    const gridCards = document.querySelectorAll('#bento-grid .bento-card:not(.bc-stats)');
+    const emptyState = document.getElementById('bento-empty');
     const resultsCount = document.getElementById('results-count');
-    const clearFilterBtn = document.getElementById('clear-filter-btn');
+    const clearBtn = document.getElementById('clear-filter');
+    const buttons = filterBar?.querySelectorAll('.filter-btn');
+    const statsCard = document.querySelector('#bento-grid .bc-stats');
 
-    if (!filterBar || !cards.length) return;
+    if (!filterBar || !gridCards.length) return;
 
-    const buttons = filterBar.querySelectorAll('.filter-btn');
-    const counts = filterBar.querySelectorAll('.filter-btn__count');
-    let collapseTimer: ReturnType<typeof setTimeout> | null = null;
+    const total = gridCards.length + (featureCard ? 1 : 0);
 
-    function applyFilter(filterKey: string) {
-      if (collapseTimer) { clearTimeout(collapseTimer); collapseTimer = null; }
-
-      buttons.forEach((b) => b.classList.remove('is-active'));
-      const activeBtn = filterBar.querySelector(`.filter-btn[data-filter="${CSS.escape(filterKey)}"]`);
+    function applyFilter(key: string) {
+      buttons?.forEach(b => b.classList.remove('is-active'));
+      const activeBtn = filterBar?.querySelector(`.filter-btn[data-filter="${CSS.escape(key)}"]`);
       if (activeBtn) activeBtn.classList.add('is-active');
 
       let visible = 0;
 
-      cards.forEach((card) => {
+      if (featureCard && featuredWrap) {
         let tags: string[] = [];
-        try { tags = JSON.parse(card.getAttribute('data-tags') || '[]'); } catch(e) {}
-        const show = filterKey === 'all' || tags.map(t => t.toLowerCase().replace(/\s+/g, '-')).includes(filterKey);
-
-        if (show) {
-          card.style.display = '';
-          card.offsetHeight;
-          card.classList.remove('is-hiding');
-          card.setAttribute('aria-hidden', 'false');
-          visible++;
-        } else {
-          card.classList.add('is-hiding');
-          card.setAttribute('aria-hidden', 'true');
-        }
-      });
-
-      collapseTimer = setTimeout(() => {
-        cards.forEach((card) => {
-          if (card.classList.contains('is-hiding')) {
-            card.style.display = 'none';
-          }
-        });
-        collapseTimer = null;
-      }, FILTER_DURATION);
-
-      counts.forEach((slot) => {
-        const key = slot.getAttribute('data-count');
-        if (!key) return;
-        if (key === 'all') { slot.textContent = String(cards.length); return; }
-        let n = 0;
-        cards.forEach((card) => {
-          let tags: string[] = [];
-          try { tags = JSON.parse(card.getAttribute('data-tags') || '[]'); } catch(e) {}
-          if (tags.map(t => t.toLowerCase().replace(/\s+/g, '-')).includes(key)) n++;
-        });
-        slot.textContent = String(n);
-      });
-
-      if (resultsCount) {
-        resultsCount.innerHTML = `Showing <strong class="text-gray-600">${visible}</strong> of ${cards.length}`;
+        try { tags = JSON.parse(featureCard.getAttribute('data-tags') || '[]'); } catch(e) {}
+        const match = key === 'all' || tags.map((t: string) => t.toLowerCase().replace(/\s+/g, '-')).includes(key);
+        featuredWrap.classList.toggle('is-hiding', !match);
+        featureCard.classList.toggle('is-hiding', !match);
+        if (match) visible++;
       }
 
-      if (emptyState) {
-        if (visible === 0) {
-          emptyState.classList.remove('hidden');
-        } else {
-          emptyState.classList.add('hidden');
-        }
+      gridCards.forEach(card => {
+        let tags: string[] = [];
+        try { tags = JSON.parse((card as HTMLElement).getAttribute('data-tags') || '[]'); } catch(e) {}
+        const match = key === 'all' || tags.map((t: string) => t.toLowerCase().replace(/\s+/g, '-')).includes(key);
+        card.classList.toggle('is-hiding', !match);
+        if (match) visible++;
+      });
+
+      if (statsCard) {
+        statsCard.classList.toggle('is-hiding', visible === 0);
+      }
+
+      const emptyVisible = visible === 0;
+      emptyState?.classList.toggle('visible', emptyVisible);
+
+      if (resultsCount) {
+        resultsCount.innerHTML = `Showing <strong class="text-gray-600">${visible}</strong> of ${total}`;
       }
     }
 
@@ -193,72 +184,21 @@ for (const cat of filterCategories) {
       applyFilter(this.getAttribute('data-filter') || 'all');
     }
 
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', handleClick);
-    });
-
-    if (clearFilterBtn) {
-      clearFilterBtn.addEventListener('click', () => applyFilter('all'));
-    }
+    buttons?.forEach(btn => btn.addEventListener('click', handleClick));
+    clearBtn?.addEventListener('click', () => applyFilter('all'));
 
     return function teardown() {
-      if (collapseTimer) clearTimeout(collapseTimer);
-      buttons.forEach((btn) => {
-        btn.removeEventListener('click', handleClick);
-      });
-      if (clearFilterBtn) {
-        clearFilterBtn.removeEventListener('click', () => applyFilter('all'));
-      }
+      buttons?.forEach(btn => btn.removeEventListener('click', handleClick));
+      clearBtn?.removeEventListener('click', () => applyFilter('all'));
     };
   }
 
-  let teardownFilters = setupProjectFilters();
+  let teardown = setupFilters();
 
   document.addEventListener('astro:before-swap', () => {
-    if (teardownFilters) { teardownFilters(); teardownFilters = null; }
+    if (teardown) { teardown(); teardown = null; }
   });
-
   document.addEventListener('astro:after-swap', () => {
-    teardownFilters = setupProjectFilters();
+    teardown = setupFilters();
   });
 </script>
-
-<style>
-  .project-card-wrapper {
-    transition: opacity var(--transition-fast), transform var(--transition-fast);
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .project-card-wrapper.is-hiding {
-    opacity: 0;
-    transform: scale(0.97);
-    pointer-events: none;
-  }
-
-  #projects-grid .project-card-wrapper {
-    animation: card-fade-in var(--transition-slow) ease both;
-    animation-delay: calc(var(--stagger-idx, 0) * 80ms + 100ms);
-  }
-
-  @keyframes card-fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(16px) scale(0.98);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .project-card-wrapper,
-    .project-card-wrapper.is-hiding {
-      transition: none;
-    }
-    #projects-grid .project-card-wrapper {
-      animation: none;
-    }
-  }
-</style>

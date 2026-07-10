@@ -11,15 +11,6 @@ const page = siteData.pages.index;
 const projects = await getCollection('projects');
 const sortedProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.data.weight - b.data.weight);
 const featuredProjects = sortedProjects.slice(0, 3);
-
-const coverFallbackVariants = [
-  'cover-fallback--checkout',
-  'cover-fallback--dashboard',
-  'cover-fallback--research',
-  'cover-fallback--migration',
-  'cover-fallback--mobile',
-  'cover-fallback--cart',
-];
 ---
 <Layout
   title={page.title}
@@ -103,7 +94,6 @@ const coverFallbackVariants = [
       </div>
       <div class="featured reveal-stagger">
         {featuredProjects.map((project, i) => {
-          const fallbackClass = coverFallbackVariants[project.slug.length % coverFallbackVariants.length];
           const firstTag = project.data.tags[0] || '';
           const tagDisplay = firstTag.length > 12 ? project.data.role : (project.data.tags.length > 1 ? `${project.data.tags[0]} · ${project.data.tags[1]}` : firstTag);
           return (
@@ -119,7 +109,6 @@ const coverFallbackVariants = [
                   loading="lazy"
                   decoding="async"
                 />
-                <div class={`cover-fallback ${fallbackClass} absolute inset-0 -z-[1]`} aria-hidden="true"></div>
               </div>
               <div class="project__meta">
                 <span>2022&ndash;2025</span>
