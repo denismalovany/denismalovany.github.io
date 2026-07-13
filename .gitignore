@@ -36,6 +36,7 @@ Thumbs.db
 
 # Kilo tool state
 # .kilo/plans/
+kilo.jsonc
 
 # deployment/build cache
 .turbo/

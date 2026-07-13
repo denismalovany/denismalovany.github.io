@@ -3,30 +3,65 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  project: CollectionEntry<'projects'>;
+  project?: CollectionEntry<'projects'>;
+  variant?: 'default' | 'span-2-tall' | 'span-2-wide' | 'stats';
+  accent?: boolean;
+  statsTotal?: number;
+  statsText?: string;
 }
 
-const { project } = Astro.props;
-const { data } = project;
+const { project, variant = 'default', accent = false, statsTotal, statsText } = Astro.props;
+
+const isStats = variant === 'stats';
+
+let variantClass = '';
+if (variant === 'span-2-tall') variantClass = 'bc-span-2 bc-tall';
+if (variant === 'span-2-wide') variantClass = 'bc-span-2 bc-wide';
+if (accent) variantClass += ' bc-accent';
+
+const totalDisplay = statsTotal ?? 6;
+const labelDisplay = statsText ?? 'Projects spanning UX research, design systems, physical prototyping, and cross-cultural UI — each with a clear problem statement and measurable outcome.';
 ---
-<a href={`projects/${project.slug}.html`} class="block h-full group">
-  <div class="flex flex-col glass-card rounded-2xl transition-all duration-normal overflow-hidden h-full hover:shadow-accent-lg hover:-translate-y-1">
-    <div class="overflow-hidden">
-      <Image src={data.image} alt={data.title} width={800} height={533} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px" class="w-full aspect-[3/2] object-cover block transition duration-slow group-hover:scale-[1.03]" loading="lazy" decoding="async" />
-    </div>
-    <div class="p-6 sm:p-8 flex flex-col grow">
-      {
-        data.tags && data.tags.length > 0 && (
-          <div class="flex flex-wrap gap-1.5 mb-3">
-            {data.tags.map(tag => (
-              <span class="inline-flex items-center py-1 px-2.5 text-2xs font-medium tracking-[0.02em] uppercase text-accent-600 bg-accent-50 rounded-full">{tag}</span>
-            ))}
-          </div>
-        )
-      }
-      <h3 class="font-display text-lg md:text-xl font-bold text-black leading-tight mb-3 md:mb-5 group-hover:text-accent-600 transition-colors duration-fast">{data.title}</h3>
-      <p class="text-sm-plus text-gray-600 leading-relaxed line-clamp-3 overflow-hidden mb-3">{data.summary}</p>
-      {data.role && <p class="text-sm font-semibold text-gray-400 mt-auto pt-4 border-t border-gray-100">{data.role}</p>}
+
+{isStats ? (
+  <div class="bento-card bc-stats" data-od-id="bento-stats">
+    <div class="bc-stats-body">
+      <div class="bc-stats-number">{totalDisplay}</div>
+      <p class="bc-stats-text">{labelDisplay}</p>
     </div>
   </div>
-</a>
+) : project ? (
+  <>
+    {(() => {
+      const { data } = project;
+      return (
+        <div class={`bento-card ${variantClass}`} data-tags={JSON.stringify(data.tags)} data-od-id={`bento-${project.slug}`}>
+          <a href={`projects/${project.slug}.html`} class="bc-link" data-astro-prefetch="hover">
+            <div class="bc-image">
+              <Image
+                src={data.image}
+                alt={data.title}
+                width={800}
+                height={variant === 'span-2-tall' ? 1067 : variant === 'span-2-wide' ? 450 : 533}
+                sizes="(max-width: 500px) 100vw, (max-width: 768px) 50vw, (max-width: 1100px) 33vw, 25vw"
+                class="bc-img"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="bc-body">
+              {data.tags && data.tags.length > 0 && (
+                <div class="bc-tags">
+                  {data.tags.map(tag => <span class="bc-tag">{tag}</span>)}
+                </div>
+              )}
+              <h3 class="bc-title">{data.title}</h3>
+              <p class="bc-summary">{data.summary}</p>
+              <span class="bc-role">{data.role}</span>
+            </div>
+          </a>
+        </div>
+      );
+    })()}
+  </>
+) : null}

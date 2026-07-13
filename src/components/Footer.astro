@@ -1,33 +1,80 @@
 ---
 import { siteData } from '../data/site';
 
+const navigationLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Projects', href: '/projects.html' },
+  { label: 'About', href: '/about.html' },
+  { label: 'Contact', href: '/contact.html' },
+];
+
 const socialLinks = [
   { label: 'LinkedIn', href: siteData.linkedin, external: true },
-  { label: 'Email', href: `mailto:${siteData.email}`, external: false },
-  { label: 'Behance', href: siteData.behance, external: true },
   { label: 'Dribbble', href: siteData.dribbble, external: true },
+  { label: 'Behance', href: siteData.behance, external: true },
+  { label: 'GitHub', href: 'https://github.com/malovany', external: true },
 ];
 ---
-<footer class="border-t border-gray-100/80 py-8 px-6 mt-auto">
-  <div class="container mx-auto max-w-6xl">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <div class="flex flex-col gap-1">
-        <p class="text-xs text-gray-400">&copy; {siteData.copyrightYear} {siteData.name}</p>
-        <p class="text-xs text-gray-300">Product Designer &amp; Engineer</p>
+<footer class="border-t border-gray-100/80 mt-24 bg-white">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr] gap-10">
+      <div>
+        <a href="/" class="inline-flex items-baseline gap-2 font-display text-black no-underline hover:opacity-[0.85] transition-opacity duration-fast" aria-label="Denys Malovanyi - go to home">
+          <span class="font-extrabold text-2xl leading-none tracking-[-0.02em] gradient-text">DM</span>
+          <span class="text-[13px] leading-none text-gray-400">Portfolio</span>
+        </a>
+        <p class="mt-4 text-sm leading-relaxed text-gray-500 max-w-[36ch]">
+          UX/UI & Product Designer. I help teams build interfaces people want to use. 9+ years of experience.
+        </p>
       </div>
-      <div class="flex items-center gap-6">
-        {
-          socialLinks.map(link => (
-            <a
-              href={link.href}
-              class="text-sm font-medium text-gray-500 no-underline link-underline link-external"
-              {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-            >
-              {link.label}
-            </a>
-          ))
-        }
+
+      <div>
+        <h4 class="text-2xs font-semibold uppercase tracking-[0.18em] text-gray-400 mb-4">Navigation</h4>
+        <ul class="space-y-2.5 list-none">
+          {navigationLinks.map(link => (
+            <li>
+              <a href={link.href} class="text-sm text-gray-600 no-underline hover:text-accent-500 transition-colors duration-fast" data-astro-prefetch="hover">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
+
+      <div>
+        <h4 class="text-2xs font-semibold uppercase tracking-[0.18em] text-gray-400 mb-4">Social</h4>
+        <ul class="space-y-2.5 list-none">
+          {socialLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-gray-600 no-underline link-underline link-external"
+                {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-2xs font-semibold uppercase tracking-[0.18em] text-gray-400 mb-4">Contact</h4>
+        <ul class="space-y-2.5 list-none">
+          <li><a href={`mailto:${siteData.email}`} class="text-sm text-gray-600 no-underline hover:text-accent-500 transition-colors duration-fast">{siteData.email}</a></li>
+          <li class="text-sm text-gray-400">Kyiv, Ukraine</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between flex-wrap gap-3 py-6 border-t border-gray-100">
+      <span class="text-2xs font-medium text-gray-400 tracking-[0.04em]">
+        &copy; {siteData.copyrightYear} {siteData.name}
+      </span>
+      <span class="inline-flex items-center gap-2 text-2xs font-medium text-gray-400 tracking-[0.04em]">
+        <span class="inline-block w-2 h-2 rounded-full bg-green-500 shadow-[0_0_0_3px_rgba(22,163,74,0.18)]"></span>
+        Open to opportunities
+      </span>
     </div>
   </div>
 </footer>

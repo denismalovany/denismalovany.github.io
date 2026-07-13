@@ -20,8 +20,6 @@ const projectsCollection = defineCollection({
     liveSite: z.string().optional(),
     weight: z.number(),
     draft: z.boolean().default(false),
-    bentoLayout: z.enum(['default', 'span-2-tall', 'span-2-wide']).default('default'),
-    bentoAccent: z.boolean().default(false),
   }),
 });
 

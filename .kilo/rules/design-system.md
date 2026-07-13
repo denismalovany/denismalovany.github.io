@@ -53,10 +53,13 @@ Standard Tailwind gray palette: 50–900
 - Use `section-title section-title--mb-6` or `section-title section-title--mb-8` variants when margin-bottom is needed
 
 ### Links
-- **link-arrow** — text + `→` arrow that slides right on hover
-- **link-arrow-back** — `←` arrow that slides left on hover
+- **link-arrow** — text + `→` arrow that slides right on hover, with animated accent-gradient underline (0→100% width)
+- **link-arrow-back** — `←` arrow that slides left on hover, with animated accent-gradient underline
 - **link-external** — `↗` suffix icon
 - **link-underline** — accent gradient underline that animates width 0→100% on hover
+- **Arrow links rule**: All links ending with an arrow (`&rarr;` or `→`) must use the animated underline pattern — either via `link-arrow` class or the `::after` underline technique on the CTA element
+- Animated underline technique A (used when `::after` is free): `::after` pseudo-element with `width: 0 → 100%` on hover, `var(--color-accent-gradient)` background
+- Animated underline technique B (used when `::after` is already taken for arrow): `background-image` linear-gradient + `background-size: 0 1.5px → 100% 1.5px` on hover
 
 ### Text
 - **text-link** — gray-500, hover → accent-light

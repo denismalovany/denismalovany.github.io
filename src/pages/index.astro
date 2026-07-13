@@ -1,22 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import { siteData } from '../data/site';
 import { skillsData } from '../data/skills';
 import Timeline from '../components/Timeline.astro';
-import ProjectCard from '../components/ProjectCard.astro';
 
 const page = siteData.pages.index;
 const projects = await getCollection('projects');
-const featuredProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.data.weight - b.data.weight).slice(0, 2);
+const sortedProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.data.weight - b.data.weight);
+const featuredProjects = sortedProjects.slice(0, 3);
 ---
 <Layout
   title={page.title}
   description={page.description}
   currentPage="home"
 >
-  <PageHero title={siteData.name} subtitle={siteData.tagline}>
+  <PageHero title={siteData.name} subtitle={siteData.tagline} eyebrow="UX/UI & Product Designer · Kyiv · Open to opportunities">
     <div slot="after" class="mt-10 flex flex-col sm:flex-row sm:space-x-4 sm:justify-center relative z-[1] reveal">
       <a href="/projects.html" class="btn-primary group" data-astro-prefetch="hover">
         <span>Explore My Work</span>
@@ -28,40 +29,53 @@ const featuredProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.da
     </div>
   </PageHero>
 
-  <section id="about-preview" class="section py-24 px-6 section-subtle">
-    <div class="container mx-auto max-w-3xl reveal-container">
+  <section id="about-preview" class="py-24 px-6 section-subtle">
+    <div class="mx-auto max-w-6xl reveal-container">
       <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 reveal-stagger">About Me</h2>
-      <div class="prose prose-gray max-w-2xl mx-auto mb-10 reveal-stagger">
-        <p class="text-gray-600 leading-relaxed mb-5 text-lg reveal-stagger">
-          I'm Denys Malovanyi, a UX/UI and product designer currently working as an engineer at {siteData.currentEmployer}. I specialize in creating user-centered digital experiences through interaction design, visual design, and prototyping.
-        </p>
-        <p class="text-gray-500 leading-relaxed mb-5 reveal-stagger">
-          My approach combines rigorous research with thoughtful aesthetics to craft solutions that are both functional and delightful.
-        </p>
-        <p class="text-gray-500 leading-relaxed reveal-stagger">
-          I also experiment with AI agents and local LLM deployment to enhance my design research, prototyping, and workflow automation.
-        </p>
+      <div class="split">
+        <div class="reveal-stagger">
+          <div class="text-gray-600 leading-relaxed text-lg space-y-5">
+            <p>
+              I'm Denys Malovanyi, a UX/UI and product designer currently working as an engineer at {siteData.currentEmployer}. I specialize in creating user-centered digital experiences through interaction design, visual design, and prototyping.
+            </p>
+            <p>
+              My approach combines rigorous research with thoughtful aesthetics to craft solutions that are both functional and delightful.
+            </p>
+            <p>
+              I also experiment with AI agents and local LLM deployment to enhance my design research, prototyping, and workflow automation.
+            </p>
+          </div>
+          <a href="/about.html" class="mt-8 inline-block text-sm font-semibold text-accent-600 link-arrow" data-astro-prefetch="hover">
+            Learn More About Me
+          </a>
+        </div>
+        <div class="flex flex-col gap-5 reveal-stagger">
+          <div class="proof-strip proof-strip--sidebar" aria-label="Quick facts">
+            <span><strong>9+</strong> years in product design/development</span>
+            <span class="proof-strip__sep">·</span>
+            <span><strong>14</strong> launches</span>
+            <span class="proof-strip__sep">·</span>
+            <span><strong>3</strong> design systems from scratch</span>
+            <span class="proof-strip__sep">·</span>
+            <span><strong>EN B2</strong> · <strong>UA native</strong></span>
+          </div>
+          <div class="flex flex-wrap gap-2.5">
+            {Object.values(skillsData).flat().map(skill => (
+              <span class="tag">{skill}</span>
+            ))}
+          </div>
+        </div>
       </div>
-
-      <div class="flex flex-wrap gap-2.5 mt-8 reveal-stagger">
-        {Object.values(skillsData).flat().map(skill => (
-          <span class="px-4 py-2 text-sm font-medium text-accent-700 bg-accent-50 border border-accent-100 rounded-full">{skill}</span>
-        ))}
-      </div>
-
-      <a href="/about.html" class="mt-8 inline-block text-sm font-semibold text-accent-600 link-arrow reveal-stagger" data-astro-prefetch="hover">
-        Learn More About Me
-      </a>
     </div>
   </section>
 
-  <section id="timeline" class="section py-24 px-6">
-    <div class="container mx-auto max-w-3xl reveal-container">
+  <section id="timeline" class="py-24 px-6 section-subtle">
+    <div class="mx-auto max-w-6xl reveal-container">
       <div class="mb-10">
         <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 mx-auto text-center reveal-stagger">Professional Timeline</h2>
-        <p class="text-gray-500 mb-10 max-w-2xl mx-auto reveal-stagger">
+        <!-- <p class="text-gray-600 mb-10 max-w-2xl mx-auto reveal-stagger">
           A chronological overview of my career progression from frontend development to product design.
-        </p>
+        </p> -->
       </div>
       <div class="reveal-stagger">
         <Timeline collapsed={true} />
@@ -69,23 +83,70 @@ const featuredProjects = projects.filter(p => !p.data.draft).sort((a, b) => a.da
     </div>
   </section>
 
-  <section id="projects" class="section py-24 px-6 section-subtle">
-    <div class="container mx-auto max-w-3xl reveal-container">
-      <h2 class="text-2xl md:text-3xl section-title section-title--mb-8 reveal-stagger">Featured Projects</h2>
-      <p class="text-gray-500 mb-10 max-w-2xl mx-auto reveal-stagger">
-        A selection of recent work demonstrating my product design approach and problem-solving skills.
-      </p>
-      <div id="projects-grid" class="grid gap-8 md:grid-cols-2">
-        {featuredProjects.map((project, i) => (
-          <div class="reveal-stagger">
-            <ProjectCard project={project} />
-          </div>
-        ))}
+  <section id="projects" class="py-24 px-6">
+    <div class="mx-auto max-w-6xl">
+      <div class="reveal-container max-w-3xl mb-10">
+        <!-- <span class="eyebrow reveal-stagger">Featured</span> -->
+        <h2 class="text-2xl md:text-3xl section-title mt-4 reveal-stagger">Three cases I usually start interviews&nbsp;with.</h2>
+        <p class="lede mt-5 reveal-stagger">
+          A short selection. The full case list lives on the <a href="/projects.html" class="text-accent-600 underline underline-offset-[3px] hover:text-accent-500 transition-colors duration-fast" data-astro-prefetch="hover">Projects</a> page.
+        </p>
       </div>
-      <div class="mt-10 text-center reveal-stagger">
+      <div class="featured reveal-stagger">
+        {featuredProjects.map((project, i) => {
+          const firstTag = project.data.tags[0] || '';
+          const tagDisplay = firstTag.length > 12 ? project.data.role : (project.data.tags.length > 1 ? `${project.data.tags[0]} · ${project.data.tags[1]}` : firstTag);
+          return (
+            <a href={`/projects/${project.slug}.html`} class="featured__item group" data-astro-prefetch="hover">
+              <div class="featured__cover">
+                <Image
+                  src={project.data.image}
+                  alt={project.data.title}
+                  width={600}
+                  height={450}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+                  class="w-full absolute inset-0"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="project__meta">
+                <span>2022&ndash;2025</span>
+                <span class="dot"></span>
+                <span>{tagDisplay}</span>
+              </div>
+              <h3>{project.data.title}</h3>
+              <p>{project.data.summary}</p>
+              <span class="featured__cta">Read case &rarr;</span>
+            </a>
+          );
+        })}
+      </div>
+      <div class="mt-12 text-center reveal-stagger">
          <a href="/projects.html" class="btn-primary group" data-astro-prefetch="hover">
           See All Projects
           <span class="inline-block ml-2 transition-transform duration-fast group-hover:translate-x-1">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section--soft py-24 px-6">
+    <div class="mx-auto max-w-6xl reveal-container">
+      <!-- <span class="eyebrow reveal-stagger">Where to next</span> -->
+      <h2 class="text-2xl md:text-3xl section-title mt-4 mx-auto reveal-stagger">Where to next?</h2>
+      <div class="closing-row mt-10 reveal-stagger">
+        <a href="/projects.html" class="closing-card" data-astro-prefetch="hover">
+          <span class="closing-card__eyebrow">Projects</span>
+          <h3>See all {sortedProjects.length} cases</h3>
+          <p>B2B checkout, design systems, mobile, research, migration, analytics. Each with structure, approach, and what I'd do differently.</p>
+          <span class="closing-card__cta">Open projects &rarr;</span>
+        </a>
+        <a href="/about.html" class="closing-card" data-astro-prefetch="hover">
+          <span class="closing-card__eyebrow">About</span>
+          <h3>How I work</h3>
+          <p>Experience, principles, the design process I run with PMs and engineers, and the tooling I reach for first.</p>
+          <span class="closing-card__cta">Read about &rarr;</span>
         </a>
       </div>
     </div>

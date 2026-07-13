@@ -1,0 +1,165 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { data } = project;
+---
+
+<div class="fp-card" data-tags={JSON.stringify(data.tags)} data-od-id={`featured-${project.slug}`}>
+  <a href={`projects/${project.slug}.html`} class="fp-card-link" data-astro-prefetch="hover">
+    <div class="fp-image">
+      <Image
+        src={data.image}
+        alt={data.title}
+        width={1200}
+        height={800}
+        sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 600px"
+        class="fp-img"
+        loading="eager"
+        decoding="async"
+      />
+      <span class="fp-badge">Latest</span>
+    </div>
+    <div class="fp-content">
+      {
+        data.tags && data.tags.length > 0 && (
+          <div class="fp-tags">
+            {data.tags.map(tag => <span class="fp-tag">{tag}</span>)}
+          </div>
+        )
+      }
+      <h2 class="fp-title">{data.title}</h2>
+      <p class="fp-summary">{data.summary}</p>
+      <span class="fp-role">{data.role}</span>
+    </div>
+  </a>
+</div>
+
+<style>
+  .fp-card {
+    margin: 0 0 3rem;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), opacity var(--transition-fast);
+  }
+  .fp-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-accent-lg);
+  }
+  .fp-card.is-hiding {
+    opacity: 0;
+    transform: scale(0.98);
+    pointer-events: none;
+  }
+  .fp-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    min-height: 400px;
+    outline: none;
+  }
+  .fp-image {
+    position: relative;
+    overflow: hidden;
+  }
+  .fp-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-slow);
+  }
+  .fp-card:hover .fp-img {
+    transform: scale(1.03);
+  }
+  .fp-badge {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    padding: 6px 14px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 999px;
+    color: var(--color-accent-dark);
+    border: 1px solid rgba(155, 150, 168, 0.12);
+  }
+  .fp-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .fp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1.25rem;
+  }
+  .fp-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent-secondary, #6b6578);
+    background: #f6f5f7;
+    border-radius: 9999px;
+    border: 1px solid #ecebef;
+  }
+  .fp-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-black);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.015em;
+  }
+  .fp-summary {
+    font-size: 0.9375rem;
+    color: var(--color-gray-600);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+  .fp-role {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  @media (max-width: 768px) {
+    .fp-card-link {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .fp-image {
+      aspect-ratio: 3/2;
+    }
+    .fp-content {
+      padding: 1.5rem;
+    }
+    .fp-title {
+      font-size: 1.375rem;
+    }
+  }
+</style>
