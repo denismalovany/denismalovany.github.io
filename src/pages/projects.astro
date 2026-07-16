@@ -19,24 +19,6 @@ const gridProjects = sortedProjects.slice(1);
 
 const statsInsertAt = Math.floor(gridProjects.length / 2);
 
-const filterCategories = [
-  { key: 'all', label: 'All' },
-  ...allTags.map(tag => ({
-    key: tag.toLowerCase().replace(/\s+/g, '-'),
-    label: tag,
-  })),
-];
-
-const tagCounts: Record<string, number> = {};
-for (const cat of filterCategories) {
-  if (cat.key === 'all') {
-    tagCounts[cat.key] = totalProjects;
-  } else {
-    tagCounts[cat.key] = sortedProjects.filter(p =>
-      p.data.tags.map(t => t.toLowerCase().replace(/\s+/g, '-')).includes(cat.key)
-    ).length;
-  }
-}
 ---
 
 <Layout
@@ -66,24 +48,6 @@ for (const cat of filterCategories) {
   <section class="px-6 pb-24" data-od-id="projects-section">
     <div class="mx-auto max-w-7xl">
 
-      <div class="projects-filter" data-od-id="projects-filter">
-        <span class="projects-filter__label">Filter</span>
-        {filterCategories.map(cat => (
-          <button
-            type="button"
-            class={`filter-btn${cat.key === 'all' ? ' is-active' : ''}`}
-            data-filter={cat.key}
-            data-od-id={`filter-${cat.key}`}
-          >
-            {cat.label}
-            <span class="filter-btn__count">{tagCounts[cat.key]}</span>
-          </button>
-        ))}
-        <span id="results-count" class="projects-filter__count" data-od-id="results-count">
-          Showing <strong class="text-gray-600">{totalProjects}</strong> of {totalProjects}
-        </span>
-      </div>
-
       <div class="fp-wrap" data-od-id="featured-wrap">
         <FeaturedProject project={featuredProject} />
       </div>
@@ -102,88 +66,9 @@ for (const cat of filterCategories) {
           </>
         ))}
 
-        <div class="bento-empty" id="bento-empty" data-od-id="bento-empty">
-          <h3>No projects match</h3>
-          <p>Try a different filter or <button type="button" id="clear-filter">view all projects</button>.</p>
-        </div>
       </div>
 
     </div>
   </section>
 </Layout>
 
-<script>
-  function setupFilters() {
-    const filterBar = document.querySelector('.projects-filter');
-    const featuredWrap = document.querySelector('.fp-wrap');
-    const featureCard = featuredWrap?.querySelector('.fp-card');
-    const gridCards = document.querySelectorAll('#bento-grid .bento-card:not(.bc-stats)');
-    const emptyState = document.getElementById('bento-empty');
-    const resultsCount = document.getElementById('results-count');
-    const clearBtn = document.getElementById('clear-filter');
-    const buttons = filterBar?.querySelectorAll('.filter-btn');
-    const statsCard = document.querySelector('#bento-grid .bc-stats');
-
-    if (!filterBar || !gridCards.length) return;
-
-    const total = gridCards.length + (featureCard ? 1 : 0);
-
-    function applyFilter(key: string) {
-      buttons?.forEach(b => b.classList.remove('is-active'));
-      const activeBtn = filterBar?.querySelector(`.filter-btn[data-filter="${CSS.escape(key)}"]`);
-      if (activeBtn) activeBtn.classList.add('is-active');
-
-      let visible = 0;
-
-      if (featureCard && featuredWrap) {
-        let tags: string[] = [];
-        try { tags = JSON.parse(featureCard.getAttribute('data-tags') || '[]'); } catch(e) {}
-        const match = key === 'all' || tags.map((t: string) => t.toLowerCase().replace(/\s+/g, '-')).includes(key);
-        featuredWrap.classList.toggle('is-hiding', !match);
-        featureCard.classList.toggle('is-hiding', !match);
-        if (match) visible++;
-      }
-
-      gridCards.forEach(card => {
-        let tags: string[] = [];
-        try { tags = JSON.parse((card as HTMLElement).getAttribute('data-tags') || '[]'); } catch(e) {}
-        const match = key === 'all' || tags.map((t: string) => t.toLowerCase().replace(/\s+/g, '-')).includes(key);
-        card.classList.toggle('is-hiding', !match);
-        if (match) visible++;
-      });
-
-      if (statsCard) {
-        statsCard.classList.toggle('is-hiding', visible === 0);
-      }
-
-      const emptyVisible = visible === 0;
-      emptyState?.classList.toggle('visible', emptyVisible);
-
-      if (resultsCount) {
-        resultsCount.innerHTML = `Showing <strong class="text-gray-600">${visible}</strong> of ${total}`;
-      }
-    }
-
-    function handleClick(this: HTMLElement, e: Event) {
-      e.preventDefault();
-      applyFilter(this.getAttribute('data-filter') || 'all');
-    }
-
-    buttons?.forEach(btn => btn.addEventListener('click', handleClick));
-    clearBtn?.addEventListener('click', () => applyFilter('all'));
-
-    return function teardown() {
-      buttons?.forEach(btn => btn.removeEventListener('click', handleClick));
-      clearBtn?.removeEventListener('click', () => applyFilter('all'));
-    };
-  }
-
-  let teardown = setupFilters();
-
-  document.addEventListener('astro:before-swap', () => {
-    if (teardown) { teardown(); teardown = null; }
-  });
-  document.addEventListener('astro:after-swap', () => {
-    teardown = setupFilters();
-  });
-</script>
