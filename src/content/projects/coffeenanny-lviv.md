@@ -89,17 +89,17 @@ weight: 1
 
 <div class="mb-12">
   <h2 class="text-xl font-bold mb-4 section-title section-title--mb-6">Project Screenshots</h2>
-  <div class="case-gallery grid-cols-4">
-    <div class="case-gallery__cell overflow-hidden">
+  <div data-lightbox class="case-gallery grid-cols-4">
+    <div class="case-gallery__cell overflow-hidden cursor-pointer">
       <img src="/images/coffeenanny-lviv/coffenanny-homepage.png" alt="CoffeeNanny Lviv homepage" class="w-full h-full object-cover object-top" loading="lazy">
     </div>
-    <div class="case-gallery__cell overflow-hidden">
+    <div class="case-gallery__cell overflow-hidden cursor-pointer">
       <img src="/images/coffeenanny-lviv/coffenanny2.png" alt="CoffeeNanny Lviv service page" class="w-full h-full object-cover object-top" loading="lazy">
     </div>
-    <div class="case-gallery__cell overflow-hidden">
+    <div class="case-gallery__cell overflow-hidden cursor-pointer">
       <img src="/images/coffeenanny-lviv/coffenanny3.png" alt="CoffeeNanny Lviv mobile view" class="w-full h-full object-cover object-top" loading="lazy">
     </div>
-    <div class="case-gallery__cell overflow-hidden">
+    <div class="case-gallery__cell overflow-hidden cursor-pointer">
       <img src="/images/coffeenanny-lviv/coffenanny4.png" alt="CoffeeNanny Lviv screenshot 4" class="w-full h-full object-cover object-top" loading="lazy">
     </div>
   </div>

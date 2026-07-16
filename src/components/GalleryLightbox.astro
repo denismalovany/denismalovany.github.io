@@ -1,0 +1,160 @@
+---
+
+---
+
+<script>
+  function setupLightbox() {
+    const galleries = document.querySelectorAll('[data-lightbox]');
+    if (!galleries.length) return;
+
+    const teardowns = [];
+
+    galleries.forEach((gallery) => {
+      const cells = gallery.querySelectorAll('.case-gallery__cell');
+      const images = Array.from(cells).map((c) => c.querySelector('img')).filter(Boolean);
+      if (!images.length) return;
+
+      let currentIndex = -1;
+      let overlay = null;
+      let zoomed = false;
+
+      function buildOverlay() {
+        overlay = document.createElement('div');
+        overlay.setAttribute('data-lightbox-overlay', '');
+        overlay.style.cssText =
+          'position:fixed;inset:0;z-index:1100;display:flex;align-items:center;justify-content:center;' +
+          'background:rgba(10,10,10,0.92);backdrop-filter:blur(8px);' +
+          'opacity:0;pointer-events:none;transition:opacity 150ms ease';
+        overlay.innerHTML =
+          '<button data-action="close" style="position:absolute;top:20px;right:20px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:9999px;color:rgba(255,255,255,0.7);z-index:10;cursor:pointer;background:none;border:none;transition:color 150ms,background 150ms" aria-label="Close">' +
+            '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l10 10M15 5L5 15"/></svg>' +
+          '</button>' +
+          '<button data-action="prev" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:9999px;color:rgba(255,255,255,0.7);z-index:10;cursor:pointer;background:none;border:none;transition:color 150ms,background 150ms" aria-label="Previous">' +
+            '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5l-5 5 5 5"/></svg>' +
+          '</button>' +
+          '<button data-action="next" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:9999px;color:rgba(255,255,255,0.7);z-index:10;cursor:pointer;background:none;border:none;transition:color 150ms,background 150ms" aria-label="Next">' +
+            '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5l5 5-5 5"/></svg>' +
+          '</button>' +
+          '<div data-action="viewport" style="position:absolute;inset:0;overflow:auto;display:flex;align-items:center;justify-content:center">' +
+            '<img src="" alt="" class="lightbox-img" style="max-width:100%;max-height:100%;object-fit:contain;border-radius:0.5rem;box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);cursor:zoom-in;transition:max-width 200ms ease,max-height 200ms ease" title="Click to zoom">' +
+          '</div>';
+
+        const viewport = overlay.querySelector('[data-action="viewport"]');
+        const img = overlay.querySelector('.lightbox-img');
+
+        function resetZoom() {
+          zoomed = false;
+          img.style.maxWidth = '100%';
+          img.style.maxHeight = '100%';
+          img.style.cursor = 'zoom-in';
+          img.title = 'Click to zoom';
+          viewport.scrollTop = 0;
+          viewport.scrollLeft = 0;
+        }
+
+        img.addEventListener('click', (e) => {
+          e.stopPropagation();
+          zoomed = !zoomed;
+          if (zoomed) {
+            img.style.maxWidth = 'none';
+            img.style.maxHeight = 'none';
+            img.style.cursor = 'zoom-out';
+            img.title = 'Click to fit';
+          } else {
+            resetZoom();
+          }
+        });
+
+        overlay.querySelector('[data-action="close"]').addEventListener('click', hide);
+        overlay.querySelector('[data-action="prev"]').addEventListener('click', prev);
+        overlay.querySelector('[data-action="next"]').addEventListener('click', next);
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay || e.target === viewport) hide();
+        });
+
+        const hoverStyle = document.createElement('style');
+        hoverStyle.textContent =
+          '[data-lightbox-overlay] [data-action="close"]:hover,' +
+          '[data-lightbox-overlay] [data-action="prev"]:hover,' +
+          '[data-lightbox-overlay] [data-action="next"]:hover { color: rgba(255,255,255,1); background: rgba(255,255,255,0.1); }';
+        overlay.appendChild(hoverStyle);
+
+        document.body.appendChild(overlay);
+      }
+
+      function show(index) {
+        if (!overlay) buildOverlay();
+        currentIndex = index;
+        zoomed = false;
+        const img = overlay.querySelector('.lightbox-img');
+        img.src = images[index].src;
+        img.alt = images[index].alt;
+        img.style.maxWidth = '100%';
+        img.style.maxHeight = '100%';
+        img.style.cursor = 'zoom-in';
+        img.title = 'Click to zoom';
+        const viewport = overlay.querySelector('[data-action="viewport"]');
+        viewport.scrollTop = 0;
+        viewport.scrollLeft = 0;
+        overlay.style.pointerEvents = 'auto';
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(() => { overlay.style.opacity = '1'; });
+      }
+
+      function hide() {
+        if (!overlay) return;
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+        document.body.style.overflow = '';
+      }
+
+      function next() {
+        if (currentIndex < images.length - 1) show(currentIndex + 1);
+      }
+
+      function prev() {
+        if (currentIndex > 0) show(currentIndex - 1);
+      }
+
+      function onKey(e) {
+        if (!overlay || overlay.style.pointerEvents === 'none') return;
+        if (e.key === 'Escape') hide();
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      }
+
+      function onClick(e) {
+        const cell = e.target.closest('.case-gallery__cell');
+        if (!cell) return;
+        const index = Array.from(cells).indexOf(cell);
+        if (index >= 0) show(index);
+      }
+
+      gallery.addEventListener('click', onClick);
+      document.addEventListener('keydown', onKey);
+
+      teardowns.push(() => {
+        gallery.removeEventListener('click', onClick);
+        document.removeEventListener('keydown', onKey);
+        if (overlay && overlay.parentNode) {
+          overlay.parentNode.removeChild(overlay);
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    return function teardown() {
+      teardowns.forEach((fn) => fn());
+    };
+  }
+
+  let teardownFn = setupLightbox();
+
+  document.addEventListener('astro:before-swap', () => {
+    if (teardownFn) { teardownFn(); teardownFn = null; }
+  });
+
+  document.addEventListener('astro:after-swap', () => {
+    teardownFn = setupLightbox();
+  });
+</script>
