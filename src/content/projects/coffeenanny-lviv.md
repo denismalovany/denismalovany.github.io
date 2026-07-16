@@ -6,7 +6,7 @@ summary: "Led the complete digital rebuild of a childcare franchise's online pre
 metaTitle: "CoffeeNanny Lviv Franchise Website - Denys Malovanyi Portfolio"
 metaDescription: "Case study: CoffeeNanny Lviv Franchise Website by Denys Malovanyi - UX audit, client interviews, Figma design, AI-assisted workflow, Wix MVP."
 impact: "Bounce rate fell 90%→55%; 20× traffic growth; site still live & franchise expanded to 9 cities"
-image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+image: "../../assets/images/coffeenanny-macbook.png"
 heroTitle: "CoffeeNanny Lviv"
 heroSubtitle: "UX/UI Design · Client Research · Rapid MVP · Wix"
 liveSite: "https://www.coffeenanny.lviv.ua/"
